@@ -33,21 +33,19 @@ export default function ContactSection() {
 									/>
 									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
 								</svg>
-								<span>San Francisco, CA</span>
+								<span>Boston, MA</span>
 							</div>
 							<p className="text-green-500 mt-8 mb-2">$ contact --email</p>
 							<motion.a
-								href="mailto:alex.chen@example.com"
+								href="vneelraj.nitta@gmail.com"
 								whileHover={{ scale: 1.02 }}
 								className="inline-block px-6 py-3 bg-green-500/10 text-green-400 rounded-lg border border-green-500/20 hover:bg-green-500/20 transition-colors"
 							>
-								alex.chen@example.com
-							</motion.a>
-							<p className="text-green-500 mt-8 mb-2">$ cat resume.pdf</p>
+								vneelraj.nitta@gmail.com
+							</motion.a>							<p className="text-green-500 mt-8 mb-2">$ cat resume.pdf</p>
 							<motion.a
-								href="/path-to-resume.pdf"
-								target="_blank"
-								rel="noopener noreferrer"
+								href="/resume/VenkatNeelraj.pdf"
+								download="VenkatNeelraj_Resume.pdf"
 								whileHover={{ scale: 1.02 }}
 								className="inline-flex items-center gap-2 px-6 py-3 bg-green-500/10 text-green-400 rounded-lg border border-green-500/20 hover:bg-green-500/20 transition-colors"
 							>
@@ -59,7 +57,7 @@ export default function ContactSection() {
 							<p className="text-green-500 mt-8 mb-4">$ ls ./social-links</p>
 							<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
 								<motion.a
-									href="#"
+									href="https://github.com/Subhash-269"
 									whileHover={{ scale: 1.05 }}
 									className="flex items-center gap-3 px-4 py-3 bg-gray-800/50 rounded-lg hover:bg-gray-700/50 transition-colors border border-gray-700/50 group"
 								>
@@ -70,11 +68,11 @@ export default function ContactSection() {
 									</div>
 									<div>
 										<p className="font-semibold text-gray-200">GitHub</p>
-										<p className="text-sm text-gray-400">@alexchen</p>
+										<p className="text-sm text-gray-400">@Subhash-269</p>
 									</div>
 								</motion.a>
 								<motion.a
-									href="#"
+									href="https://www.linkedin.com/in/v-neelraj-n/"
 									whileHover={{ scale: 1.05 }}
 									className="flex items-center gap-3 px-4 py-3 bg-gray-800/50 rounded-lg hover:bg-gray-700/50 transition-colors border border-gray-700/50 group"
 								>
@@ -88,7 +86,7 @@ export default function ContactSection() {
 										<p className="text-sm text-gray-400">Venkat Neelraj</p>
 									</div>
 								</motion.a>
-								<motion.a
+								{/* <motion.a
 									href="#"
 									whileHover={{ scale: 1.05 }}
 									className="flex items-center gap-3 px-4 py-3 bg-gray-800/50 rounded-lg hover:bg-gray-700/50 transition-colors border border-gray-700/50 group"
@@ -102,7 +100,7 @@ export default function ContactSection() {
 										<p className="font-semibold text-gray-200">X</p>
 										<p className="text-sm text-gray-400">@alexchen</p>
 									</div>
-								</motion.a>
+								</motion.a> */}
 							</div>
 						</div>
 					</div>
