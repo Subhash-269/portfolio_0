@@ -35,7 +35,7 @@ const educationData: EducationMilestone[] = [
 			'Deep dive into AI industry and cutting-edge research',
 			'Focus on practical applications of machine learning',
 			'Collaborative research projects with industry partners',
-			'Advanced coursework in neural networks and computer vision'
+			// 'Advanced coursework in neural networks and computer vision'
 		],
 		courses: [
 			'Fundamentals of Artificial Intelligence',
@@ -51,10 +51,10 @@ const educationData: EducationMilestone[] = [
 			'EMS delay and Dashboard',
 			// 'NLP Research Project'
 		],
-		skills: ['PyTorch', 'TensorFlow', 'OpenCV', 'Scikit-learn', 'Python', 'Research Methodology'],
-		icon: '🎓',
+		skills: [ 'Leadership', 'Research Methodology','Project Management', 'AI Ethics', 'Team Collaboration', 'Data Analysis', 'Machine Learning', 'Python'],
+		icon: '',
 		color: 'from-blue-500 to-purple-600',
-		description: 'Pursuing advanced studies in AI with focus on real-world applications and ethical AI development.'
+		description: 'Industry-focused AI program with emphasis on applied machine learning, leadership, project management, and ethical AI deployment.'
 	},
 	{
 		id: 2,
@@ -66,10 +66,10 @@ const educationData: EducationMilestone[] = [
 		status: 'completed',
 		// gpa: '8.5/10',
 		highlights: [
-			'Strong foundation in computer science fundamentals',
-			'Active participation in coding competitions',
-			'Leadership roles in technical clubs',
-			'Capstone project in machine learning'
+			'Foundation in Electrical and Electronics Engineering',
+			// 'Active participation in coding competitions',
+			'Leadership roles in academic projects',
+			// 'Capstone project in machine learning'
 		],
 		courses: [
 			'Signals and Systems',
@@ -88,10 +88,10 @@ const educationData: EducationMilestone[] = [
 			// 'Database Design Project',
 			// 'Algorithm Optimization Research'
 		],
-		skills: ['Java', 'Python', 'SQL', 'JavaScript', 'Problem Solving', 'System Design'],
-		icon: '🎯',
+		skills: ['Python', 'Problem Solving', 'System Design', 'Data Analysis', 'Machine Learning', 'Team Leadership'],
+		icon: '',
 		color: 'from-green-500 to-teal-600',
-		description: 'Built strong technical foundation with focus on software development and early exploration of AI/ML.'
+		description: 'Built technical foundation with focus on Electronics and early exploration of AI/ML.'
 	}
 ];
 
@@ -339,7 +339,7 @@ export default function EducationalMilestones() {
 				</AnimatePresence>
 
 				{/* Education Summary */}
-				<motion.div
+				{/* <motion.div
 					initial={{ opacity: 0, y: 20 }}
 					whileInView={{ opacity: 1, y: 0 }}
 					viewport={{ once: true }}
@@ -360,7 +360,7 @@ export default function EducationalMilestones() {
 							<div className="text-gray-400">Academic Projects</div>
 						</div>
 					</div>
-				</motion.div>
+				</motion.div> */}
 			</div>
 		</section>
 	);
