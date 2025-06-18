@@ -2,6 +2,111 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Theme Variables */
+:root {
+	--bg-primary: #1a1a1a;
+	--bg-secondary: #0f0f0f;
+	--text-primary: #ffffff;
+	--text-secondary: #a3a3a3;
+	--border-primary: #374151;
+	--accent-primary: #10b981;
+}
+
+[data-theme="light"] {
+	--bg-primary: #ffffff;
+	--bg-secondary: #f8fafc;
+	--text-primary: #1a1a1a;
+	--text-secondary: #64748b;
+	--border-primary: #e2e8f0;
+	--accent-primary: #059669;
+}
+
+/* Base Styles */
 body {
-	background-color: #1a1a1a;
+	background-color: var(--bg-primary);
+	color: var(--text-primary);
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Theme-specific utility classes */
+@layer utilities {
+	.theme-bg-primary {
+		background-color: var(--bg-primary);
+	}
+	
+	.theme-bg-secondary {
+		background-color: var(--bg-secondary);
+	}
+	
+	.theme-text-primary {
+		color: var(--text-primary);
+	}
+	
+	.theme-text-secondary {
+		color: var(--text-secondary);
+	}
+	
+	.theme-border-primary {
+		border-color: var(--border-primary);
+	}
+}
+
+/* Dark theme overrides */
+[data-theme="dark"] {
+	color-scheme: dark;
+}
+
+[data-theme="dark"] .bg-gray-900\/50 {
+	background-color: rgba(15, 23, 42, 0.5);
+}
+
+[data-theme="dark"] .bg-gray-800\/50 {
+	background-color: rgba(30, 41, 59, 0.5);
+}
+
+/* Light theme overrides */
+[data-theme="light"] {
+	color-scheme: light;
+}
+
+[data-theme="light"] .text-white {
+	color: var(--text-primary);
+}
+
+[data-theme="light"] .text-gray-400 {
+	color: var(--text-secondary);
+}
+
+[data-theme="light"] .text-gray-300 {
+	color: #475569;
+}
+
+[data-theme="light"] .bg-gray-900\/50 {
+	background-color: rgba(248, 250, 252, 0.8);
+	border-color: var(--border-primary);
+}
+
+[data-theme="light"] .bg-gray-800\/50 {
+	background-color: rgba(248, 250, 252, 0.6);
+}
+
+[data-theme="light"] .bg-gray-900\/30 {
+	background-color: rgba(241, 245, 249, 0.9);
+}
+
+[data-theme="light"] .border-gray-700 {
+	border-color: var(--border-primary);
+}
+
+[data-theme="light"] .border-gray-800 {
+	border-color: var(--border-primary);
+}
+
+[data-theme="light"] .border-gray-700\/50 {
+	border-color: rgba(226, 232, 240, 0.5);
+}
+
+/* Smooth transitions for all elements */
+* {
+	transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }

@@ -11,6 +11,8 @@ import SystemArchitecture from './components/SystemArchitecture';
 import TechnicalMetrics from './components/TechnicalMetrics';
 import ContactSection from './components/ContactSection';
 import TerminalPopup from './components/TerminalPopup';
+import ThemeToggle from './components/ThemeToggle';
+import InteractiveBackground from './components/InteractiveBackground';
 
 export default function BackendPortfolio() {
 	const [isLoading, setIsLoading] = useState(true);
@@ -18,10 +20,17 @@ export default function BackendPortfolio() {
 	const handleLoadingComplete = () => {
 		setIsLoading(false);
 	};
-
 	return (
 		<>
-			{isLoading && <LoadingScreen onComplete={handleLoadingComplete} />}			<main className="min-h-screen bg-[#1A1A1A] text-white overflow-x-hidden">
+			{isLoading && <LoadingScreen onComplete={handleLoadingComplete} />}
+			
+			{/* Interactive Background Effects */}
+			{/* <InteractiveBackground /> */}
+			
+			{/* Theme Toggle */}
+			{/* <ThemeToggle /> */}
+			
+			<main className="min-h-screen theme-bg-primary theme-text-primary overflow-x-hidden relative z-10">
 				<HeroSection />
 				<EducationalMilestones />
 				{/* <WorkExperience /> */}
