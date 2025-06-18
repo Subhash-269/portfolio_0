@@ -254,3 +254,222 @@ body {
 		transform: none;
 	}
 }
+
+/* Mobile-Specific Optimizations */
+
+/* Touch-friendly interactions */
+@media (hover: none) and (pointer: coarse) {
+	/* Remove hover effects on touch devices */
+	.contact-button:hover::before,
+	.social-link:hover::after {
+		display: none;
+	}
+	
+	/* Increase touch target sizes */
+	button, a, input, textarea {
+		min-height: 44px;
+		min-width: 44px;
+	}
+	
+	/* Disable complex animations on mobile for performance */
+	.gradient-text-animated {
+		animation: none;
+		background: linear-gradient(45deg, #10b981, #3b82f6);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+}
+
+/* Mobile viewport optimizations */
+@media (max-width: 768px) {
+	/* Improved mobile spacing */
+	.py-20 {
+		padding-top: 3rem !important;
+		padding-bottom: 3rem !important;
+	}
+	
+	.py-12 {
+		padding-top: 2rem !important;
+		padding-bottom: 2rem !important;
+	}
+	
+	/* Mobile-first text sizes */
+	h1 {
+		font-size: 2rem !important;
+		line-height: 1.2 !important;
+	}
+	
+	h2 {
+		font-size: 1.75rem !important;
+		line-height: 1.3 !important;
+	}
+	
+	h3 {
+		font-size: 1.5rem !important;
+		line-height: 1.4 !important;
+	}
+	
+	/* Mobile terminal adjustments */
+	.font-mono {
+		font-size: 0.875rem !important;
+	}
+	
+	/* Mobile-optimized grid layouts */
+	.grid {
+		gap: 1rem !important;
+	}
+	
+	/* Simplified animations for mobile */
+	.typing-effect {
+		animation: none !important;
+		border-right: none !important;
+		white-space: normal !important;
+		overflow: visible !important;
+	}
+	
+	/* Mobile form optimizations */
+	.contact-input {
+		font-size: 16px !important; /* Prevents zoom on iOS */
+		padding: 1rem !important;
+	}
+	
+	/* Mobile button improvements */
+	.contact-button {
+		padding: 1rem 1.5rem !important;
+		font-size: 1rem !important;
+	}
+	
+	/* Simplified shadows for performance */
+	.glass-effect {
+		backdrop-filter: blur(10px) !important;
+		-webkit-backdrop-filter: blur(10px) !important;
+	}
+	
+	/* Mobile-specific focus states */
+	.contact-input:focus {
+		transform: none !important;
+		box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.3) !important;
+	}
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+	/* Extra small mobile adjustments */
+	.px-4 {
+		padding-left: 1rem !important;
+		padding-right: 1rem !important;
+	}
+	
+	.px-6 {
+		padding-left: 1rem !important;
+		padding-right: 1rem !important;
+	}
+	
+	.px-8 {
+		padding-left: 1.5rem !important;
+		padding-right: 1.5rem !important;
+	}
+	
+	/* Mobile terminal header */
+	.terminal-header .text-sm {
+		font-size: 0.75rem !important;
+	}
+	
+	/* Compact mobile layouts */
+	.gap-4 {
+		gap: 0.75rem !important;
+	}
+	
+	.gap-6 {
+		gap: 1rem !important;
+	}
+	
+	/* Mobile project cards */
+	.rounded-2xl {
+		border-radius: 1rem !important;
+	}
+	
+	.rounded-xl {
+		border-radius: 0.75rem !important;
+	}
+}
+
+/* Mobile landscape optimizations */
+@media (max-width: 768px) and (orientation: landscape) {
+	/* Reduce vertical spacing in landscape */
+	.py-20 {
+		padding-top: 2rem !important;
+		padding-bottom: 2rem !important;
+	}
+	
+	/* Compact mobile landscape layouts */
+	.space-y-6 > * + * {
+		margin-top: 1rem !important;
+	}
+}
+
+/* High DPI mobile displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+	/* Optimize for retina displays */
+	.border {
+		border-width: 0.5px !important;
+	}
+}
+
+/* Mobile performance optimizations */
+@media (max-width: 768px) {
+	/* Reduce motion for better performance */
+	@media (prefers-reduced-motion: reduce) {
+		*,
+		*::before,
+		*::after {
+			animation-duration: 0.01ms !important;
+			animation-iteration-count: 1 !important;
+			transition-duration: 0.01ms !important;
+		}
+	}
+	
+	/* Simplify backgrounds for mobile */
+	.bg-gradient-to-r,
+	.bg-gradient-to-br,
+	.bg-gradient-to-bl {
+		background: rgba(0, 0, 0, 0.5) !important;
+	}
+}
+
+/* iOS specific optimizations */
+@supports (-webkit-touch-callout: none) {	/* iOS Safari specific fixes */
+	.contact-input {
+		-webkit-appearance: none;
+		appearance: none;
+		border-radius: 0.5rem;
+	}
+	
+	/* Fix iOS zoom issues */
+	input[type="text"],
+	input[type="email"],
+	textarea {
+		font-size: 16px !important;
+	}
+	
+	/* iOS safe area adjustments */
+	.py-20 {
+		padding-bottom: calc(3rem + env(safe-area-inset-bottom)) !important;
+	}
+}
+
+/* Android specific optimizations */
+@media (hover: none) and (pointer: coarse) and (max-width: 768px) {
+	/* Android Chrome optimizations */
+	.rounded-2xl,
+	.rounded-xl {
+		border-radius: 0.5rem !important;
+	}
+	
+	/* Reduce transform effects for Android performance */
+	.group:hover .group-hover\:bg-gray-600\/50 {
+		background-color: rgba(75, 85, 99, 0.5) !important;
+		transition: none !important;
+	}
+}

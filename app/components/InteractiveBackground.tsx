@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
+import { useMobile } from '../hooks/useMobile';
 
 interface Particle {
     id: number;
@@ -33,6 +34,7 @@ interface FloatingElement {
 }
 
 export default function InteractiveBackground() {
+    const mobile = useMobile();
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const animationRef = useRef<number | null>(null);
     const particlesRef = useRef<Particle[]>([]);
@@ -43,9 +45,11 @@ export default function InteractiveBackground() {
     const [floatingElements, setFloatingElements] = useState<FloatingElement[]>([]);
     const [isClient, setIsClient] = useState(false);
 
-    // Initialize particles
+    // Initialize particles with mobile optimization
     const initParticles = useCallback((width: number, height: number) => {
-        const particleCount = Math.min(50, Math.floor((width * height) / 15000));
+        // Reduce particle count on mobile for performance
+        const baseCount = mobile.isMobile ? 20 : 50;
+        const particleCount = Math.min(baseCount, Math.floor((width * height) / (mobile.isMobile ? 25000 : 15000)));
         const newParticles: Particle[] = [];
 
         for (let i = 0; i < particleCount; i++) {
@@ -54,24 +58,27 @@ export default function InteractiveBackground() {
                 x: Math.random() * width,
                 y: Math.random() * height,
                 vx: (Math.random() - 0.5) * 0.5,
-                vy: (Math.random() - 0.5) * 0.5,
-                size: Math.random() * 2 + 1,
+                vy: (Math.random() - 0.5) * 0.5,                size: Math.random() * 2 + 1,
                 opacity: Math.random() * 0.5 + 0.2,
                 color: `hsl(${Math.random() * 60 + 180}, 70%, 60%)` // Blue to cyan range
             });
         }
         return newParticles;
-    }, []);
+    }, [mobile.isMobile]);
 
-    // Handle mouse movement
+    // Handle mouse movement (disabled on touch devices for performance)
     const handleMouseMove = useCallback((event: MouseEvent) => {
-        setMousePos({ x: event.clientX, y: event.clientY });
-    }, []);
+        if (!mobile.isTouchDevice) {
+            setMousePos({ x: event.clientX, y: event.clientY });
+        }
+    }, [mobile.isTouchDevice]);
 
     // Update canvas dimensions
     const updateDimensions = useCallback(() => {
         setDimensions({ width: window.innerWidth, height: window.innerHeight });
-    }, []);    useEffect(() => {
+    }, []);
+
+    useEffect(() => {
         setIsClient(true);
         updateDimensions();
         window.addEventListener('resize', updateDimensions);
@@ -87,28 +94,31 @@ export default function InteractiveBackground() {
     useEffect(() => {
         if (!isClient) return;
 
-        // Initialize morphing shapes
+        // Initialize morphing shapes (reduce count on mobile)
+        const shapeCount = mobile.isMobile ? 2 : 3;
         const shapes: MorphingShape[] = [];
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < shapeCount; i++) {
             shapes.push({
                 id: i,
                 initialY: `${Math.random() * 100}vh`,
-                middleY: `${Math.random() * 100}vh`,
-                endY: `${Math.random() * 100}vh`,
+                middleY: `${Math.random() * 100}vh`,                endY: `${Math.random() * 100}vh`,
             });
         }
         setMorphingShapes(shapes);
 
-        // Initialize floating elements
+        // Initialize floating elements (reduce count on mobile)
+        const elementCount = mobile.isMobile ? 3 : 5;
         const elements: FloatingElement[] = [];
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < elementCount; i++) {
             elements.push({
                 id: i,
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,                top: `${Math.random() * 100}%`,
             });
-        }        setFloatingElements(elements);
-    }, [isClient]);    useEffect(() => {
+        }
+        setFloatingElements(elements);
+    }, [isClient, mobile.isMobile]);
+
+    useEffect(() => {
         if (dimensions.width && dimensions.height && isClient) {
             setParticles(initParticles(dimensions.width, dimensions.height));
         }
@@ -117,7 +127,9 @@ export default function InteractiveBackground() {
     // Update particles ref when particles state changes
     useEffect(() => {
         particlesRef.current = particles;
-    }, [particles]);    // Animation loop
+    }, [particles]);
+
+    // Animation loop (optimized for mobile)
     useEffect(() => {
         const canvas = canvasRef.current;
         if (!canvas || !isClient || particles.length === 0) return;
@@ -125,21 +137,31 @@ export default function InteractiveBackground() {
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
 
+        // Reduce animation complexity on mobile
+        const shouldSkipFrame = mobile.isMobile && Math.random() > 0.7; // Skip 30% of frames on mobile
+        
         const animate = () => {
+            if (shouldSkipFrame && mobile.isMobile) {
+                animationRef.current = requestAnimationFrame(animate);
+                return;
+            }
+
             ctx.clearRect(0, 0, dimensions.width, dimensions.height);
 
             // Update particles directly without setState in animation loop
             const updatedParticles = particlesRef.current.map(particle => {
-                // Mouse interaction
-                const dx = mousePos.x - particle.x;
-                const dy = mousePos.y - particle.y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-                const maxDistance = 150;
-
-                if (distance < maxDistance) {
-                    const force = (maxDistance - distance) / maxDistance;
-                    particle.vx += (dx / distance) * force * 0.01;
-                    particle.vy += (dy / distance) * force * 0.01;
+                // Mouse interaction (disabled on touch devices)
+                if (!mobile.isTouchDevice) {
+                    const dx = mousePos.x - particle.x;
+                    const dy = mousePos.y - particle.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    const maxDistance = mobile.isMobile ? 100 : 150; // Reduce interaction distance on mobile
+                    
+                    if (distance < maxDistance) {
+                        const force = (maxDistance - distance) / maxDistance;
+                        particle.vx += (dx / distance) * force * (mobile.isMobile ? 0.005 : 0.01);
+                        particle.vy += (dy / distance) * force * (mobile.isMobile ? 0.005 : 0.01);
+                    }
                 }
 
                 // Update position
@@ -170,32 +192,37 @@ export default function InteractiveBackground() {
             // Update the ref for next frame
             particlesRef.current = updatedParticles;
 
-            // Draw connections
-            updatedParticles.forEach((particle, i) => {
-                updatedParticles.slice(i + 1).forEach(otherParticle => {
-                    const dx = particle.x - otherParticle.x;
-                    const dy = particle.y - otherParticle.y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
+            // Draw connections (skip on mobile for performance)
+            if (!mobile.isMobile) {
+                updatedParticles.forEach((particle, i) => {
+                    updatedParticles.slice(i + 1).forEach(otherParticle => {
+                        const dx = particle.x - otherParticle.x;
+                        const dy = particle.y - otherParticle.y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
 
-                    if (distance < 100) {
-                        ctx.beginPath();
-                        ctx.moveTo(particle.x, particle.y);
-                        ctx.lineTo(otherParticle.x, otherParticle.y);
-                        ctx.strokeStyle = `rgba(100, 200, 255, ${0.1 * (1 - distance / 100)})`;
-                        ctx.lineWidth = 0.5;
-                        ctx.stroke();
-                    }
+                        if (distance < 100) {
+                            ctx.beginPath();
+                            ctx.moveTo(particle.x, particle.y);
+                            ctx.lineTo(otherParticle.x, otherParticle.y);
+                            ctx.strokeStyle = `rgba(100, 200, 255, ${0.1 * (1 - distance / 100)})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.stroke();
+                        }
+                    });
                 });
-            });
+            }
 
             animationRef.current = requestAnimationFrame(animate);
         };
 
-        animate();        return () => {
+        animate();
+
+        return () => {
             if (animationRef.current) {
                 cancelAnimationFrame(animationRef.current);
-            }        };
-    }, [mousePos.x, mousePos.y, dimensions.width, dimensions.height, isClient, particles]); // Only depend on mouse position and dimensions
+            }
+        };
+    }, [mousePos.x, mousePos.y, dimensions.width, dimensions.height, isClient, particles, mobile.isMobile, mobile.isTouchDevice]);
 
     return (
         <>

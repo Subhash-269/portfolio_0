@@ -14,30 +14,27 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-	title: 'Venkat Neelraj',
+	title: 'Venkat Neelraj - Backend Developer',
 	description:
 		'Welcome to my portfolio! I am a passionate backend developer specializing in building scalable server architectures, robust APIs, and high-performance distributed systems. With expertise in cloud infrastructure and database optimization, I create efficient and reliable backend solutions.',
 	keywords: [
 		'Backend Developer',
 		'Software Engineer',
-		// 'System Architecture',
 		'API Development',
 		'Database Design',
-		// 'Cloud Computing',
 		'Microservices',
-		// 'DevOps',
 		'Venkat Neelraj',
-		// 'Node.js',
 		'Python',
-		// 'Java',
-		// 'Distributed Systems',
-		// 'System Design',
-		// 'Backend Architecture',
 	],
 	authors: [{ name: 'Venkat Neelraj' }],
 	creator: 'Venkat Neelraj',
+	viewport: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no',
+	themeColor: [
+		{ media: '(prefers-color-scheme: light)', color: '#ffffff' },
+		{ media: '(prefers-color-scheme: dark)', color: '#000000' }
+	],
 	openGraph: {
-		title: 'Venkat Neelraj - Portfolio',
+		title: 'Venkat Neelraj - Backend Developer Portfolio',
 		description: 'Passionate backend developer crafting scalable and efficient server architectures. Explore my projects and technical expertise.',
 		url: 'https://your-domain.com',
 		siteName: 'Venkat Neelraj - Portfolio',
