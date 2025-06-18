@@ -94,14 +94,12 @@ export default function HeroSection() {	return (
 							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Data Engineering</span>
 						</div>
 					</div>				</motion.div>
-			</div>
-
-			{/* Down Arrow */}
+			</div>			{/* Down Arrow */}
 			<motion.div
 				initial={{ opacity: 0, y: -10 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.8, delay: 1 }}
-				className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+				className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-10"
 			>
 				<motion.button
 					onClick={() => {
@@ -115,11 +113,11 @@ export default function HeroSection() {	return (
 						y: { repeat: Infinity, duration: 2, ease: "easeInOut" },
 						scale: { duration: 0.2 }
 					}}
-					className="flex flex-col items-center gap-2 text-green-400 hover:text-green-300 transition-colors cursor-pointer group"
+					className="flex flex-col items-center gap-1 sm:gap-2 text-green-400 hover:text-green-300 transition-colors cursor-pointer group"
 				>
-					<span className="text-sm font-mono opacity-75 group-hover:opacity-100 transition-opacity">Scroll Down</span>
+					<span className="text-xs sm:text-sm font-mono opacity-75 group-hover:opacity-100 transition-opacity">Scroll Down</span>
 					<svg 
-						className="w-6 h-6" 
+						className="w-5 h-5 sm:w-6 sm:h-6" 
 						fill="none" 
 						stroke="currentColor" 
 						viewBox="0 0 24 24"
