@@ -16,7 +16,7 @@ interface InteractiveTerminalProps {
 	onClose?: () => void;
 }
 
-export default function InteractiveTerminal({ isPopup = false, onClose }: InteractiveTerminalProps) {
+export default function InteractiveTerminal({ isPopup = false }: InteractiveTerminalProps) {
 	const [lines, setLines] = useState<TerminalLine[]>([]);
 	const [currentCommand, setCurrentCommand] = useState('');
 	const [commandHistory, setCommandHistory] = useState<string[]>([]);
@@ -104,19 +104,19 @@ export default function InteractiveTerminal({ isPopup = false, onClose }: Intera
 	useEffect(() => {
 		if (terminalRef.current) {
 			terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
-		}
-	}, [lines]);
+		}	}, [lines]);
+	
 	// Simulate GitHub API call (replace with real API call)
 	const fetchGitHubStats = async (): Promise<GitHubStats> => {
 		try {
 			// Try to fetch real GitHub data
 			const stats = await GitHubService.fetchGitHubStats();
 			return stats || GitHubService.getMockStats();
-		} catch (error) {
+		} catch {
 			// Fallback to mock data
-			return GitHubService.getMockStats();
-		}
+			return GitHubService.getMockStats();		}
 	};
+
 	// Available commands
 	const commands = {
 		help: () => [
@@ -220,7 +220,7 @@ export default function InteractiveTerminal({ isPopup = false, onClose }: Intera
 			'Welcome to the real world! 🌍',
 		],
 		projects: () => [
-			'🚀 Featured Projects:',
+			'Featured Projects:',
 			'',
 			'1. Conversational AI Chatbot',
 			'   └ Reduced query resolution time from 10 days to minutes',
@@ -252,14 +252,14 @@ export default function InteractiveTerminal({ isPopup = false, onClose }: Intera
 			link.href = '/resume/VenkatNeelraj.pdf';
 			link.download = 'VenkatNeelraj_Resume.pdf';
 			link.click();
-			return ['📄 Resume download started...', 'Check your downloads folder!'];
-		},
+			return ['📄 Resume download started...', 'Check your downloads folder!'];		},
 		whoami: () => ['venkat@portfolio:~$ You are viewing Venkat Neelraj Nitta\'s portfolio'],
 		date: () => [new Date().toString()],
 		clear: () => {
 			setLines([]);
 			return [];
-		},		github: async () => {
+		},
+		github: async () => {
 			if (!githubStats) {
 				setIsLoading(true);
 				try {
@@ -289,8 +289,7 @@ export default function InteractiveTerminal({ isPopup = false, onClose }: Intera
 						...stats.repos.slice(0, 3).map(repo => 
 							`   ${repo.name} - ${repo.stars} 🍴${repo.forks} (${repo.language})`
 						),
-					];
-				} catch (error) {
+					];				} catch {
 					setIsLoading(false);
 					return [' Failed to fetch GitHub stats. Please try again later.'];
 				}
@@ -329,7 +328,9 @@ export default function InteractiveTerminal({ isPopup = false, onClose }: Intera
 			'   🇨🇦 Canada: 15%',
 			'   🌍 Others: 15%',
 		],
-	};	const executeCommand = async (cmd: string) => {
+	};
+
+	const executeCommand = async (cmd: string) => {
 		const trimmedCmd = cmd.trim().toLowerCase();
 		
 		// Add command to history
