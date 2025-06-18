@@ -17,6 +17,11 @@ export default function HeroSection() {
 		return () => window.removeEventListener('scroll', handleScroll);
 	}, []);
 
+	const openTerminal = () => {
+		// Trigger terminal popup by dispatching a custom event
+		window.dispatchEvent(new CustomEvent('toggleTerminal'));
+	};
+
 	return (
 		<section className="relative min-h-screen flex items-center justify-center overflow-hidden">
 			{/* Top Navigation Bar */}
@@ -32,9 +37,18 @@ export default function HeroSection() {
 						onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
 					>
 						VN.dev
-					</motion.div>
-					
-					<div className="flex items-center gap-2 sm:gap-4 md:gap-8">
+					</motion.div>					<div className="flex items-center gap-2 sm:gap-4 md:gap-8">
+						<motion.button
+							whileHover={{ scale: 1.05, color: '#10b981' }}
+							whileTap={{ scale: 0.95 }}
+							onClick={openTerminal}
+							className="text-gray-300 hover:text-green-400 transition-colors font-mono text-xs sm:text-sm flex items-center gap-1"
+						>
+							<span className="hidden sm:inline">Terminal</span>
+							<span className="sm:hidden">Term</span>
+							<span className="text-xs opacity-60">[`]</span>
+						</motion.button>
+						
 						<motion.button
 							whileHover={{ scale: 1.05, color: '#10b981' }}
 							whileTap={{ scale: 0.95 }}
