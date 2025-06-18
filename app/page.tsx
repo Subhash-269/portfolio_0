@@ -11,8 +11,8 @@ import SystemArchitecture from './components/SystemArchitecture';
 import TechnicalMetrics from './components/TechnicalMetrics';
 import ContactSection from './components/ContactSection';
 import TerminalPopup from './components/TerminalPopup';
-import ThemeToggle from './components/ThemeToggle';
-import InteractiveBackground from './components/InteractiveBackground';
+// import ThemeToggle from './components/ThemeToggle';
+// import InteractiveBackground from './components/InteractiveBackground';
 
 export default function BackendPortfolio() {
 	const [isLoading, setIsLoading] = useState(true);
