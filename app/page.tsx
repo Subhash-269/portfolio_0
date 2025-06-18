@@ -4,8 +4,10 @@ import { useState } from 'react';
 import LoadingScreen from './components/LoadingScreen';
 import HeroSection from './components/HeroSection';
 import EducationalMilestones from './components/EducationalMilestones';
-// import WorkExperience from './components/WorkExperience';
+import WorkExperience from './components/WorkExperience';
+import InteractiveSkills from './components/InteractiveSkills';
 import SystemArchitecture from './components/SystemArchitecture';
+import ProjectDemos from './components/ProjectDemos';
 import TechnicalMetrics from './components/TechnicalMetrics';
 import ContactSection from './components/ContactSection';
 import TerminalPopup from './components/TerminalPopup';
@@ -25,6 +27,7 @@ export default function BackendPortfolio() {
 				{/* <WorkExperience /> */}
 				{/* <InteractiveSkills /> */}
 				<SystemArchitecture />
+				{/* <ProjectDemos />  */}
 				<TechnicalMetrics />
 				<ContactSection />
 				<TerminalPopup />
