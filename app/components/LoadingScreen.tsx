@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface LoadingScreenProps {
@@ -33,8 +33,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
 		}));
 		setMatrixParticles(particles);
 	}, []);
-
-	const bootSequence = [
+	const bootSequence = useMemo(() => [
 		{ text: 'Initializing Venkat\'s Portfolio System...', delay: 800 },
 		// { text: '> Loading core modules...', delay: 600 },
 		// { text: '> Connecting to GitHub API...', delay: 700 },
@@ -45,7 +44,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
 		// { text: '> Checking Boston weather...', delay: 300 },
 		// { text: '> System ready!', delay: 800 },
 		{ text: '> Welcome to Venkat\'s Digital Space 🚀', delay: 1000 }
-	];
+	], []);
 	useEffect(() => {
 		if (currentStep < bootSequence.length) {
 			const timer = setTimeout(() => {

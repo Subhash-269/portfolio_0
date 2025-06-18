@@ -4,7 +4,7 @@ import { useState } from 'react';
 import LoadingScreen from './components/LoadingScreen';
 import HeroSection from './components/HeroSection';
 import EducationalMilestones from './components/EducationalMilestones';
-import WorkExperience from './components/WorkExperience';
+// import WorkExperience from './components/WorkExperience';
 import SystemArchitecture from './components/SystemArchitecture';
 import TechnicalMetrics from './components/TechnicalMetrics';
 import ContactSection from './components/ContactSection';

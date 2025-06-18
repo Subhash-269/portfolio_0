@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface WorkExperience {
@@ -97,33 +97,7 @@ const workExperienceData: WorkExperience[] = [
 
 export default function WorkExperience() {
     const [selectedExperience, setSelectedExperience] = useState<number | null>(null);
-    const [isVisible, setIsVisible] = useState(false);
     const sectionRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsVisible(true);
-                }
-            },
-            { threshold: 0.1 }
-        );
-
-        if (sectionRef.current) {
-            observer.observe(sectionRef.current);
-        }
-
-        return () => observer.disconnect();
-    }, []);
-
-    const getStatusColor = (status: string) => {
-        switch (status) {
-            case 'current': return 'text-green-400';
-            case 'completed': return 'text-blue-400';
-            default: return 'text-gray-400';
-        }
-    };
 
     const getStatusBadge = (status: string) => {
         switch (status) {
