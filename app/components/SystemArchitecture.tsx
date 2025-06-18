@@ -17,24 +17,25 @@ interface Project {
     }[];
 }
 
-const projects: Project[] = [
-    {
+const projects: Project[] = [    {
         title: 'Smart Cart App',
-        description: 'AI-powered shopping assistant that automatically identifies lowest vendor prices across multiple platforms.',
-        impact: '70% reduction in shopping time, 25% cost savings for users',
+        description: 'AI-powered shopping assistant developed for Northeastern hackathon Innovaite 2025. Led a team of 5 to create an intelligent system that searches items based on dish names and automatically identifies lowest vendor prices across multiple platforms.',
+        impact: 'Completed in 48 hours with team of 5',
         details: [
-            'Automated vendor comparison using web scraping and APIs',
-            'Real-time price tracking and alert system',
-            'Enhanced shopping efficiency with intelligent recommendations',
-            'Inventory management with predictive analytics'
+            'Led team of 5 developers in 48-hour hackathon environment',
+            'Intelligent dish-based search that finds relevant ingredients and products',
+            'Automated vendor comparison and lowest price identification across platforms',
+            // 'Real-time price tracking and alert system with Google Gemini integration',
+            'Enhanced shopping efficiency with AI-powered recommendations',
+            // 'Inventory management with predictive analytics using Hugging Face models'
         ],
         tech: ['Django', 'PostgreSQL', 'React', 'Google Gemini API', 'Hugging Face', 'Web Scraping'],
         link: 'https://github.com/aatmaj28/Innovaite-2025/tree/main',
         linkText: 'View on GitHub',
         metrics: [
-            { label: 'Time Saved', value: '70%', color: 'text-green-400' },
-            { label: 'Cost Reduction', value: '25%', color: 'text-blue-400' },
-            // { label: 'Vendors', value: '50+', color: 'text-purple-400' }
+            { label: 'Time taken', value: '48hrs', color: 'text-green-400' },
+            // { label: 'Cost Reduction', value: '25%', color: 'text-blue-400' },
+            { label: 'Team Size', value: '5 devs', color: 'text-purple-400' }
         ]
     },
     {
