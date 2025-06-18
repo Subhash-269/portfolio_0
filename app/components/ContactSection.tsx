@@ -111,8 +111,7 @@ export default function ContactSection() {
 
 							<div className="font-mono space-y-6">
 								<motion.div variants={itemVariants}>
-									<p className="text-green-400 mb-2 typing-effect">$ whoami --contact</p>
-									<h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-green-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+									<p className="text-green-400 mb-2 typing-effect">$ whoami --contact</p>									<h2 className="text-3xl md:text-4xl font-bold mb-4 gradient-text-animated">
 										Let&apos;s Connect
 									</h2>
 									<p className="text-gray-300 leading-relaxed">

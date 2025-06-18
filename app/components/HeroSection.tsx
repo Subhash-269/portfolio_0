@@ -46,18 +46,17 @@ export default function HeroSection() {
 						>
 							<span className="hidden sm:inline">Terminal</span>
 							<span className="sm:hidden">Term</span>
-							<span className="text-xs opacity-60">[`]</span>						</motion.button>
-								<motion.button
+							<span className="text-xs opacity-60">[`]</span>						</motion.button>						<motion.button
 							whileHover={{ scale: 1.05, color: '#10b981' }}
 							whileTap={{ scale: 0.95 }}
 							onClick={() => {
-								const skillsSection = document.querySelector('[data-section="skills"]');
-								skillsSection?.scrollIntoView({ behavior: 'smooth' });
+								const projectsSection = document.querySelector('[data-section="projects"]');
+								projectsSection?.scrollIntoView({ behavior: 'smooth' });
 							}}
 							className="text-gray-300 hover:text-green-400 transition-colors font-mono text-xs sm:text-sm"
 						>
-							<span className="hidden sm:inline">Skills & Tech</span>
-							<span className="sm:hidden">Skills</span>
+							<span className="hidden sm:inline">Projects & Tech</span>
+							<span className="sm:hidden">Projects</span>
 						</motion.button>
 						
 						<motion.button
@@ -130,21 +129,17 @@ export default function HeroSection() {
 					</div>
 					<div className="font-mono">
 						<p className="text-green-500">$ whoami</p>						<h1 className="text-2xl sm:text-4xl md:text-5xl font-bold mt-2 mb-4">Venkat Neelraj Nitta</h1>
-						<p className="text-sm sm:text-base text-gray-400 mb-2">Graduate Student at Northeastern University</p>
-						<p className="text-green-500">$ whoami.info</p>
-						<p className="text-sm sm:text-base text-gray-400 mb-4">I am a researcher and engineer with a background in software development, data science, and AI, currently pursuing a Master&#39;s in Applied Machine Intelligence at NEU.</p>
-						<p className="text-green-500">$ whoami.skills</p>
+						<p className="text-sm sm:text-base text-gray-400 mb-2">Graduate Student at Northeastern University</p>						<p className="text-green-500">$ whoami.info</p>
+						<p className="text-sm sm:text-base text-gray-400 mb-4">AI/ML Engineer with 2.5+ years at Cognida.AI, now pursuing Master&#39;s in Applied Machine Intelligence at Northeastern University.</p>						<p className="text-green-500">$ whoami.skills</p>
 						<div className="flex flex-wrap gap-1 sm:gap-2 mt-2">
 							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Python</span>
-							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">PyTorch</span>
-							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">FastAPI</span>
-							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Docker</span>
-							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">SQL</span>
-							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Linux</span>
-							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Generative AI</span>
-							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">OpenCV</span>
+							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">AI/ML</span>
 							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">NLP</span>
-							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Data Engineering</span>
+							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Computer Vision</span>
+							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">PyTorch</span>
+							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Conversational AI</span>
+							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Document Processing</span>
+							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">FastAPI</span>
 						</div>
 					</div>				</motion.div>
 			</div>			{/* Down Arrow */}

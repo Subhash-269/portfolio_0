@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import LoadingScreen from './components/LoadingScreen';
 import HeroSection from './components/HeroSection';
-import EducationalMilestones from './components/EducationalMilestones';
+import ExperienceTimeline from './components/ExperienceTimeline';
+// import EducationalMilestones from './components/EducationalMilestones';
 // import WorkExperience from './components/WorkExperience';
 // import InteractiveSkills from './components/InteractiveSkills';
 import SystemArchitecture from './components/SystemArchitecture';
@@ -32,8 +33,7 @@ export default function BackendPortfolio() {
 			
 			<main className="min-h-screen theme-bg-primary theme-text-primary overflow-x-hidden relative z-10">
 				<HeroSection />
-				<EducationalMilestones />
-				{/* <WorkExperience /> */}
+				<ExperienceTimeline />
 				{/* <InteractiveSkills /> */}
 				<SystemArchitecture />
 				{/* <ProjectDemos />  */}

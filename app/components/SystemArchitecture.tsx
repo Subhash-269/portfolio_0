@@ -78,15 +78,14 @@ const projects: Project[] = [    {
 
 export default function SystemArchitecture() {
     return (
-        <section data-section="projects" className="py-12 sm:py-20 px-4">
+        <section data-section="projects" className="py-20 px-4">
             <div className="max-w-7xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     className="text-center mb-12"
-                >
-                    <h2 className="text-3xl sm:text-4xl font-bold mb-4 bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">
+                >                    <h2 className="text-3xl md:text-4xl font-bold mb-4 gradient-text-animated">
                         Featured Projects & Hackathons
                     </h2>
                     <p className="text-gray-400 max-w-2xl mx-auto">

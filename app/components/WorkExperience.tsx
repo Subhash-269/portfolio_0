@@ -17,6 +17,10 @@ interface WorkExperience {
     technologies: string[];
     achievements: string[];
     skills: string[];
+    projects: {
+        total: number;
+        featured: string[];
+    };
     icon: string;
     color: string;
     description: string;
@@ -27,72 +31,81 @@ const workExperienceData: WorkExperience[] = [
         id: 1,
         company: 'Cognida.AI',
         position: 'Software Developer',
-        // department: 'Applied Machine Intelligence Program',
-        duration: 'Feb 2022 - Aug 2024',
-        location: 'Hyderabad, India',
+        duration: 'Jul 2022 - Jul 2024',
+        location: 'Hyderabad, Telangana, India',
         type: 'full-time',
         status: 'completed',
         highlights: [
-            'Supporting AI coursework and student mentoring',
-            'Assisting with research projects and lab sessions',
-            'Grading assignments and providing feedback',
-            'Office hours and student consultation'
+            'Engineered enterprise-grade conversational AI chatbot',
+            'Created AI-powered document preprocessing system',
+            'Directed AI team in cheque processing optimization',
+            'Achieved significant performance improvements across all projects'
         ],
         responsibilities: [
-            'Assist professors in teaching AI fundamentals',
-            'Grade assignments and provide detailed feedback',
-            'Conduct lab sessions and tutorials',
-            'Mentor students on projects and research',
-            'Support course administration and logistics'
+            'Develop and optimize NLP-based AI systems',
+            'Design computer vision solutions for document processing',
+            'Lead AI team training and model optimization',
+            'Implement real-time prediction systems with low latency',
+            'Create interactive feedback systems for user validation'
         ],
-        technologies: ['Python', 'PyTorch', 'TensorFlow', 'Jupyter', 'Git'],
+        technologies: ['Python', 'NLP', 'Machine Learning', 'Computer Vision', 'Neural Networks', 'AI/ML'],
         achievements: [
-            'Helped improve student understanding of complex AI concepts',
-            'Contributed to course material development',
-            'Maintained high student satisfaction ratings'
-        ],
-        skills: ['Teaching', 'Mentoring', 'Research', 'Communication', 'Python', 'AI/ML'],
-        icon: '🎓',
-        color: 'from-blue-500 to-purple-600',
-        description: 'Supporting the next generation of AI professionals through teaching and mentorship.'
+            'Reduced query resolution time from 10 days to minutes',
+            'Elevated customer satisfaction by 78%',
+            'Achieved 100% compliance rate and 90% faster invoice processing',
+            '60% cost savings through streamlined workflows',
+            '100% key data extraction accuracy in cheque processing',
+            'Reduced processing time per cheque to 7 seconds',
+            'Optimized document workflow efficiency by 40%'
+        ],        skills: ['AI/ML', 'NLP', 'Computer Vision', 'Team Leadership', 'Python', 'Document Processing'],
+        projects: {
+            total: 3,
+            featured: [
+                'Enterprise Conversational AI Chatbot',
+                'AI-Powered Document Preprocessing System',
+                'Automated Cheque Processing Model'
+            ]
+        },        icon: '🤖',
+        color: 'from-green-500 to-blue-600',
+        description: 'Full-time software developer role focusing on AI and ML solutions for enterprise applications.'
     },
-    // Add more work experiences here as you gain them
-    // Example template for future experiences:
-    /*
     {
         id: 2,
-        company: 'Tech Company Name',
-        position: 'AI/ML Engineer Intern',
-        department: 'Machine Learning Team',
-        duration: 'Summer 2025',
-        location: 'Boston, MA',
+        company: 'Cognida.AI',
+        position: 'Software Developer Internship',
+        duration: 'Feb 2022 - Jun 2022',
+        location: 'Hyderabad, Telangana, India',
         type: 'internship',
         status: 'completed',
         highlights: [
-            'Developed ML models for production systems',
-            'Collaborated with cross-functional teams',
-            'Implemented data pipelines',
-            'Participated in code reviews and team meetings'
+            'Developed NLP-based grammar and spell correction model',
+            'Achieved real-time predictions with low latency',
+            'Designed interactive feedback system for user validation',
+            'Enabled users to validate, override, and refine corrections'
         ],
         responsibilities: [
-            'Design and implement machine learning models',
-            'Optimize model performance and scalability',
-            'Collaborate with data scientists and engineers',
-            'Write clean, maintainable code',
-            'Participate in agile development processes'
+            'Develop and optimize NLP models for grammar correction',
+            'Implement real-time prediction systems',
+            'Design user-friendly feedback interfaces',
+            'Test and validate model accuracy and performance',
+            'Collaborate with team on model improvements'
         ],
-        technologies: ['Python', 'PyTorch', 'AWS', 'Docker', 'Git'],
+        technologies: ['Python', 'NLP', 'Machine Learning', 'Real-time Systems', 'UI/UX Design'],
         achievements: [
-            'Improved model accuracy by 15%',
-            'Reduced training time by 30%',
-            'Successfully deployed models to production'
-        ],
-        skills: ['Machine Learning', 'Python', 'AWS', 'Team Collaboration', 'Problem Solving'],
-        icon: '💼',
-        color: 'from-green-500 to-teal-600',
-        description: 'Applied machine learning expertise to solve real-world business problems.'
+            'Successfully delivered real-time grammar correction system',
+            'Implemented efficient user feedback mechanism',
+            'Achieved low-latency performance for real-time use',
+            'Created intuitive user interface for corrections'
+        ],        skills: ['NLP', 'Python', 'Real-time Systems', 'User Interface Design', 'Model Optimization'],
+        projects: {
+            total: 1,
+            featured: [
+                'NLP-based Grammar and Spell Correction System'
+            ]
+        },        icon: '📝',
+        color: 'from-purple-500 to-pink-600',
+        description: 'Internship role developing NLP-based grammar correction systems with real-time capabilities.'
     }
-    */
 ];
 
 export default function WorkExperience() {
@@ -116,28 +129,10 @@ export default function WorkExperience() {
             'freelance': { text: 'Freelance', bg: 'bg-pink-500/20 text-pink-400 border-pink-500/30' }
         };
         return badges[type as keyof typeof badges] || badges['full-time'];
-    };
-
-    return (
-        <section ref={sectionRef} className="py-12 sm:py-20 px-4" data-section="experience">
-            <div className="max-w-6xl mx-auto">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="text-center mb-12"
-                >
-                    <h2 className="text-3xl sm:text-4xl font-bold mb-4 bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">
-                        Professional Experience
-                    </h2>
-                    <p className="text-gray-400 max-w-2xl mx-auto">
-                        My professional journey in AI and technology, building practical experience 
-                        while contributing to meaningful projects and learning from industry experts.
-                    </p>
-                </motion.div>
-
-                {/* Show message if no work experience yet */}
-                {workExperienceData.length === 0 ? (
+    };    return (
+        <div className="max-w-6xl mx-auto">
+            {/* Show message if no work experience yet */}
+            {workExperienceData.length === 0 ? (
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -217,10 +212,29 @@ export default function WorkExperience() {
                                                         {getTypeBadge(experience.type).text}
                                                     </span>
                                                 </div>
-                                            </div>
-
-                                            {/* Description */}
+                                            </div>                                            {/* Description */}
                                             <p className="text-gray-400 mb-4">{experience.description}</p>
+
+                                            {/* Projects Summary */}
+                                            <div className="mb-4 p-3 bg-gray-800/30 rounded-lg border border-gray-700/50">
+                                                <div className="flex items-center justify-between mb-2">
+                                                    <h4 className="text-sm font-semibold text-white flex items-center gap-2">
+                                                        <span className="text-blue-400">📋</span>
+                                                        Projects Completed
+                                                    </h4>
+                                                    <span className="px-2 py-1 bg-blue-500/20 text-blue-400 text-xs rounded-full border border-blue-500/30">
+                                                        {experience.projects.total} Project{experience.projects.total !== 1 ? 's' : ''}
+                                                    </span>
+                                                </div>
+                                                <div className="space-y-1">
+                                                    {experience.projects.featured.map((project, idx) => (
+                                                        <div key={idx} className="flex items-center gap-2 text-xs text-gray-300">
+                                                            <span className="w-1 h-1 bg-blue-400 rounded-full"></span>
+                                                            {project}
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
 
                                             {/* Quick Highlights */}
                                             <div className="flex flex-wrap gap-2 mb-4">
@@ -372,31 +386,28 @@ export default function WorkExperience() {
                             viewport={{ once: true }}
                             transition={{ delay: 0.4 }}
                             className="mt-16 text-center"
-                        >
-                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
-                                <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
-                                    <div className="text-3xl font-bold text-green-400 mb-2">
-                                        {workExperienceData.filter(exp => exp.status === 'current').length}
-                                    </div>
-                                    <div className="text-gray-400">Current Roles</div>
-                                </div>
+                        >                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
                                 <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
                                     <div className="text-3xl font-bold text-blue-400 mb-2">
-                                        {workExperienceData.length}
+                                        {workExperienceData.reduce((total, exp) => total + exp.projects.total, 0)}
                                     </div>
-                                    <div className="text-gray-400">Total Experiences</div>
+                                    <div className="text-gray-400">Total Projects</div>
+                                </div>
+                                <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                                    <div className="text-3xl font-bold text-green-400 mb-2">
+                                        2.5+
+                                    </div>
+                                    <div className="text-gray-400">Years Experience</div>
                                 </div>
                                 <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
                                     <div className="text-3xl font-bold text-purple-400 mb-2">
-                                        {Array.from(new Set(workExperienceData.flatMap(exp => exp.technologies))).length}
+                                        {workExperienceData.length}
                                     </div>
-                                    <div className="text-gray-400">Technologies Used</div>
+                                    <div className="text-gray-400">Roles Completed</div>
                                 </div>
                             </div>
                         </motion.div>
-                    </>
-                )}
-            </div>
-        </section>
+                    </>                )}
+        </div>
     );
 }

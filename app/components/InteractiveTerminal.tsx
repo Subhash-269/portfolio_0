@@ -34,12 +34,10 @@ export default function InteractiveTerminal({ isPopup = false }: InteractiveTerm
 		nextIdRef.current += 1;
 		return id;
 	};	// Typing effect for initial messages
-	useEffect(() => {
-		const welcomeMessages = [
+	useEffect(() => {		const welcomeMessages = [
 			'Welcome to Venkat\'s Portfolio Terminal v2.0',
 			'Initializing interactive environment...',
-			// 'Loading GitHub integration... ✓',
-			// 'Loading live metrics... ✓',
+			'Loading GitHub integration... Complete',
 			'System ready! Type "help" to see available commands',
 		];
 
@@ -118,156 +116,193 @@ export default function InteractiveTerminal({ isPopup = false }: InteractiveTerm
 	};
 
 	// Available commands
-	const commands = {
-		help: () => [
+	const commands = {		help: () => [
 			'Available commands:',
+			'',
 			'  help          - Show this help message',
 			'  about         - Learn about me',
 			'  skills        - Display technical skills',
+			'  experience    - Work experience summary',
 			'  projects      - Show my projects',
 			'  github        - GitHub statistics',
 			'  contact       - Get contact information',
 			'  resume        - Download resume',
-			// '  metrics       - Live portfolio metrics',
 			'  clear         - Clear terminal',
 			'  history       - Show command history',
 			'  whoami        - Display user info',
 			'  date          - Show current date/time',
 			'  weather       - Current weather info',
 			'  joke          - Tell a programming joke',
-			// '  matrix        - Enter the Matrix...',
-		],		about: () => [
-			'👨‍💻 Hey there! I\'m Venkat Neelraj Nitta',
 			'',
-			'Originally from the beautiful coastal city of Vizag, now calling',
-			'   Boston home via Hyderabad - quite the journey for someone who',
-			'   loves driving! ',
+			'Navigation:',
+			'  • Use UP/DOWN arrows for command history',
+			'  • Press Ctrl+` or click Terminal button to toggle',
+			'  • Press ESC to close terminal',
+		],about: () => [
+			'[ABOUT] Venkat Neelraj Nitta',
 			'',
-			'When I\'m not training neural networks, you\'ll find me:',
-			'   • Dominating in Marvel Rivals (currently obsessed!)',
-			'   • Perfecting my curry recipes in the kitchen ',
-			'   • Catching the latest cricket match',
-			'   • Cruising around Boston (still figuring out these winters)',
+			'AI/ML Engineer with 2.5+ years at Cognida.AI, now pursuing',
+			'Master\'s in Applied Machine Intelligence at Northeastern University.',
 			'',
-			'Currently pursuing Master\'s in Applied Machine Intelligence at NEU',
-			'   because I wanted to deep dive into the AI industry',
-			// '   the revolution that\'s reshaping our world.',
+			'Background:',
+			'   • Originally from Vizag, India',
+			'   • Worked full-time in Hyderabad (2022-2024)',
+			'   • Currently based in Boston, MA',
 			'',
-			// 'Always coding with good music in the background, always learning',
-			// '   something new, and always excited about building AI solutions',
-			// '   that make a real impact!',
+			'Experience:',
+			'   • Full-time Software Developer at Cognida.AI (Jul 2022 - Jul 2024)',
+			'   • Internship at Cognida.AI (Feb 2022 - Jun 2022)',
+			'   • Built enterprise AI systems, NLP models, document processing',
 			'',
-			// 'Fun fact: I\'m still discovering my unique hobbies, but so far',
-			// '   the freedom of driving tops the list! 🛣️',
+			'Education:',
+			'   • Master\'s in Applied Machine Intelligence (2024-2026) - NEU',
+			'   • B.Tech in Electrical and Electronics Engineering (2018-2022)',
+			'',
+			'Achievements:',
+			'   • 78% improvement in customer satisfaction',
+			'   • 60% cost savings through AI automation',
+			'   • 100% accuracy in document processing systems',
+		],		skills: () => [
+			'[TECHNICAL SKILLS]',
+			'',
+			'Programming Languages:',
+			'   Python           ████████████ 95%',
+			'   SQL              ██████████   80%',
+			'   R                ████████     70%',
+			'',
+			'AI/ML Technologies:',
+			'   PyTorch          ████████████ 90%',
+			'   NLP              ██████████   80%',
+			'   Computer Vision  ███████████  85%',
+			'   TensorFlow       ██████████   75%',
+			'',
+			'Web & APIs:',
+			'   FastAPI          ████████████ 90%',
+			'   Django           ██████████   80%',
+			'   REST APIs        ███████████  85%',
+			'',
+			'Cloud & DevOps:',
+			'   AWS              ████████     65%',
+			'   Docker           ██████████   80%',
+			'   Linux            ██████████   75%',
+			'',
+			'Specializations:',
+			'   • Conversational AI Systems',			'   • Document Processing Automation',
+			'   • Real-time NLP Applications',
+			'   • Computer Vision for Document Analysis',
 		],
-		skills: () => [
-			' Technical Skills:',
+		experience: () => [
+			'[WORK EXPERIENCE]',
 			'',
-			'Languages:     Python ████████████ 95%',
-			// '               JavaScript ███████████ 85%',
-			'               SQL ██████████ 80%',
-			'               R ████████ 70%',
+			'Software Developer | Cognida.AI',
+			'   Duration: Jul 2022 - Jul 2024 (Full-time)',
+			'   Location: Hyderabad, India',
+			'   Projects: 3 major AI/ML implementations',
 			'',
-			'ML/AI:         PyTorch ████████████ 90%',
-			'               TensorFlow ██████████ 75%',
-			'               OpenCV ███████████ 85%',
-			'               NLP ██████████ 80%',
+			'Key Achievements:',
+			'   • Developed enterprise conversational AI chatbot',
+			'   • Created AI-powered document preprocessing system',
+			'   • Led AI team in cheque processing optimization',
+			'   • Reduced customer query resolution from 10 days to minutes',
+			'   • Achieved 78% improvement in customer satisfaction',
+			'   • Delivered 60% cost savings through AI automation',
+			'   • Maintained 100% accuracy in document processing',
 			'',
-			'Web:           FastAPI ████████████ 90%',
-			// '               React ██████████ 75%',
-			// '               Next.js █████████ 70%',
+			'Software Developer Internship | Cognida.AI',
+			'   Duration: Feb 2022 - Jun 2022 (Internship)',
+			'   Location: Hyderabad, India',
+			'   Project:  NLP-based Grammar and Spell Correction System',
 			'',
-			'Cloud:         AWS ████████ 65%',
-			'               Docker ██████████ 80%',
-			// '               Kubernetes ██████ 50%',
+			'Total Experience: 2.5+ years in AI/ML development',
+			'Current Status:   Graduate Student at Northeastern University',
 		],
 		history: () => commandHistory.length > 0 ? [
 			'Command History:',
 			...commandHistory.slice(-10).map((cmd, i) => `${commandHistory.length - 10 + i + 1}. ${cmd}`)
-		] : ['No command history yet. Start typing some commands!'],
-		weather: () => [
-			'Weather in Boston, MA:',
+		] : ['No command history yet. Start typing some commands!'],		weather: () => [
+			'[WEATHER] Boston, MA:',
 			'',
 			`Temperature: ${Math.floor(Math.random() * 30) + 20}°F`,
 			`Condition: ${['Sunny', 'Cloudy', 'Rainy', 'Snow'][Math.floor(Math.random() * 4)]}`,
 			`Humidity: ${Math.floor(Math.random() * 40) + 40}%`,
 			`Wind: ${Math.floor(Math.random() * 15) + 5} mph`,
 			'',
-            'It doesnt feel like, cuz it not true! 😄',
-			// 'Perfect coding weather! ☕',
-		],
-		joke: () => {
+			'Note: Simulated data for demonstration purposes',
+		],		joke: () => {
 			const jokes = [
-				'Why do programmers prefer dark mode? Because light attracts bugs! 🐛',
-				'How many programmers does it take to change a light bulb? None, that\'s a hardware problem! 💡',
-				'Why don\'t programmers like nature? It has too many bugs! 🌳',
-				'What\'s a programmer\'s favorite hangout place? Foo Bar! 🍺',
-				'Why did the programmer quit his job? He didn\'t get arrays! 📊',
+				'Why do programmers prefer dark mode? Because light attracts bugs!',
+				'How many programmers does it take to change a light bulb? None, that\'s a hardware problem!',
+				'Why don\'t programmers like nature? It has too many bugs!',
+				'What\'s a programmer\'s favorite hangout place? Foo Bar!',
+				'Why did the programmer quit his job? He didn\'t get arrays!',
+				'There are only 10 types of people: those who understand binary and those who don\'t.',
+				'A SQL query goes into a bar, walks up to two tables and asks: "Can I join you?"',
 			];
-			return [jokes[Math.floor(Math.random() * jokes.length)]];
-		},
-		matrix: () => [
-			'Wake up, Neo... 💊',
-			'The Matrix has you...',
-			'Follow the white rabbit... 🐰',
+			return ['[PROGRAMMING JOKE]', '', jokes[Math.floor(Math.random() * jokes.length)]];		},		projects: () => [
+			'[FEATURED PROJECTS]',
 			'',
-			'⠀⠀⠀⠀⠀⠀⠀⣠⣴⣶⣿⣿⣷⣶⣄⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀',
-			'⠀⠀⠀⠀⠀⠀⠀⢰⣾⣿⣿⣿⣿⣿⣿⣷⣀⠀⣠⣾⣿⣿⣷⠀⠀⠀⠀⠀',
-			'⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀',
-			'⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀',
-			'⠀⠀⠀⠀⠀⠀⠀⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃⠀⠀⠀⠀',
-			'⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠛⠋⠉⠉⠀⠀⢸⣿⣿⣿⡟⠉⠉⠀⠀⠀⠀⠀',
-			'Welcome to the real world! 🌍',
-		],
-		projects: () => [
-			'Featured Projects:',
+			'1. Enterprise Conversational AI Chatbot',
+			'   Company: Cognida.AI (2022-2024)',
+			'   Impact:  Reduced customer query resolution from 10 days to minutes',
+			'   Result:  78% improvement in customer satisfaction',
 			'',
-			'1. Conversational AI Chatbot',
-			'   └ Reduced query resolution time from 10 days to minutes',
+			'2. AI-Powered Document Preprocessing System',
+			'   Company: Cognida.AI (2022-2024)',
+			'   Impact:  Achieved 100% compliance rate, 90% faster processing',
+			'   Result:  60% cost savings through workflow optimization',
 			'',
-			'2. Cheque Processing Optimization',
-			'   └ 100% accuracy, 40% efficiency improvement',
+			'3. Automated Cheque Processing Model',
+			'   Company: Cognida.AI (2022-2024)',
+			'   Impact:  100% key data extraction accuracy',
+			'   Result:  Processing time reduced to 7 seconds per cheque',
 			'',
-			'3. Electric Vehicle Insights Dashboard',
-			'   └ Interactive Tableau visualization',
+			'4. Smart Cart App',
+			'   Event:   Northeastern Innovaite 2025 (48-hour hackathon)',
+			'   Team:    Led team of 5 developers',
+			'   Tech:    Django, PostgreSQL, React, Google Gemini API',
 			'',
-			'4. Image Classification Optimization',
-			'   └ Enhanced ResNet-18 performance via quantization',
+			'5. CIFAR-10 Image Classification Web App',
+			'   Tech:    PyTorch, FastAPI, Streamlit',
+			'   Result:  94% accuracy with sub-100ms inference',
+			'   Live:    Available at cifar-image-classifier.streamlit.app',
 			'',
-			// 'Type "project <number>" for details or visit the Projects section',
-		],
-		contact: () => [
-			'📧 Contact Information:',
+			'Visit the Projects section for more details and live demos.',
+		],		contact: () => [
+			'[CONTACT INFORMATION]',
 			'',
 			'Email:     vneelraj.nitta@gmail.com',
-			'Location:  Boston, MA',
+			'Location:  Boston, MA (EST Timezone)',
 			'GitHub:    github.com/Subhash-269',
-			'LinkedIn:  Venkat Neelraj',
+			'LinkedIn:  linkedin.com/in/venkat-neelraj-nitta',
 			'',
-			'Feel free to reach out for collaboration opportunities!',
-		],
-		resume: () => {
+			'Current Status:',
+			'   • Graduate Student at Northeastern University',
+			'   • Actively seeking Summer 2025 internships',
+			'   • Open to AI/ML and Software Engineering roles',
+			'',
+			'Response Time: Usually within 24 hours',
+			'Best Contact: Email for professional inquiries',
+		],		resume: () => {
 			// Trigger resume download
 			const link = document.createElement('a');
 			link.href = '/resume/VenkatNeelraj.pdf';
 			link.download = 'VenkatNeelraj_Resume.pdf';
 			link.click();
-			return ['📄 Resume download started...', 'Check your downloads folder!'];		},
+			return ['[RESUME DOWNLOAD]', 'Resume download initiated...', 'Check your downloads folder for VenkatNeelraj_Resume.pdf'];		},
 		whoami: () => ['venkat@portfolio:~$ You are viewing Venkat Neelraj Nitta\'s portfolio'],
 		date: () => [new Date().toString()],
 		clear: () => {
 			setLines([]);
 			return [];
 		},
-		github: async () => {
-			if (!githubStats) {
+		github: async () => {					if (!githubStats) {
 				setIsLoading(true);
 				try {
 					const stats = await fetchGitHubStats();
 					setGithubStats(stats);
 					setIsLoading(false);
 					return [
-						'📊 GitHub Statistics:',
+						'[GITHUB STATISTICS]',
 						'',
 						`Username: ${stats.user.name} (@${stats.user.login})`,
 						`Public Repositories: ${stats.user.public_repos}`,
@@ -282,20 +317,20 @@ export default function InteractiveTerminal({ isPopup = false }: InteractiveTerm
 							.slice(0, 5)
 							.map(([lang, count]) => `   ${lang}: ${count} repos`),
 						'',
-						' Recent Activity:',
+						'Recent Activity:',
 						...stats.recentActivity.slice(0, 3).map(activity => `   • ${activity}`),
 						'',
 						'Top Repositories:',
 						...stats.repos.slice(0, 3).map(repo => 
-							`   ${repo.name} - ${repo.stars} 🍴${repo.forks} (${repo.language})`
+							`   ${repo.name} - Stars: ${repo.stars} | Forks: ${repo.forks} (${repo.language})`
 						),
 					];				} catch {
 					setIsLoading(false);
-					return [' Failed to fetch GitHub stats. Please try again later.'];
+					return ['[ERROR] Failed to fetch GitHub stats. Please try again later.'];
 				}
 			} else {
 				return [
-					'📊 GitHub Statistics:',
+					'[GITHUB STATISTICS]',
 					'',
 					`Username: ${githubStats.user.name} (@${githubStats.user.login})`,
 					`Public Repositories: ${githubStats.user.public_repos}`,
@@ -508,7 +543,7 @@ export default function InteractiveTerminal({ isPopup = false }: InteractiveTerm
 						transition={{ delay: 0.2 }}
 						className="mt-6 flex flex-wrap gap-2 justify-center"
 					>
-						{['help', 'about', 'skills', 'github', 'projects', 'metrics', 'joke', 'matrix'].map((cmd) => (
+						{['help', 'about', 'skills', 'experience', 'projects', 'contact', 'resume', 'joke'].map((cmd) => (
 							<button
 								key={cmd}
 								onClick={() => executeCommand(cmd)}

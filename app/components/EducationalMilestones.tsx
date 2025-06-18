@@ -107,27 +107,10 @@ export default function EducationalMilestones() {
 			default: return { text: 'Unknown', bg: 'bg-gray-500/20 text-gray-400 border-gray-500/30' };
 		}
 	};
-
 	return (
-		<section ref={sectionRef} className="py-12 sm:py-20 px-4" data-section="education">
-			<div className="max-w-6xl mx-auto">
-				<motion.div
-					initial={{ opacity: 0, y: 20 }}
-					whileInView={{ opacity: 1, y: 0 }}
-					viewport={{ once: true }}
-					className="text-center mb-12"
-				>
-					<h2 className="text-3xl sm:text-4xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent">
-						Educational Milestones
-					</h2>
-					<p className="text-gray-400 max-w-2xl mx-auto">
-						{/* My academic journey from foundational computer science to advanced AI research,  */}
-						{/* building expertise in machine learning and practical applications. */}
-					</p>
-				</motion.div>
-
-				{/* Timeline */}
-				<div className="relative">
+		<div className="max-w-6xl mx-auto">
+			{/* Timeline */}
+			<div className="relative">
 					{/* Timeline Line */}
 					<div className="absolute left-4 sm:left-1/2 transform sm:-translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-purple-500 via-blue-500 to-green-500" />
 
@@ -358,10 +341,8 @@ export default function EducationalMilestones() {
 						<div className="bg-gray-900/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
 							<div className="text-3xl font-bold text-green-400 mb-2">5</div>
 							<div className="text-gray-400">Academic Projects</div>
-						</div>
-					</div>
+						</div>					</div>
 				</motion.div> */}
-			</div>
-		</section>
+		</div>
 	);
 }
