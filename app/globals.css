@@ -473,3 +473,39 @@ body {
 		transition: none !important;
 	}
 }
+
+/* Mobile device specific optimizations */
+body.mobile-device {
+	/* Prevent overscroll bounce on iOS */
+	overflow-x: hidden;
+	-webkit-overflow-scrolling: touch;
+}
+
+body.touch-device {
+	/* Optimize for touch interactions */
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/* Allow text selection for content areas on touch devices */
+body.touch-device p,
+body.touch-device h1,
+body.touch-device h2,
+body.touch-device h3,
+body.touch-device .selectable-text {
+	-webkit-user-select: text;
+	-moz-user-select: text;
+	-ms-user-select: text;
+	user-select: text;
+}
+
+/* Use viewport height units that account for mobile browsers */
+@media (max-width: 768px) {
+	.min-h-screen {
+		min-height: 100vh; /* Fallback */
+		min-height: calc(var(--vh, 1vh) * 100);
+	}
+}
