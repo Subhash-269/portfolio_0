@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface EducationMilestone {
@@ -97,7 +97,6 @@ const educationData: EducationMilestone[] = [
 
 export default function EducationalMilestones() {
     const [selectedMilestone, setSelectedMilestone] = useState<number | null>(null);
-    const sectionRef = useRef<HTMLDivElement>(null);
 
 	const getStatusBadge = (status: string) => {
 		switch (status) {

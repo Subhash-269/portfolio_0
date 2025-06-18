@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface WorkExperience {
@@ -110,7 +110,6 @@ const workExperienceData: WorkExperience[] = [
 
 export default function WorkExperience() {
     const [selectedExperience, setSelectedExperience] = useState<number | null>(null);
-    const sectionRef = useRef<HTMLDivElement>(null);
 
     const getStatusBadge = (status: string) => {
         switch (status) {
