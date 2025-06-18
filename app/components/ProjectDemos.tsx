@@ -2,6 +2,7 @@
 
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 
 interface Project {
     id: string;
@@ -17,6 +18,20 @@ interface Project {
         value: string;
         color: string;
     }[];
+}
+
+interface ClassificationResult {
+    class: string;
+    confidence: string;
+    allPredictions: {
+        class: string;
+        confidence: string;
+    }[];
+}
+
+interface PredictionItem {
+    class: string;
+    confidence: string;
 }
 
 const projects: Project[] = [
@@ -89,7 +104,7 @@ export default function ProjectDemos() {
     const [selectedProject, setSelectedProject] = useState<string | null>(null);
     const [uploadedImage, setUploadedImage] = useState<string | null>(null);
     const [isAnalyzing, setIsAnalyzing] = useState(false);
-    const [analysisResult, setAnalysisResult] = useState<any>(null);
+    const [analysisResult, setAnalysisResult] = useState<ClassificationResult | null>(null);
     const [cartItems, setCartItems] = useState<string[]>(['iPhone 15', 'MacBook Pro', 'AirPods']);
     const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -161,14 +176,16 @@ export default function ProjectDemos() {
                         </div>
 
                         {uploadedImage && (
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">                                <div>
                                     <h4 className="text-lg font-semibold mb-3">Uploaded Image</h4>
-                                    <img 
-                                        src={uploadedImage} 
-                                        alt="Uploaded" 
-                                        className="w-full h-64 object-cover rounded-lg border border-gray-700"
-                                    />
+                                    <div className="relative w-full h-64">
+                                        <Image 
+                                            src={uploadedImage} 
+                                            alt="Uploaded image for classification" 
+                                            fill
+                                            className="object-cover rounded-lg border border-gray-700"
+                                        />
+                                    </div>
                                 </div>
                                 <div>
                                     <h4 className="text-lg font-semibold mb-3">Classification Results</h4>
@@ -186,10 +203,9 @@ export default function ProjectDemos() {
                                                 <div className="text-gray-300">
                                                     Confidence: {analysisResult.confidence}%
                                                 </div>
-                                            </div>
-                                            <div className="space-y-2">
+                                            </div>                                            <div className="space-y-2">
                                                 <h5 className="font-semibold">Top Predictions:</h5>
-                                                {analysisResult.allPredictions.slice(0, 5).map((pred: any, idx: number) => (
+                                                {analysisResult.allPredictions.slice(0, 5).map((pred: PredictionItem, idx: number) => (
                                                     <div key={idx} className="flex justify-between bg-gray-800/50 p-2 rounded">
                                                         <span>{pred.class}</span>
                                                         <span>{pred.confidence}%</span>
