@@ -121,8 +121,8 @@ export default function EducationalMilestones() {
 						Educational Milestones
 					</h2>
 					<p className="text-gray-400 max-w-2xl mx-auto">
-						My academic journey from foundational computer science to advanced AI research, 
-						building expertise in machine learning and practical applications.
+						{/* My academic journey from foundational computer science to advanced AI research,  */}
+						{/* building expertise in machine learning and practical applications. */}
 					</p>
 				</motion.div>
 
