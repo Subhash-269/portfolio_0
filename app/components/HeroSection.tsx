@@ -27,7 +27,7 @@ export default function HeroSection() {
 						<h1 className="text-4xl md:text-5xl font-bold mt-2 mb-4">Venkat Neelraj Nitta</h1>
 						<p className="text-gray-400 mb-2">Graduate Student at Northeastern University</p>
 						<p className="text-green-500">$ whoami.info</p>
-						<p className="text-gray-400 mb-4">I'm a researcher and engineer with a background in software development, data science, and AI, currently pursuing a Master's in Applied Machine Intelligence at NEU.</p>
+						<p className="text-gray-400 mb-4">I am a researcher and engineer with a background in software development, data science, and AI, currently pursuing a Master's in Applied Machine Intelligence at NEU.</p>
 						<p className="text-green-500">$ whoami.skills</p>
 						<div className="flex flex-wrap gap-2 mt-2">
 							<span className="px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20">Python</span>
