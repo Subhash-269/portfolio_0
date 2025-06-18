@@ -24,22 +24,29 @@ export default function InteractiveTerminal({ isPopup = false, onClose }: Intera
 	const [githubStats, setGithubStats] = useState<GitHubStats | null>(null);
 	const [isLoading, setIsLoading] = useState(false);
 	const [isTyping, setIsTyping] = useState(true);
+	const nextIdRef = useRef(1); // Use ref for immediate access to current ID
 	const inputRef = useRef<HTMLInputElement>(null);
 	const terminalRef = useRef<HTMLDivElement>(null);
 
-	// Typing effect for initial messages
+	// Helper function to get next unique ID
+	const getNextId = () => {
+		const id = nextIdRef.current;
+		nextIdRef.current += 1;
+		return id;
+	};	// Typing effect for initial messages
 	useEffect(() => {
 		const welcomeMessages = [
 			'Welcome to Venkat\'s Portfolio Terminal v2.0',
 			'Initializing interactive environment...',
-			'Loading GitHub integration... ✓',
-			'Loading live metrics... ✓',
+			// 'Loading GitHub integration... ✓',
+			// 'Loading live metrics... ✓',
 			'System ready! Type "help" to see available commands',
 		];
 
 		let messageIndex = 0;
 		let charIndex = 0;
 		let currentMessage = '';
+		let currentLineId = getNextId(); // Get ID for the current line being typed
 
 		const typeMessage = () => {
 			if (messageIndex < welcomeMessages.length) {
@@ -47,15 +54,19 @@ export default function InteractiveTerminal({ isPopup = false, onClose }: Intera
 					currentMessage += welcomeMessages[messageIndex][charIndex];
 					setLines(prev => {
 						const newLines = [...prev];
-						if (newLines.length === messageIndex + 1) {
-							newLines[messageIndex] = {
-								id: messageIndex + 1,
+						const existingLineIndex = newLines.findIndex(line => line.id === currentLineId);
+						
+						if (existingLineIndex !== -1) {
+							// Update existing line
+							newLines[existingLineIndex] = {
+								id: currentLineId,
 								type: 'output',
 								content: currentMessage
 							};
 						} else {
+							// Add new line
 							newLines.push({
-								id: messageIndex + 1,
+								id: currentLineId,
 								type: 'output',
 								content: currentMessage
 							});
@@ -65,9 +76,12 @@ export default function InteractiveTerminal({ isPopup = false, onClose }: Intera
 					charIndex++;
 					setTimeout(typeMessage, 30);
 				} else {
+					// Move to next message
 					messageIndex++;
 					charIndex = 0;
 					currentMessage = '';
+					// Get new ID for next line
+					currentLineId = getNextId();
 					setTimeout(typeMessage, 500);
 				}
 			} else {
@@ -114,33 +128,43 @@ export default function InteractiveTerminal({ isPopup = false, onClose }: Intera
 			'  github        - GitHub statistics',
 			'  contact       - Get contact information',
 			'  resume        - Download resume',
-			'  metrics       - Live portfolio metrics',
+			// '  metrics       - Live portfolio metrics',
 			'  clear         - Clear terminal',
 			'  history       - Show command history',
 			'  whoami        - Display user info',
 			'  date          - Show current date/time',
 			'  weather       - Current weather info',
 			'  joke          - Tell a programming joke',
-			'  matrix        - Enter the Matrix...',
-		],
-		about: () => [
-			'👨‍💻 Venkat Neelraj Nitta',
-			'🎓 Graduate Student at Northeastern University',
-			'🔬 Researcher & Engineer specializing in:',
-			'   • Applied Machine Intelligence',
-			'   • Data Science & AI',
-			'   • Software Development',
-			'   • Computer Vision & NLP',
+			// '  matrix        - Enter the Matrix...',
+		],		about: () => [
+			'👨‍💻 Hey there! I\'m Venkat Neelraj Nitta',
+			'',
+			'Originally from the beautiful coastal city of Vizag, now calling',
+			'   Boston home via Hyderabad - quite the journey for someone who',
+			'   loves driving! ',
+			'',
+			'When I\'m not training neural networks, you\'ll find me:',
+			'   • Dominating in Marvel Rivals (currently obsessed!)',
+			'   • Perfecting my curry recipes in the kitchen ',
+			'   • Catching the latest cricket match',
+			'   • Cruising around Boston (still figuring out these winters)',
 			'',
 			'Currently pursuing Master\'s in Applied Machine Intelligence at NEU',
+			'   because I wanted to deep dive into the AI industry',
+			// '   the revolution that\'s reshaping our world.',
 			'',
-			'🌟 Passionate about building AI solutions that make a real impact!',
+			// 'Always coding with good music in the background, always learning',
+			// '   something new, and always excited about building AI solutions',
+			// '   that make a real impact!',
+			'',
+			// 'Fun fact: I\'m still discovering my unique hobbies, but so far',
+			// '   the freedom of driving tops the list! 🛣️',
 		],
 		skills: () => [
-			'🛠️ Technical Skills:',
+			' Technical Skills:',
 			'',
 			'Languages:     Python ████████████ 95%',
-			'               JavaScript ███████████ 85%',
+			// '               JavaScript ███████████ 85%',
 			'               SQL ██████████ 80%',
 			'               R ████████ 70%',
 			'',
@@ -150,26 +174,27 @@ export default function InteractiveTerminal({ isPopup = false, onClose }: Intera
 			'               NLP ██████████ 80%',
 			'',
 			'Web:           FastAPI ████████████ 90%',
-			'               React ██████████ 75%',
-			'               Next.js █████████ 70%',
+			// '               React ██████████ 75%',
+			// '               Next.js █████████ 70%',
 			'',
 			'Cloud:         AWS ████████ 65%',
 			'               Docker ██████████ 80%',
-			'               Kubernetes ██████ 50%',
+			// '               Kubernetes ██████ 50%',
 		],
 		history: () => commandHistory.length > 0 ? [
 			'Command History:',
 			...commandHistory.slice(-10).map((cmd, i) => `${commandHistory.length - 10 + i + 1}. ${cmd}`)
 		] : ['No command history yet. Start typing some commands!'],
 		weather: () => [
-			'🌤️ Weather in Boston, MA:',
+			'Weather in Boston, MA:',
 			'',
 			`Temperature: ${Math.floor(Math.random() * 30) + 20}°F`,
 			`Condition: ${['Sunny', 'Cloudy', 'Rainy', 'Snow'][Math.floor(Math.random() * 4)]}`,
 			`Humidity: ${Math.floor(Math.random() * 40) + 40}%`,
 			`Wind: ${Math.floor(Math.random() * 15) + 5} mph`,
 			'',
-			'Perfect coding weather! ☕',
+            'It doesnt feel like, cuz it not true! 😄',
+			// 'Perfect coding weather! ☕',
 		],
 		joke: () => {
 			const jokes = [
@@ -209,7 +234,7 @@ export default function InteractiveTerminal({ isPopup = false, onClose }: Intera
 			'4. Image Classification Optimization',
 			'   └ Enhanced ResNet-18 performance via quantization',
 			'',
-			'Type "project <number>" for details or visit the Projects section',
+			// 'Type "project <number>" for details or visit the Projects section',
 		],
 		contact: () => [
 			'📧 Contact Information:',
@@ -251,23 +276,23 @@ export default function InteractiveTerminal({ isPopup = false, onClose }: Intera
 						`Followers: ${stats.user.followers}`,
 						`Following: ${stats.user.following}`,
 						'',
-						'🔥 Top Languages:',
+						'Top Languages:',
 						...Object.entries(stats.languages)
 							.sort(([,a], [,b]) => b - a)
 							.slice(0, 5)
 							.map(([lang, count]) => `   ${lang}: ${count} repos`),
 						'',
-						'� Recent Activity:',
+						' Recent Activity:',
 						...stats.recentActivity.slice(0, 3).map(activity => `   • ${activity}`),
 						'',
-						'🏆 Top Repositories:',
+						'Top Repositories:',
 						...stats.repos.slice(0, 3).map(repo => 
-							`   ${repo.name} - ⭐${repo.stars} 🍴${repo.forks} (${repo.language})`
+							`   ${repo.name} - ${repo.stars} 🍴${repo.forks} (${repo.language})`
 						),
 					];
 				} catch (error) {
 					setIsLoading(false);
-					return ['❌ Failed to fetch GitHub stats. Please try again later.'];
+					return [' Failed to fetch GitHub stats. Please try again later.'];
 				}
 			} else {
 				return [
@@ -280,7 +305,7 @@ export default function InteractiveTerminal({ isPopup = false, onClose }: Intera
 					`Followers: ${githubStats.user.followers}`,
 					`Following: ${githubStats.user.following}`,
 					'',
-					'🔥 Top Languages:',
+					'Top Languages:',
 					...Object.entries(githubStats.languages)
 						.sort(([,a], [,b]) => b - a)
 						.slice(0, 5)
@@ -289,7 +314,7 @@ export default function InteractiveTerminal({ isPopup = false, onClose }: Intera
 			}
 		},
 		metrics: () => [
-			'📈 Live Portfolio Metrics:',
+			'Live Portfolio Metrics:',
 			'',
 			`Page Views: ${Math.floor(Math.random() * 1000) + 500}`,
 			`Unique Visitors: ${Math.floor(Math.random() * 200) + 100}`,
@@ -298,17 +323,14 @@ export default function InteractiveTerminal({ isPopup = false, onClose }: Intera
 			`Bounce Rate: ${Math.floor(Math.random() * 30) + 15}%`,
 			`Top Referrer: GitHub`,
 			'',
-			'📍 Geographic Distribution:',
+			'Geographic Distribution:',
 			'   🇺🇸 USA: 45%',
 			'   🇮🇳 India: 25%',
 			'   🇨🇦 Canada: 15%',
 			'   🌍 Others: 15%',
 		],
-	};
-
-	const executeCommand = async (cmd: string) => {
+	};	const executeCommand = async (cmd: string) => {
 		const trimmedCmd = cmd.trim().toLowerCase();
-		const newId = lines.length + 1;
 		
 		// Add command to history
 		if (cmd.trim()) {
@@ -317,7 +339,7 @@ export default function InteractiveTerminal({ isPopup = false, onClose }: Intera
 
 		// Add command line
 		setLines(prev => [...prev, { 
-			id: newId, 
+			id: getNextId(), 
 			type: 'command', 
 			content: `$ ${cmd}`,
 			timestamp: new Date()
@@ -326,9 +348,9 @@ export default function InteractiveTerminal({ isPopup = false, onClose }: Intera
 		// Handle loading state for async commands
 		if (trimmedCmd === 'github' && !githubStats) {
 			setLines(prev => [...prev, { 
-				id: newId + 1, 
+				id: getNextId(), 
 				type: 'output', 
-				content: '🔄 Fetching GitHub statistics...'
+				content: 'Fetching GitHub statistics...'
 			}]);
 		}
 
@@ -337,8 +359,8 @@ export default function InteractiveTerminal({ isPopup = false, onClose }: Intera
 			try {
 				const result = await commands[trimmedCmd as keyof typeof commands]();
 				if (result && result.length > 0) {
-					const outputLines = result.map((line, index) => ({
-						id: newId + index + 2,
+					const outputLines = result.map((line) => ({
+						id: getNextId(),
 						type: 'output' as const,
 						content: line
 					}));
@@ -346,14 +368,14 @@ export default function InteractiveTerminal({ isPopup = false, onClose }: Intera
 				}
 			} catch (error) {
 				setLines(prev => [...prev, { 
-					id: newId + 1, 
+					id: getNextId(), 
 					type: 'error', 
 					content: `Error executing command: ${error}`
 				}]);
 			}
 		} else {
 			setLines(prev => [...prev, { 
-				id: newId + 1, 
+				id: getNextId(), 
 				type: 'error', 
 				content: `Command not found: ${cmd}. Type "help" for available commands.`
 			}]);

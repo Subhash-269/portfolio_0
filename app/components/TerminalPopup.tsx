@@ -73,29 +73,26 @@ export default function TerminalPopup() {
 							exit={{ opacity: 0, scale: 0.9, y: 20 }}
 							transition={{ type: "spring", damping: 25, stiffness: 300 }}
 							className="fixed inset-4 sm:inset-8 md:inset-16 lg:inset-20 z-50 flex flex-col bg-black/95 backdrop-blur-lg rounded-lg border border-green-500/30 shadow-2xl overflow-hidden"
-						>
-							{/* Terminal Header */}
+						>							{/* Terminal Header */}
 							<div className="flex items-center justify-between px-4 py-3 bg-gray-800/50 border-b border-gray-700">
 								<div className="flex items-center gap-3">
 									<div className="flex items-center gap-2">
-										<div className="w-3 h-3 rounded-full bg-red-500" />
-										<div className="w-3 h-3 rounded-full bg-yellow-500" />
-										<div className="w-3 h-3 rounded-full bg-green-500" />
+										<button
+											onClick={() => setIsOpen(false)}
+											className="w-3 h-3 rounded-full bg-red-500 hover:bg-red-400 transition-colors cursor-pointer relative group"
+											title="Close terminal"
+										>
+											{/* Close icon that appears on hover */}
+											<span className="absolute inset-0 flex items-center justify-center text-red-900 text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity">
+												×
+											</span>
+										</button>
+										<div className="w-3 h-3 rounded-full bg-yellow-500 hover:bg-yellow-400 transition-colors cursor-pointer" title="Minimize" />
+										<div className="w-3 h-3 rounded-full bg-green-500 hover:bg-green-400 transition-colors cursor-pointer" title="Maximize" />
 									</div>
 									<span className="text-sm text-gray-400 font-mono">
 										venkat@portfolio:~
 									</span>
-								</div>
-								
-								<div className="flex items-center gap-2">
-									<button
-										onClick={() => setIsOpen(false)}
-										className="w-6 h-6 flex items-center justify-center text-gray-400 hover:text-white transition-colors rounded"
-									>
-										<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-											<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-										</svg>
-									</button>
 								</div>
 							</div>
 
