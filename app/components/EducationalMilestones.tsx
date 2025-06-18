@@ -96,35 +96,8 @@ const educationData: EducationMilestone[] = [
 ];
 
 export default function EducationalMilestones() {
-	const [selectedMilestone, setSelectedMilestone] = useState<number | null>(null);
-	const [isVisible, setIsVisible] = useState(false);
-	const sectionRef = useRef<HTMLDivElement>(null);
-
-	useEffect(() => {
-		const observer = new IntersectionObserver(
-			([entry]) => {
-				if (entry.isIntersecting) {
-					setIsVisible(true);
-				}
-			},
-			{ threshold: 0.1 }
-		);
-
-		if (sectionRef.current) {
-			observer.observe(sectionRef.current);
-		}
-
-		return () => observer.disconnect();
-	}, []);
-
-	const getStatusColor = (status: string) => {
-		switch (status) {
-			case 'completed': return 'text-green-400';
-			case 'in-progress': return 'text-blue-400';
-			case 'upcoming': return 'text-orange-400';
-			default: return 'text-gray-400';
-		}
-	};
+    const [selectedMilestone, setSelectedMilestone] = useState<number | null>(null);
+    const sectionRef = useRef<HTMLDivElement>(null);
 
 	const getStatusBadge = (status: string) => {
 		switch (status) {

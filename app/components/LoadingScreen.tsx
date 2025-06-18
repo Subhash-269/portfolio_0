@@ -46,7 +46,6 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
 		// { text: '> System ready!', delay: 800 },
 		{ text: '> Welcome to Venkat\'s Digital Space 🚀', delay: 1000 }
 	];
-
 	useEffect(() => {
 		if (currentStep < bootSequence.length) {
 			const timer = setTimeout(() => {
@@ -65,7 +64,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
 
 			return () => clearTimeout(timer);
 		}
-	}, [currentStep, onComplete]);
+	}, [currentStep, onComplete, bootSequence]);
 
 	return (
 		<AnimatePresence>
