@@ -110,3 +110,147 @@ body {
 * {
 	transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
+
+/* Typing Effect Animation */
+.typing-effect {
+	overflow: hidden;
+	border-right: 2px solid #10b981;
+	white-space: nowrap;
+	animation: typing 2s steps(20, end), blink-caret 1s step-end infinite;
+}
+
+@keyframes typing {
+	from { width: 0 }
+	to { width: 100% }
+}
+
+@keyframes blink-caret {
+	from, to { border-color: transparent }
+	50% { border-color: #10b981 }
+}
+
+/* Enhanced Input Focus Effects */
+.contact-input:focus {
+	box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1), 0 0 20px rgba(34, 197, 94, 0.2);
+	transform: translateY(-1px);
+}
+
+.contact-input:focus::placeholder {
+	opacity: 0.7;
+	transform: translateX(4px);
+}
+
+/* Glassmorphism Enhancement */
+.glass-effect {
+	backdrop-filter: blur(20px);
+	-webkit-backdrop-filter: blur(20px);
+	background: rgba(0, 0, 0, 0.3);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Gradient Text Animation */
+.gradient-text-animated {
+	background: linear-gradient(45deg, #10b981, #3b82f6, #8b5cf6, #10b981);
+	background-size: 300% 300%;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+	0%, 100% { background-position: 0% 50% }
+	50% { background-position: 100% 50% }
+}
+
+/* Enhanced Button Hover Effects */
+.contact-button {
+	position: relative;
+	overflow: hidden;
+	transition: all 0.3s ease;
+}
+
+.contact-button::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+	transition: left 0.5s ease;
+}
+
+.contact-button:hover::before {
+	left: 100%;
+}
+
+/* Loading Spinner Enhancement */
+.spinner {
+	border: 2px solid rgba(255, 255, 255, 0.3);
+	border-radius: 50%;
+	border-top: 2px solid #ffffff;
+	width: 20px;
+	height: 20px;
+	animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg) }
+	100% { transform: rotate(360deg) }
+}
+
+/* Enhanced Terminal Window */
+.terminal-header {
+	background: linear-gradient(135deg, #1f2937, #374151);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.terminal-dot {
+	box-shadow: 0 0 10px currentColor;
+}
+
+/* Form Validation States */
+.input-error {
+	border-color: #ef4444 !important;
+	box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1) !important;
+}
+
+.input-success {
+	border-color: #10b981 !important;
+	box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1) !important;
+}
+
+/* Enhanced Social Links */
+.social-link {
+	position: relative;
+	overflow: hidden;
+}
+
+.social-link::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: linear-gradient(45deg, transparent, rgba(16, 185, 129, 0.1), transparent);
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+
+.social-link:hover::after {
+	opacity: 1;
+}
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+	.typing-effect {
+		animation: none;
+		border-right: none;
+	}
+	
+	.contact-input:focus {
+		transform: none;
+	}
+}
