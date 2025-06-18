@@ -2,16 +2,25 @@
 
 import { motion } from 'framer-motion';
 import { useTheme } from '../contexts/ThemeContext';
+import { useMobile } from '../hooks/useMobile';
 
 export default function ThemeToggle() {
     const { theme, toggleTheme } = useTheme();
+    const mobile = useMobile();
 
     return (
         <motion.button
             onClick={toggleTheme}
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: mobile.isTouchDevice ? 1 : 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="fixed top-6 right-6 z-50 p-3 rounded-full bg-gray-800/80 dark:bg-gray-200/80 backdrop-blur-sm border border-gray-600/50 dark:border-gray-400/50 transition-all duration-300 hover:bg-gray-700/80 dark:hover:bg-gray-300/80"
+            className={`fixed top-6 right-6 z-50 p-3 rounded-full bg-gray-800/80 dark:bg-gray-200/80 backdrop-blur-sm border border-gray-600/50 dark:border-gray-400/50 transition-all duration-300 hover:bg-gray-700/80 dark:hover:bg-gray-300/80 ${
+                mobile.isTouchDevice ? 'min-h-[44px] min-w-[44px]' : ''
+            }`}
+            style={{
+                WebkitTapHighlightColor: 'transparent',
+                WebkitUserSelect: 'none',
+                userSelect: 'none'
+            }}
             title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
         >
             <motion.div

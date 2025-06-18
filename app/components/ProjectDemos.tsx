@@ -3,6 +3,7 @@
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import { useMobile } from '../hooks/useMobile';
 
 interface Project {
     id: string;
@@ -107,6 +108,7 @@ export default function ProjectDemos() {
     const [analysisResult, setAnalysisResult] = useState<ClassificationResult | null>(null);
     const [cartItems, setCartItems] = useState<string[]>(['iPhone 15', 'MacBook Pro', 'AirPods']);
     const fileInputRef = useRef<HTMLInputElement>(null);
+    const isMobile = useMobile();
 
     // Simulate image classification
     const handleImageUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -165,10 +167,16 @@ export default function ProjectDemos() {
                                 accept="image/*"
                                 onChange={handleImageUpload}
                                 className="hidden"
-                            />
-                            <button
+                            />                            <button
                                 onClick={() => fileInputRef.current?.click()}
-                                className="px-6 py-3 bg-blue-500 hover:bg-blue-600 rounded-lg transition-colors"
+                                className={`px-6 py-3 bg-blue-500 hover:bg-blue-600 rounded-lg transition-all duration-300 active:scale-95 ${
+                                    isMobile.isTouchDevice ? 'min-h-[44px] text-base' : ''
+                                }`}
+                                style={{
+                                    WebkitTapHighlightColor: 'transparent',
+                                    WebkitUserSelect: 'none',
+                                    userSelect: 'none'
+                                }}
                             >
                                 Upload Image for Classification
                             </button>
@@ -336,7 +344,11 @@ export default function ProjectDemos() {
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+                <div className={`grid gap-6 ${
+                    isMobile.isMobile 
+                        ? 'grid-cols-1' 
+                        : 'grid-cols-1 lg:grid-cols-2 xl:grid-cols-3'
+                }`}>
                     {projects.map((project, index) => (
                         <motion.div
                             key={project.id}
@@ -400,12 +412,17 @@ export default function ProjectDemos() {
                                         {tech}
                                     </span>
                                 ))}
-                            </div>
-
-                            {/* Demo Button */}
+                            </div>                            {/* Demo Button */}
                             <button
                                 onClick={() => setSelectedProject(selectedProject === project.id ? null : project.id)}
-                                className="w-full px-4 py-2 bg-blue-500 hover:bg-blue-600 rounded-lg transition-colors font-semibold"
+                                className={`w-full px-4 py-3 bg-blue-500 hover:bg-blue-600 rounded-lg transition-all duration-300 font-semibold active:scale-95 ${
+                                    isMobile.isTouchDevice ? 'min-h-[44px] text-base' : ''
+                                }`}
+                                style={{
+                                    WebkitTapHighlightColor: 'transparent',
+                                    WebkitUserSelect: 'none',
+                                    userSelect: 'none'
+                                }}
                             >
                                 {selectedProject === project.id ? 'Hide Demo' : 'Try Interactive Demo'}
                             </button>
@@ -422,13 +439,14 @@ export default function ProjectDemos() {
                             exit={{ opacity: 0 }}
                             className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4"
                             onClick={() => setSelectedProject(null)}
-                        >
-                            <motion.div
+                        >                            <motion.div
                                 initial={{ opacity: 0, scale: 0.9, y: 20 }}
                                 animate={{ opacity: 1, scale: 1, y: 0 }}
                                 exit={{ opacity: 0, scale: 0.9, y: 20 }}
                                 onClick={(e) => e.stopPropagation()}
-                                className="bg-gray-900/95 backdrop-blur-lg border border-gray-700 rounded-lg p-6 max-w-5xl w-full max-h-[90vh] overflow-y-auto"
+                                className={`bg-gray-900/95 backdrop-blur-lg border border-gray-700 rounded-lg max-w-5xl w-full max-h-[90vh] overflow-y-auto ${
+                                    isMobile.isMobile ? 'p-4 mx-2' : 'p-6'
+                                }`}
                             >
                                 {(() => {
                                     const project = projects.find(p => p.id === selectedProject);
@@ -442,10 +460,16 @@ export default function ProjectDemos() {
                                                         {project.title}
                                                     </h3>
                                                     <p className="text-gray-400">{project.description}</p>
-                                                </div>
-                                                <button
+                                                </div>                                                <button
                                                     onClick={() => setSelectedProject(null)}
-                                                    className="text-gray-400 hover:text-white transition-colors"
+                                                    className={`text-gray-400 hover:text-white transition-all duration-300 active:scale-95 ${
+                                                        isMobile.isTouchDevice ? 'min-h-[44px] min-w-[44px] flex items-center justify-center' : ''
+                                                    }`}
+                                                    style={{
+                                                        WebkitTapHighlightColor: 'transparent',
+                                                        WebkitUserSelect: 'none',
+                                                        userSelect: 'none'
+                                                    }}
                                                 >
                                                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
