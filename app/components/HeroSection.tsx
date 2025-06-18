@@ -1,8 +1,23 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 
-export default function HeroSection() {	return (
+export default function HeroSection() {
+	const [showUpArrow, setShowUpArrow] = useState(false);
+
+	useEffect(() => {
+		const handleScroll = () => {
+			// Show up arrow when user scrolls past the hero section
+			const heroHeight = window.innerHeight;
+			setShowUpArrow(window.scrollY > heroHeight * 0.8);
+		};
+
+		window.addEventListener('scroll', handleScroll);
+		return () => window.removeEventListener('scroll', handleScroll);
+	}, []);
+
+	return (
 		<section className="relative min-h-screen flex items-center justify-center overflow-hidden">
 			{/* Top Navigation Bar */}
 			<motion.nav
@@ -128,9 +143,40 @@ export default function HeroSection() {	return (
 							strokeWidth={2} 
 							d="M19 14l-7 7m0 0l-7-7m7 7V3" 
 						/>
-					</svg>
-				</motion.button>
+					</svg>				</motion.button>
 			</motion.div>
+
+			{/* Up Arrow - Fixed position for global access */}
+			{showUpArrow && (
+				<motion.div
+					initial={{ opacity: 0, scale: 0.8 }}
+					animate={{ opacity: 1, scale: 1 }}
+					exit={{ opacity: 0, scale: 0.8 }}
+					transition={{ duration: 0.3 }}
+					className="fixed bottom-4 sm:bottom-8 right-4 sm:right-8 z-50"
+				>
+					<motion.button
+						onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+						whileHover={{ scale: 1.1 }}
+						whileTap={{ scale: 0.9 }}
+						className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-green-500/20 hover:bg-green-500/30 text-green-400 rounded-full border border-green-500/30 backdrop-blur-lg shadow-lg transition-colors group"
+					>
+						<svg 
+							className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-y-[-2px] transition-transform" 
+							fill="none" 
+							stroke="currentColor" 
+							viewBox="0 0 24 24"
+						>
+							<path 
+								strokeLinecap="round" 
+								strokeLinejoin="round" 
+								strokeWidth={2} 
+								d="M5 10l7-7m0 0l7 7m-7-7v18" 
+							/>
+						</svg>
+					</motion.button>
+				</motion.div>
+			)}
 		</section>
 	);
 }
