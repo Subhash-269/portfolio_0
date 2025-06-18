@@ -46,7 +46,19 @@ export default function HeroSection() {
 						>
 							<span className="hidden sm:inline">Terminal</span>
 							<span className="sm:hidden">Term</span>
-							<span className="text-xs opacity-60">[`]</span>
+							<span className="text-xs opacity-60">[`]</span>						</motion.button>
+						
+						<motion.button
+							whileHover={{ scale: 1.05, color: '#10b981' }}
+							whileTap={{ scale: 0.95 }}
+							onClick={() => {
+								const skillsSection = document.querySelector('[data-section="skills"]');
+								skillsSection?.scrollIntoView({ behavior: 'smooth' });
+							}}
+							className="text-gray-300 hover:text-green-400 transition-colors font-mono text-xs sm:text-sm"
+						>
+							<span className="hidden sm:inline">Skills & Tech</span>
+							<span className="sm:hidden">Skills</span>
 						</motion.button>
 						
 						<motion.button

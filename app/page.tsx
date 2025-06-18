@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import LoadingScreen from './components/LoadingScreen';
 import HeroSection from './components/HeroSection';
+import EducationalMilestones from './components/EducationalMilestones';
+import InteractiveSkills from './components/InteractiveSkills';
 import SystemArchitecture from './components/SystemArchitecture';
 import TechnicalMetrics from './components/TechnicalMetrics';
 import ContactSection from './components/ContactSection';
@@ -17,9 +19,10 @@ export default function BackendPortfolio() {
 
 	return (
 		<>
-			{isLoading && <LoadingScreen onComplete={handleLoadingComplete} />}
-			<main className="min-h-screen bg-[#1A1A1A] text-white overflow-x-hidden">
+			{isLoading && <LoadingScreen onComplete={handleLoadingComplete} />}			<main className="min-h-screen bg-[#1A1A1A] text-white overflow-x-hidden">
 				<HeroSection />
+				<EducationalMilestones />
+				{/* <Interactive 	Skills /> */}
 				<SystemArchitecture />
 				<TechnicalMetrics />
 				<ContactSection />
