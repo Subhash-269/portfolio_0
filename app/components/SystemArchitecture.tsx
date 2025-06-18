@@ -34,7 +34,7 @@ const projects: Project[] = [
         metrics: [
             { label: 'Time Saved', value: '70%', color: 'text-green-400' },
             { label: 'Cost Reduction', value: '25%', color: 'text-blue-400' },
-            { label: 'Vendors', value: '50+', color: 'text-purple-400' }
+            // { label: 'Vendors', value: '50+', color: 'text-purple-400' }
         ]
     },
     {
