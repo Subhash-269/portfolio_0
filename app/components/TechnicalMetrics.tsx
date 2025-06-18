@@ -2,9 +2,8 @@
 
 import { motion } from 'framer-motion';
 
-export default function TechnicalMetrics() {
-	return (
-		<section className="py-20 px-4 bg-gray-900/50">
+export default function TechnicalMetrics() {	return (
+		<section data-section="achievements" className="py-20 px-4 bg-gray-900/50">
 			<div className="max-w-6xl mx-auto">
 				<motion.h2 initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-3xl font-bold mb-12 text-center">
 					Impact & Achievements

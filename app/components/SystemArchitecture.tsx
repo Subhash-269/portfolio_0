@@ -2,9 +2,8 @@
 
 import { motion } from 'framer-motion';
 
-export default function SystemArchitecture() {
-    return (
-        <section className="py-20 px-4">
+export default function SystemArchitecture() {    return (
+        <section data-section="projects" className="py-20 px-4">
             <div className="max-w-6xl mx-auto">
                 <motion.h2
                     initial={{ opacity: 0 }}
