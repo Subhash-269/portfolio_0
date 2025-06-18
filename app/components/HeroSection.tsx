@@ -9,18 +9,17 @@ export default function HeroSection() {	return (
 				initial={{ opacity: 0, y: -20 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.6 }}
-				className="absolute top-0 left-0 right-0 z-20 p-6"
-			>
+				className="absolute top-0 left-0 right-0 z-20 p-6"			>
 				<div className="max-w-6xl mx-auto flex justify-between items-center">
 					<motion.div
 						whileHover={{ scale: 1.05 }}
-						className="text-xl font-bold text-green-400 font-mono cursor-pointer"
+						className="text-lg sm:text-xl font-bold text-green-400 font-mono cursor-pointer"
 						onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
 					>
 						VN.dev
 					</motion.div>
 					
-					<div className="flex items-center gap-8">
+					<div className="flex items-center gap-2 sm:gap-4 md:gap-8">
 						<motion.button
 							whileHover={{ scale: 1.05, color: '#10b981' }}
 							whileTap={{ scale: 0.95 }}
@@ -28,21 +27,22 @@ export default function HeroSection() {	return (
 								const projectsSection = document.querySelector('[data-section="projects"]');
 								projectsSection?.scrollIntoView({ behavior: 'smooth' });
 							}}
-							className="text-gray-300 hover:text-green-400 transition-colors font-mono text-sm"
+							className="text-gray-300 hover:text-green-400 transition-colors font-mono text-xs sm:text-sm"
 						>
-							Projects & Hackathons
+							<span className="hidden sm:inline">Projects & Hackathons</span>
+							<span className="sm:hidden">Projects</span>
 						</motion.button>
 						
 						<motion.button
 							whileHover={{ scale: 1.05, color: '#10b981' }}
 							whileTap={{ scale: 0.95 }}
 							onClick={() => {
-								const achievementsSection = document.querySelector('[data-section="achievements"]');
-								achievementsSection?.scrollIntoView({ behavior: 'smooth' });
+								const achievementsSection = document.querySelector('[data-section="achievements"]');								achievementsSection?.scrollIntoView({ behavior: 'smooth' });
 							}}
-							className="text-gray-300 hover:text-green-400 transition-colors font-mono text-sm"
+							className="text-gray-300 hover:text-green-400 transition-colors font-mono text-xs sm:text-sm"
 						>
-							Impact & Achievements
+							<span className="hidden sm:inline">Impact & Achievements</span>
+							<span className="sm:hidden">Impact</span>
 						</motion.button>
 						
 						<motion.button
@@ -52,7 +52,7 @@ export default function HeroSection() {	return (
 								const contactSection = document.querySelector('[data-section="contact"]');
 								contactSection?.scrollIntoView({ behavior: 'smooth' });
 							}}
-							className="px-4 py-2 bg-green-500/10 text-green-400 rounded-lg border border-green-500/20 hover:bg-green-500/20 transition-colors font-mono text-sm"
+							className="px-2 sm:px-4 py-2 bg-green-500/10 text-green-400 rounded-lg border border-green-500/20 hover:bg-green-500/20 transition-colors font-mono text-xs sm:text-sm"
 						>
 							Contact
 						</motion.button>
@@ -63,14 +63,12 @@ export default function HeroSection() {	return (
 			<div className="absolute inset-0 bg-gradient-to-r from-green-600/20 to-blue-600/20 opacity-10" />
 			<div className="absolute inset-0">
 				<div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
-			</div>
-
-			<div className="relative z-10 max-w-4xl w-full mx-4">
+			</div>			<div className="relative z-10 max-w-4xl w-full mx-4 px-2 sm:px-0">
 				<motion.div
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.8 }}
-					className="bg-black/50 backdrop-blur-lg rounded-lg border border-gray-800 p-6"
+					className="bg-black/50 backdrop-blur-lg rounded-lg border border-gray-800 p-4 sm:p-6"
 				>
 					<div className="flex items-center gap-2 mb-4">
 						<div className="w-3 h-3 rounded-full bg-red-500" />
@@ -78,23 +76,22 @@ export default function HeroSection() {	return (
 						<div className="w-3 h-3 rounded-full bg-green-500" />
 					</div>
 					<div className="font-mono">
-						<p className="text-green-500">$ whoami</p>
-						<h1 className="text-4xl md:text-5xl font-bold mt-2 mb-4">Venkat Neelraj Nitta</h1>
-						<p className="text-gray-400 mb-2">Graduate Student at Northeastern University</p>
+						<p className="text-green-500">$ whoami</p>						<h1 className="text-2xl sm:text-4xl md:text-5xl font-bold mt-2 mb-4">Venkat Neelraj Nitta</h1>
+						<p className="text-sm sm:text-base text-gray-400 mb-2">Graduate Student at Northeastern University</p>
 						<p className="text-green-500">$ whoami.info</p>
-						<p className="text-gray-400 mb-4">I am a researcher and engineer with a background in software development, data science, and AI, currently pursuing a Master&#39;s in Applied Machine Intelligence at NEU.</p>
+						<p className="text-sm sm:text-base text-gray-400 mb-4">I am a researcher and engineer with a background in software development, data science, and AI, currently pursuing a Master&#39;s in Applied Machine Intelligence at NEU.</p>
 						<p className="text-green-500">$ whoami.skills</p>
-						<div className="flex flex-wrap gap-2 mt-2">
-							<span className="px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20">Python</span>
-							<span className="px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20">PyTorch</span>
-							<span className="px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20">FastAPI</span>
-							<span className="px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20">Docker</span>
-							<span className="px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20">SQL</span>
-							<span className="px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20">Linux</span>
-							<span className="px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20">Generative AI</span>
-							<span className="px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20">OpenCV</span>
-							<span className="px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20">NLP</span>
-							<span className="px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20">Data Engineering</span>
+						<div className="flex flex-wrap gap-1 sm:gap-2 mt-2">
+							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Python</span>
+							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">PyTorch</span>
+							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">FastAPI</span>
+							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Docker</span>
+							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">SQL</span>
+							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Linux</span>
+							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Generative AI</span>
+							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">OpenCV</span>
+							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">NLP</span>
+							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Data Engineering</span>
 						</div>
 					</div>				</motion.div>
 			</div>
