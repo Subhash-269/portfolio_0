@@ -24,7 +24,7 @@ export default function TechnicalMetrics() {
 								<h4 className="text-lg font-semibold text-gray-300">Conversational AI Chatbot</h4>
 								<ul className="mt-2 space-y-2 text-gray-400">
 									<li>• Reduced customer query resolution time from 10 days to minutes</li>
-									<li>• improving customer satisfaction by 78% through advanced NLP and machine learning techniques.</li>
+									<li>• Improved customer satisfaction by 78%.</li>
 									{/* <li>• Handles 2M requests/day</li> */}
 								</ul>
 							</motion.div>
@@ -36,9 +36,9 @@ export default function TechnicalMetrics() {
 							>
 								<h4 className="text-lg font-semibold text-gray-300">Cheque Processing Optimization</h4>
 								<ul className="mt-2 space-y-2 text-gray-400">
-									<li>• Achieved 100% key data extraction accuracy, reducing processing to 7 seconds per cheque.</li>
-									{/* <li>• Implemented efficient indexing strategy</li>
-									<li>• Reduced DB load by 45%</li> */}
+									<li>• Achieved 100% key data extraction accuracy.</li>
+									<li>• Reduced cheque processing time to 7s, improving efficiency by 40%.</li>
+									{/* <li>• Reduced DB load by 45%</li> */}
 								</ul>
 							</motion.div>
 						</div>
@@ -56,9 +56,9 @@ export default function TechnicalMetrics() {
 							>
 								<h4 className="text-lg font-semibold text-gray-300">Document Preprocessing</h4>
 								<ul className="mt-2 space-y-2 text-gray-400">
-									<li>• Accelerated invoice processing by 90%, achieving 60% cost savings with flawless OCR integration.</li>
-									{/* <li>• Implemented auto-scaling for 20+ services</li>
-									<li>• Zero-downtime deployments</li> */}
+									<li>• Improved invoice processing speed by 90%.</li>
+									{/* <li>• Implemented auto-scaling for 20+ services</li> */}
+									<li>• Achieved 100% compliance and saved 60% in costs.</li>
 								</ul>
 							</motion.div>
 							<motion.div
@@ -80,18 +80,27 @@ export default function TechnicalMetrics() {
 					{/* Development & Leadership */}
 					<div>
 						<h3 className="text-xl font-semibold mb-6 text-green-400">Data Visualization & Analytics</h3>
-						<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-							<motion.div
+						<div className="grid grid-cols-1 md:grid-cols-2 gap-6">							<motion.div
 								initial={{ opacity: 0, scale: 0.95 }}
 								whileInView={{ opacity: 1, scale: 1 }}
 								viewport={{ once: true }}
 								className="bg-gray-800/50 rounded-lg p-6 border border-gray-700"
 							>
-								<h4 className="text-lg font-semibold text-gray-300">Electric Vehicle Insights</h4>
+								<a
+									href="https://public.tableau.com/app/profile/venkat.neelraj.nitta/viz/Dashboard_17385068358520/Dashboard1?publish=yes"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="inline-flex items-center gap-2 text-lg font-semibold text-gray-300 hover:text-green-400 transition-colors"
+								>
+									Electric Vehicle Insights
+									<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+									</svg>
+								</a>
 								<ul className="mt-2 space-y-2 text-gray-400">
 									<li>• Delivered visual comparative analysis dashboards enabling informed EV purchasing decisions.</li>
-									<li>• Established coding standards</li>
-									<li>• Reduced technical debt by 40%</li>
+									{/* <li>• Established coding standards</li>
+									<li>• Reduced technical debt by 40%</li> */}
 								</ul>
 							</motion.div>
 							<motion.div
