@@ -211,10 +211,10 @@ export default function SystemArchitecture() {
                         </p>
                         <div className="flex flex-wrap justify-center gap-4">
                             <span className="px-3 py-1 bg-blue-500/20 text-blue-400 rounded border border-blue-500/30 text-sm">
-                                Natural Language Processing
+                                Healthcare
                             </span>
                             <span className="px-3 py-1 bg-green-500/20 text-green-400 rounded border border-green-500/30 text-sm">
-                                Computer Vision
+                                Finance
                             </span>
                             <span className="px-3 py-1 bg-purple-500/20 text-purple-400 rounded border border-purple-500/30 text-sm">
                                 MLOps & Deployment
