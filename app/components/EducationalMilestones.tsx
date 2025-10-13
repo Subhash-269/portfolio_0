@@ -30,7 +30,7 @@ const educationData: EducationMilestone[] = [
 		duration: '2024 - 2026',
 		location: 'Boston, MA',
 		status: 'in-progress',
-		gpa: '4.0/4.0',
+		gpa: '3.96/4.0',
 		highlights: [
 			'Deep dive into AI industry and cutting-edge research',
 			'Focus on practical applications of machine learning',
@@ -43,8 +43,11 @@ const educationData: EducationMilestone[] = [
 			'AI System Technologies (ML Ops)',
 			'Healthcare Information Processing',
 			'Healthcare/Pharmaceutical Data and Applications',
-			'Ethical Leadership'
-		],
+			'Ethical Leadership',
+			'Advanced Analytical Utilization',
+			'Finance Information Processing',
+			''
+,		],
 		projects: [
 			'Electric Vehicles in WA: Price, Type, and Range',
 			'CIFAR-10 Image Classification Web App',
