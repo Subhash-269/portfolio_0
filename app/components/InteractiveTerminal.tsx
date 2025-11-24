@@ -141,7 +141,7 @@ export default function InteractiveTerminal({ isPopup = false }: InteractiveTerm
 		],about: () => [
 			'[ABOUT] Venkat Neelraj Nitta',
 			'',
-			'AI/ML Engineer with 2.5+ years at Cognida.AI, now pursuing',
+			'Aspiring AI/ML Engineer with nearly 3 years of Professional Experienceas Software/AI Developer, now pursuing',
 			'Master\'s in Applied Machine Intelligence at Northeastern University.',
 			'',
 			'Background:',
@@ -195,7 +195,7 @@ export default function InteractiveTerminal({ isPopup = false }: InteractiveTerm
 			'[WORK EXPERIENCE]',
 			'',
 			'Software Developer | Cognida.AI',
-			'   Duration: Jul 2022 - Jul 2024 (Full-time)',
+			'   Duration: Jul 2022 - August 2024 (Full-time)',
 			'   Location: Hyderabad, India',
 			'   Projects: 3 major AI/ML implementations',
 			'',
