@@ -44,12 +44,15 @@ const educationData: EducationMilestone[] = [
 			'Healthcare Information Processing',
 			'Healthcare/Pharmaceutical Data and Applications',
 			'Ethical Leadership',
+			'Leading/Managing Technology Projects',
 			'Advanced Analytical Utilization',
 			'Finance Information Processing',
 		],
 		projects: [
-			'Electric Vehicles in WA: Price, Type, and Range',
+			'Fintech: Portfolio Optimization using ML',
+			'Automobile Insurance Assistance',
 			'CIFAR-10 Image Classification Web App',
+			'Electric Vehicles in WA: Price, Type, and Range',
 			'EMS delay and Dashboard',
 			// 'NLP Research Project'
 		],
