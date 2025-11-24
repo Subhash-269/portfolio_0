@@ -130,16 +130,24 @@ export default function HeroSection() {
 					<div className="font-mono">
 						<p className="text-green-500">$ whoami</p>						<h1 className="text-2xl sm:text-4xl md:text-5xl font-bold mt-2 mb-4">Venkat Neelraj Nitta</h1>
 						<p className="text-sm sm:text-base text-gray-400 mb-2">Graduate Student at Northeastern University</p>						<p className="text-green-500">$ whoami.info</p>
-						<p className="text-sm sm:text-base text-gray-400 mb-4">AI/ML Engineer with 2.5+ years at Cognida.AI, now pursuing Master&#39;s in Applied Machine Intelligence at Northeastern University.</p>						<p className="text-green-500">$ whoami.skills</p>
+						<p className="text-sm sm:text-base text-gray-400 mb-4">Aspiring AI/ML Engineer with nearly 3 years of Professional Experienceas Software/AI Developer, now pursuing Master&#39;s in Applied Machine Intelligence at Northeastern University.</p>						<p className="text-green-500">$ whoami.skills</p>
 						<div className="flex flex-wrap gap-1 sm:gap-2 mt-2">
 							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Python</span>
+							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">SQL</span>
 							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">AI/ML</span>
 							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">NLP</span>
 							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Computer Vision</span>
+							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Image Classification</span>
+							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Object Detectionn</span>
+							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Large Language Models</span>
 							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">PyTorch</span>
+							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Hugging Face</span>
 							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Conversational AI</span>
 							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Document Processing</span>
-							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">FastAPI</span>
+							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Django/FastAPI</span>
+							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">RAG</span>
+							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Vector Store</span>
+							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">LangChain/ LangGraph</span>
 						</div>
 					</div>				</motion.div>
 			</div>			{/* Down Arrow */}
