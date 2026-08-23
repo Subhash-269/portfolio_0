@@ -28,6 +28,45 @@ interface WorkExperience {
 
 const workExperienceData: WorkExperience[] = [
     {
+        id: 3,
+        company: 'Staples',
+        position: 'AI Engineer Intern',
+        duration: 'Jan 2026 - Jul 2026',
+        location: 'Framingham, MA',
+        type: 'internship',
+        status: 'completed',
+        highlights: [
+            'Built agentic e-commerce orchestration system for product tagging & recommendation across ~300K SKUs',
+            'Combined LLMs, embeddings, vector search, and RAG pipelines',
+            'Independently researched graph database options with no prior background',
+            'Presented pipeline architecture and model outputs to senior leadership'
+        ],
+        responsibilities: [
+            'Design and build agentic orchestration pipelines combining LLMs, embeddings, vector search, and RAG for product tagging and recommendation',
+            'Develop classification models on Databricks (PySpark + Delta Lake) for SKU tagging and product relationship modeling',
+            'Design evaluation datasets and metrics to assess retrieval quality, output accuracy, and reliability',
+            'Research and evaluate graph database solutions (Neo4j, Cosmos DB, FalkorDB) for product relationship modeling',
+            'Present pipeline architecture and model outputs to non-technical senior leadership'
+        ],
+        technologies: ['Python', 'Databricks', 'PySpark', 'Delta Lake', 'LLMs', 'RAG', 'Vector Search', 'Embeddings', 'LangChain', 'LangGraph'],
+        achievements: [
+            'Built agentic orchestration system spanning ~300K SKUs for product tagging and recommendation',
+            'Independently evaluated graph database options (Neo4j, Cosmos DB, FalkorDB) with no prior background',
+            'Improved search relevance and product discovery through scalable data enrichment pipelines on Databricks',
+            'Presented pipeline architecture and data-driven business recommendations to senior leadership, including new customer-acquisition channels identified from the data'
+        ],
+        skills: ['Agentic AI', 'RAG', 'LLMs', 'Databricks', 'PySpark', 'Graph Databases', 'Stakeholder Communication'],
+        projects: {
+            total: 1,
+            featured: [
+                'Agentic E-Commerce Orchestration System (Product Tagging & Recommendation)'
+            ]
+        },
+        icon: '🛒',
+        color: 'from-red-500 to-orange-600',
+        description: 'AI Engineer Intern role on the Agentic Commerce team, building LLM-powered orchestration and RAG pipelines for product tagging and recommendation at scale.'
+    },
+    {
         id: 1,
         company: 'Cognida.AI',
         position: 'Software Developer',
