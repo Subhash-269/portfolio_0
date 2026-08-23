@@ -30,7 +30,7 @@ const educationData: EducationMilestone[] = [
 		duration: '2024 - 2026',
 		location: 'Boston, MA',
 		status: 'in-progress',
-		gpa: '3.96/4.0',
+		gpa: '3.92/4.0',
 		highlights: [
 			'Deep dive into AI industry and cutting-edge research',
 			'Focus on practical applications of machine learning',
@@ -38,15 +38,12 @@ const educationData: EducationMilestone[] = [
 			// 'Advanced coursework in neural networks and computer vision'
 		],
 		courses: [
-			'Fundamentals of Artificial Intelligence',
-			'Applications of AI',
-			'AI System Technologies (ML Ops)',
-			'Healthcare Information Processing',
-			'Healthcare/Pharmaceutical Data and Applications',
+			'Applications of Artificial Intelligence',
+			'Data Governance & Responsible AI',
+			'Data Management & Big Data',
+			'AI System Technologies',
 			'Ethical Leadership',
-			'Leading/Managing Technology Projects',
-			'Advanced Analytical Utilization',
-			'Finance Information Processing',
+			'Adv. Analytical Utilization',
 		],
 		projects: [
 			'Fintech: Portfolio Optimization using ML',

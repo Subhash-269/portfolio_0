@@ -70,7 +70,7 @@ const workExperienceData: WorkExperience[] = [
         id: 1,
         company: 'Cognida.AI',
         position: 'Software Developer',
-        duration: 'Jul 2022 - Jul 2024',
+        duration: 'Jul 2022 - Aug 2024',
         location: 'Hyderabad, Telangana, India',
         type: 'full-time',
         status: 'completed',

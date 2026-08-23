@@ -113,6 +113,49 @@ export default function TechnicalMetrics() {
 							</motion.div>
 						</div>
 					</div>
+
+					{/* Certifications */}
+					<div>
+						<h3 className="text-xl font-semibold mb-6 text-green-400">Certifications</h3>
+						<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+							<motion.div
+								initial={{ opacity: 0, scale: 0.95 }}
+								whileInView={{ opacity: 1, scale: 1 }}
+								viewport={{ once: true }}
+								className="bg-gray-800/50 rounded-lg p-6 border border-gray-700"
+							>
+								<h4 className="text-lg font-semibold text-gray-300">AI Tools Workshop</h4>
+								<p className="mt-2 text-gray-400">be10x Academy • August 2026</p>
+							</motion.div>
+							<motion.div
+								initial={{ opacity: 0, scale: 0.95 }}
+								whileInView={{ opacity: 1, scale: 1 }}
+								viewport={{ once: true }}
+								className="bg-gray-800/50 rounded-lg p-6 border border-gray-700"
+							>
+								<h4 className="text-lg font-semibold text-gray-300">AI Agents on Databricks</h4>
+								<p className="mt-2 text-gray-400">Databricks Academy • April 2026</p>
+							</motion.div>
+							<motion.div
+								initial={{ opacity: 0, scale: 0.95 }}
+								whileInView={{ opacity: 1, scale: 1 }}
+								viewport={{ once: true }}
+								className="bg-gray-800/50 rounded-lg p-6 border border-gray-700"
+							>
+								<h4 className="text-lg font-semibold text-gray-300">Generative AI with Large Language Models</h4>
+								<p className="mt-2 text-gray-400">DeepLearning.AI • May 2024</p>
+							</motion.div>
+							<motion.div
+								initial={{ opacity: 0, scale: 0.95 }}
+								whileInView={{ opacity: 1, scale: 1 }}
+								viewport={{ once: true }}
+								className="bg-gray-800/50 rounded-lg p-6 border border-gray-700"
+							>
+								<h4 className="text-lg font-semibold text-gray-300">Applying AI Technologies to the Workplace</h4>
+								<p className="mt-2 text-gray-400">Northeastern University • September 2024</p>
+							</motion.div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>

@@ -17,7 +17,51 @@ interface Project {
     }[];
 }
 
-const projects: Project[] = [    {
+const projects: Project[] = [
+    {
+        title: 'Lighthouse (Workhuman-Sponsored Hackathon)',
+        description: 'Employee onboarding and recognition platform co-built with a 4-person team under a tight deadline for the Workhuman-sponsored hackathon.',
+        impact: 'Won the Workhuman-sponsored hackathon',
+        details: [
+            'Co-built Lighthouse as part of a 4-person team under a tight deadline',
+            'Delivered a live demo and Q&A to judges',
+            'Presented product and technical decisions to a non-engineering audience'
+        ],
+        tech: ['Python', 'React', 'LLM', 'FastAPI'],
+        metrics: [
+            { label: 'Team Size', value: '4 devs', color: 'text-purple-400' },
+            { label: 'Result', value: 'Won', color: 'text-green-400' }
+        ]
+    },
+    {
+        title: 'Artha AI – Portfolio',
+        description: 'Predictive investment model using deep learning to optimize stock allocation by maximizing the Sharpe Ratio, moving beyond static Modern Portfolio Theory by capturing non-linear market patterns and adapting dynamically to changing market regimes.',
+        impact: 'Deep learning-based portfolio optimization beyond static Modern Portfolio Theory',
+        details: [
+            'Predictive model maximizing the Sharpe Ratio for stock allocation',
+            'Captures non-linear patterns and adapts dynamically to changing market regimes',
+            'React-based front-end presenting optimized portfolio insights through interactive visualizations',
+            'Makes allocation logic accessible to non-technical stakeholders'
+        ],
+        tech: ['Python', 'Deep Learning', 'Neural Networks', 'Time Series Analysis', 'React'],
+        link: 'https://github.com/Subhash-269/artha-ai-portfolio',
+        linkText: 'View on GitHub'
+    },
+    {
+        title: 'Automobile Insurance Assistance',
+        description: 'Multimodal classification system for insurance claim guidance using YOLOv11 and agentic frameworks (LangChain, LangGraph); lets users query policy documents or upload vehicle images for damage detection and claim assistance.',
+        impact: 'Agentic RAG assistant combining image-based damage detection with policy document Q&A',
+        details: [
+            'YOLOv11-based image classification for vehicle damage detection',
+            'LangChain/LangGraph agentic framework for policy document Q&A',
+            'Django web app supporting real-time vector search and embeddings',
+            'Context-aware decision tracking for insurance claims'
+        ],
+        tech: ['Python', 'LangChain', 'LangGraph', 'YOLOv11', 'RAG', 'Django'],
+        link: 'https://github.com/Subhash-269/InsurAsst',
+        linkText: 'View on GitHub'
+    },
+    {
         title: 'Smart Cart App',
         description: 'AI-powered shopping assistant developed for Northeastern hackathon Innovaite 2025. Led a team of 5 to create an intelligent system that searches items based on dish names and automatically identifies lowest vendor prices across multiple platforms.',
         impact: 'Completed in 48 hours with team of 5',

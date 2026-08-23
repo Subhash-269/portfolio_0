@@ -130,7 +130,7 @@ export default function HeroSection() {
 					<div className="font-mono">
 						<p className="text-green-500">$ whoami</p>						<h1 className="text-2xl sm:text-4xl md:text-5xl font-bold mt-2 mb-4">Venkat Neelraj Nitta</h1>
 						<p className="text-sm sm:text-base text-gray-400 mb-2">Graduate Student at Northeastern University</p>						<p className="text-green-500">$ whoami.info</p>
-						<p className="text-sm sm:text-base text-gray-400 mb-4">Aspiring AI/ML Engineer with nearly 3 years of Professional Experience as Software/AI Developer, now pursuing Master&#39;s in Applied Machine Intelligence at Northeastern University.</p>						<p className="text-green-500">$ whoami.skills</p>
+						<p className="text-sm sm:text-base text-gray-400 mb-4">AI/ML engineer with 3+ years of experience building GenAI and agentic workflows, most recently as an AI Engineer Intern at Staples on the Agentic Commerce team, now pursuing a Master&#39;s in Applied Machine Intelligence at Northeastern University.</p>						<p className="text-green-500">$ whoami.skills</p>
 						<div className="flex flex-wrap gap-1 sm:gap-2 mt-2">
 							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Python</span>
 							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">SQL</span>
@@ -148,6 +148,15 @@ export default function HeroSection() {
 							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">RAG</span>
 							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Vector Store</span>
 							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">LangChain/ LangGraph</span>
+							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Databricks</span>
+							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">PySpark</span>
+							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">LlamaIndex</span>
+							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">MLflow</span>
+							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Neo4j</span>
+							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Delta Lake</span>
+							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Streamlit</span>
+							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Azure</span>
+							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Tableau</span>
 						</div>
 					</div>				</motion.div>
 			</div>			{/* Down Arrow */}
