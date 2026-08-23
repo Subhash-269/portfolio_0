@@ -112,7 +112,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
 							<h1 className="text-3xl font-bold text-green-400 font-mono mb-2">
 								VENKAT.SYS
 							</h1>
-							<p className="text-gray-400 text-sm">v2.0.25 - Portfolio</p>
+							<p className="text-gray-400 text-sm">v2.0.26 - Portfolio</p>
 						</motion.div>
 
 						{/* Terminal Window */}
