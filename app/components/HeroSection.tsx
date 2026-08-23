@@ -2,6 +2,44 @@
 
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import { TECH_ICONS } from '../utils/techIcons';
+
+const softwareEngineeringChips = [
+	{ label: 'Python' },
+	{ label: 'TypeScript' },
+	{ label: 'SQL' },
+	{ label: 'Django' },
+	{ label: 'FastAPI' },
+	{ label: 'Docker' },
+	{ label: 'Linux' },
+	{ label: 'PostgreSQL' },
+];
+
+const aiMlChips = [
+	{ label: 'AI/ML' },
+	{ label: 'NLP' },
+	{ label: 'Computer Vision' },
+	{ label: 'Image Classification' },
+	{ label: 'Object Detection' },
+	{ label: 'Large Language Models' },
+	{ label: 'PyTorch' },
+	{ label: 'Hugging Face' },
+	{ label: 'Conversational AI' },
+	{ label: 'Document Processing' },
+	{ label: 'RAG' },
+	{ label: 'Vector Store' },
+	{ label: 'LangChain' },
+	{ label: 'LangGraph' },
+	{ label: 'Databricks' },
+	{ label: 'PySpark' },
+	{ label: 'LlamaIndex' },
+	{ label: 'MLflow' },
+	{ label: 'Neo4j' },
+	{ label: 'Delta Lake' },
+	{ label: 'Streamlit' },
+	{ label: 'Azure' },
+	{ label: 'Tableau' },
+];
 
 export default function HeroSection() {
 	const [showUpArrow, setShowUpArrow] = useState(false);
@@ -130,33 +168,38 @@ export default function HeroSection() {
 					<div className="font-mono">
 						<p className="text-green-500">$ whoami</p>						<h1 className="text-2xl sm:text-4xl md:text-5xl font-bold mt-2 mb-4">Venkat Neelraj Nitta</h1>
 						<p className="text-sm sm:text-base text-gray-400 mb-2">Graduate Student at Northeastern University</p>						<p className="text-green-500">$ whoami.info</p>
-						<p className="text-sm sm:text-base text-gray-400 mb-4">AI/ML engineer with 3+ years of experience building GenAI and agentic workflows, most recently as an AI Engineer Intern at Staples on the Agentic Commerce team, now pursuing a Master&#39;s in Applied Machine Intelligence at Northeastern University.</p>						<p className="text-green-500">$ whoami.skills</p>
+						<p className="text-sm sm:text-base text-gray-400 mb-4">Full-stack engineer with an AI/ML specialization: more than 2 years of experience building production systems and GenAI/agentic workflows, most recently as an AI Engineer Intern at Staples on the Agentic Commerce team, now pursuing a Master&#39;s in Applied Machine Intelligence at Northeastern University.</p>
+
+						<p className="text-green-500">$ whoami.skills --software-engineering</p>
+						<div className="flex flex-wrap gap-1 sm:gap-2 mt-2 mb-4">
+							{softwareEngineeringChips.map(({ label }) => {
+								const tech = TECH_ICONS[label];
+								return (
+									<span
+										key={label}
+										className="flex items-center gap-1.5 px-2 sm:px-3 py-1 bg-blue-500/10 rounded-md border border-blue-500/20 text-xs sm:text-sm"
+									>
+										{tech && <tech.icon className="w-3.5 h-3.5" style={{ color: tech.color }} />}
+										{label}
+									</span>
+								);
+							})}
+						</div>
+
+						<p className="text-green-500">$ whoami.skills --ai-ml</p>
 						<div className="flex flex-wrap gap-1 sm:gap-2 mt-2">
-							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Python</span>
-							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">SQL</span>
-							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">AI/ML</span>
-							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">NLP</span>
-							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Computer Vision</span>
-							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Image Classification</span>
-							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Object Detectionn</span>
-							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Large Language Models</span>
-							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">PyTorch</span>
-							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Hugging Face</span>
-							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Conversational AI</span>
-							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Document Processing</span>
-							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Django/FastAPI</span>
-							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">RAG</span>
-							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Vector Store</span>
-							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">LangChain/ LangGraph</span>
-							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Databricks</span>
-							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">PySpark</span>
-							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">LlamaIndex</span>
-							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">MLflow</span>
-							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Neo4j</span>
-							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Delta Lake</span>
-							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Streamlit</span>
-							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Azure</span>
-							<span className="px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm">Tableau</span>
+							{aiMlChips.map(({ label }) => {
+								const tech = TECH_ICONS[label];
+								return (
+									<span
+										key={label}
+										className="flex items-center gap-1.5 px-2 sm:px-3 py-1 bg-green-500/10 rounded-md border border-green-500/20 text-xs sm:text-sm"
+									>
+										{tech && <tech.icon className="w-3.5 h-3.5" style={{ color: tech.color }} />}
+										{label}
+									</span>
+								);
+							})}
 						</div>
 					</div>				</motion.div>
 			</div>			{/* Down Arrow */}

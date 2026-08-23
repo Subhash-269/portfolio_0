@@ -1,9 +1,14 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { TECH_ICONS } from '../utils/techIcons';
+
+type Industry = 'insurance' | 'fintech' | 'hr-tech' | 'retail' | 'healthcare' | 'research';
 
 interface Project {
     title: string;
+    industry: Industry;
     description: string;
     impact: string;
     details: string[];
@@ -17,9 +22,19 @@ interface Project {
     }[];
 }
 
+const industryConfig: Record<Industry, { name: string; color: string }> = {
+    insurance: { name: 'Insurance', color: 'from-amber-500 to-orange-600' },
+    fintech: { name: 'Fintech', color: 'from-green-500 to-emerald-600' },
+    'hr-tech': { name: 'HR Tech', color: 'from-purple-500 to-violet-600' },
+    retail: { name: 'Retail / E-commerce', color: 'from-pink-500 to-rose-600' },
+    healthcare: { name: 'Healthcare', color: 'from-red-500 to-red-600' },
+    research: { name: 'Research / General AI', color: 'from-gray-500 to-gray-600' },
+};
+
 const projects: Project[] = [
     {
         title: 'Lighthouse (Workhuman-Sponsored Hackathon)',
+        industry: 'hr-tech',
         description: 'Employee onboarding and recognition platform co-built with a 4-person team under a tight deadline for the Workhuman-sponsored hackathon.',
         impact: 'Won the Workhuman-sponsored hackathon',
         details: [
@@ -35,6 +50,7 @@ const projects: Project[] = [
     },
     {
         title: 'Artha AI – Portfolio',
+        industry: 'fintech',
         description: 'Predictive investment model using deep learning to optimize stock allocation by maximizing the Sharpe Ratio, moving beyond static Modern Portfolio Theory by capturing non-linear market patterns and adapting dynamically to changing market regimes.',
         impact: 'Deep learning-based portfolio optimization beyond static Modern Portfolio Theory',
         details: [
@@ -49,7 +65,8 @@ const projects: Project[] = [
     },
     {
         title: 'Automobile Insurance Assistance',
-        description: 'Multimodal classification system for insurance claim guidance using YOLOv11 and agentic frameworks (LangChain, LangGraph); lets users query policy documents or upload vehicle images for damage detection and claim assistance.',
+        industry: 'insurance',
+        description: 'Full-stack agentic assistant for insurance claims: trained a YOLOv11 damage-detection model and built the Django web app and LangChain/LangGraph orchestration layer serving it, letting users query policy documents or upload vehicle images for damage detection and claim assistance.',
         impact: 'Agentic RAG assistant combining image-based damage detection with policy document Q&A',
         details: [
             'YOLOv11-based image classification for vehicle damage detection',
@@ -63,6 +80,7 @@ const projects: Project[] = [
     },
     {
         title: 'Smart Cart App',
+        industry: 'retail',
         description: 'AI-powered shopping assistant developed for Northeastern hackathon Innovaite 2025. Led a team of 5 to create an intelligent system that searches items based on dish names and automatically identifies lowest vendor prices across multiple platforms.',
         impact: 'Completed in 48 hours with team of 5',
         details: [
@@ -84,6 +102,7 @@ const projects: Project[] = [
     },
     {
         title: 'CIFAR-10 Image Classification Web App',
+        industry: 'research',
         description: 'Production-ready deep learning application using ResNet-18 for real-time image classification.',
         impact: '94% accuracy with sub-100ms inference time',
         details: [
@@ -103,6 +122,7 @@ const projects: Project[] = [
     },
     {
         title: 'Medical Brain Tumor Detection',
+        industry: 'healthcare',
         description: 'Deep learning system for automated brain tumor detection in MRI scans for healthcare applications.',
         impact: '85% precision on medical imaging dataset',
         details: [
@@ -121,6 +141,14 @@ const projects: Project[] = [
 ];
 
 export default function SystemArchitecture() {
+    const [selectedIndustry, setSelectedIndustry] = useState<Industry | null>(null);
+
+    const filteredProjects = selectedIndustry
+        ? projects.filter((project) => project.industry === selectedIndustry)
+        : projects;
+
+    const industries = Object.keys(industryConfig) as Industry[];
+
     return (
         <section data-section="projects" className="py-20 px-4">
             <div className="max-w-7xl mx-auto">
@@ -137,10 +165,49 @@ export default function SystemArchitecture() {
                     </p>
                 </motion.div>
 
+                {/* Industry Filter */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.1 }}
+                    className="flex flex-wrap justify-center gap-3 mb-12"
+                >
+                    <button
+                        onClick={() => setSelectedIndustry(null)}
+                        className={`px-4 py-2 rounded-full transition-all duration-300 text-sm font-medium ${
+                            selectedIndustry === null
+                                ? 'bg-gradient-to-r from-green-500 to-blue-500 text-white'
+                                : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                        }`}
+                    >
+                        All Projects
+                    </button>
+                    {industries.map((industry) => {
+                        const config = industryConfig[industry];
+                        return (
+                            <button
+                                key={industry}
+                                onClick={() => setSelectedIndustry(industry)}
+                                className={`px-4 py-2 rounded-full transition-all duration-300 flex items-center gap-2 text-sm font-medium ${
+                                    selectedIndustry === industry
+                                        ? `bg-gradient-to-r ${config.color} text-white`
+                                        : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                                }`}
+                            >
+                                <span>{config.name}</span>
+                            </button>
+                        );
+                    })}
+                </motion.div>
+
                 <div className="space-y-8">
-                    {projects.map((project, index) => (
+                    <AnimatePresence mode="wait">
+                    {filteredProjects.map((project, index) => {
+                        const industry = industryConfig[project.industry];
+                        return (
                         <motion.div
-                            key={index}
+                            key={project.title}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -151,10 +218,13 @@ export default function SystemArchitecture() {
                                 {/* Header Section */}
                                 <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
                                     <div className="flex-1">
-                                        <div className="flex items-center gap-3 mb-3">
+                                        <div className="flex items-center gap-3 mb-3 flex-wrap">
                                             <h3 className="text-xl sm:text-2xl font-bold text-white">
                                                 {project.title}
                                             </h3>
+                                            <span className={`inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-gradient-to-r ${industry.color} text-white`}>
+                                                {industry.name}
+                                            </span>
                                             {project.link && (
                                                 <motion.a
                                                     href={project.link}
@@ -223,20 +293,26 @@ export default function SystemArchitecture() {
                                             Technology Stack
                                         </h4>
                                         <div className="flex flex-wrap gap-2">
-                                            {project.tech.map((tech, idx) => (
-                                                <span
-                                                    key={idx}
-                                                    className="px-3 py-1.5 bg-gray-800/50 text-gray-300 rounded-lg border border-gray-600/50 text-sm font-medium hover:border-purple-500/50 transition-colors"
-                                                >
-                                                    {tech}
-                                                </span>
-                                            ))}
+                                            {project.tech.map((tech, idx) => {
+                                                const techIcon = TECH_ICONS[tech];
+                                                return (
+                                                    <span
+                                                        key={idx}
+                                                        className="flex items-center gap-1.5 px-3 py-1.5 bg-gray-800/50 text-gray-300 rounded-lg border border-gray-600/50 text-sm font-medium hover:border-purple-500/50 transition-colors"
+                                                    >
+                                                        {techIcon && <techIcon.icon className="w-4 h-4" style={{ color: techIcon.color }} />}
+                                                        {tech}
+                                                    </span>
+                                                );
+                                            })}
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </motion.div>
-                    ))}
+                        );
+                    })}
+                    </AnimatePresence>
                 </div>
 
                 {/* Additional Projects Teaser */}

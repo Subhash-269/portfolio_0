@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { TECH_ICONS } from '../utils/techIcons';
 
 interface WorkExperience {
     id: number;
@@ -64,7 +65,7 @@ const workExperienceData: WorkExperience[] = [
         },
         icon: '🛒',
         color: 'from-red-500 to-orange-600',
-        description: 'AI Engineer Intern role on the Agentic Commerce team, building LLM-powered orchestration and RAG pipelines for product tagging and recommendation at scale.'
+        description: 'AI Engineer Intern role on the Agentic Commerce team: designed and built an agentic orchestration pipeline end-to-end (LLMs, embeddings, vector search, RAG), evaluating retrieval quality and output accuracy for product tagging and recommendation across ~300K SKUs.'
     },
     {
         id: 1,
@@ -87,7 +88,7 @@ const workExperienceData: WorkExperience[] = [
             'Implement real-time prediction systems with low latency',
             'Create interactive feedback systems for user validation'
         ],
-        technologies: ['Python', 'NLP', 'Machine Learning', 'Computer Vision', 'Neural Networks', 'AI/ML'],
+        technologies: ['Python', 'TypeScript', 'NLP', 'Machine Learning', 'Computer Vision', 'Neural Networks', 'AI/ML'],
         achievements: [
             'Reduced query resolution time from 10 days to minutes',
             'Elevated customer satisfaction by 78%',
@@ -106,7 +107,7 @@ const workExperienceData: WorkExperience[] = [
             ]
         },        icon: '🤖',
         color: 'from-green-500 to-blue-600',
-        description: 'Full-time software developer role focusing on AI and ML solutions for enterprise applications.'
+        description: 'Full-time software developer role: engineered the backend and model-serving pipeline for an AI-powered inspection platform, building the OCR/computer-vision classification models and shipping them into production.'
     },
     {
         id: 2,
@@ -129,7 +130,7 @@ const workExperienceData: WorkExperience[] = [
             'Test and validate model accuracy and performance',
             'Collaborate with team on model improvements'
         ],
-        technologies: ['Python', 'NLP', 'Machine Learning', 'Real-time Systems', 'UI/UX Design'],
+        technologies: ['Python', 'TypeScript', 'NLP', 'Machine Learning', 'Real-time Systems', 'UI/UX Design'],
         achievements: [
             'Successfully delivered real-time grammar correction system',
             'Implemented efficient user feedback mechanism',
@@ -385,14 +386,18 @@ export default function WorkExperience() {
                                                         <div>
                                                             <h4 className="text-lg font-semibold text-white mb-3">Technologies Used</h4>
                                                             <div className="flex flex-wrap gap-2">
-                                                                {experience.technologies.map((tech, idx) => (
-                                                                    <span
-                                                                        key={idx}
-                                                                        className="px-3 py-1 bg-purple-500/20 text-purple-400 border border-purple-500/30 rounded text-sm"
-                                                                    >
-                                                                        {tech}
-                                                                    </span>
-                                                                ))}
+                                                                {experience.technologies.map((tech, idx) => {
+                                                                    const techIcon = TECH_ICONS[tech];
+                                                                    return (
+                                                                        <span
+                                                                            key={idx}
+                                                                            className="flex items-center gap-1.5 px-3 py-1 bg-purple-500/20 text-purple-400 border border-purple-500/30 rounded text-sm"
+                                                                        >
+                                                                            {techIcon && <techIcon.icon className="w-3.5 h-3.5" style={{ color: techIcon.color }} />}
+                                                                            {tech}
+                                                                        </span>
+                                                                    );
+                                                                })}
                                                             </div>
                                                         </div>
 

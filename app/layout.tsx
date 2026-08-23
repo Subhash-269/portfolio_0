@@ -15,13 +15,19 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-	title: 'Venkat Neelraj - Backend Developer',
+	title: 'Venkat Neelraj - Software Engineer | AI/ML Engineer',
 	description:
-		'Welcome to my portfolio! I am a passionate backend developer specializing in building scalable server architectures, robust APIs, and high-performance distributed systems. With expertise in cloud infrastructure and database optimization, I create efficient and reliable backend solutions.',
+		'Welcome to my portfolio! I am a software engineer and AI/ML specialist building production GenAI systems, scalable backend services, and machine learning pipelines. With expertise spanning agentic workflows, RAG, and cloud infrastructure, I build efficient and reliable end-to-end solutions.',
 	keywords: [
-		'Backend Developer',
 		'Software Engineer',
+		'AI/ML Engineer',
+		'Machine Learning Engineer',
+		'Data Scientist',
+		'Backend Developer',
 		'API Development',
+		'LLM',
+		'RAG',
+		'LangChain',
 		'Database Design',
 		'Microservices',
 		'Venkat Neelraj',
@@ -35,8 +41,8 @@ export const metadata: Metadata = {
 		{ media: '(prefers-color-scheme: dark)', color: '#000000' }
 	],
 	openGraph: {
-		title: 'Venkat Neelraj - Backend Developer Portfolio',
-		description: 'Passionate backend developer crafting scalable and efficient server architectures. Explore my projects and technical expertise.',
+		title: 'Venkat Neelraj - Software Engineer | AI/ML Engineer Portfolio',
+		description: 'Software engineer and AI/ML specialist building production GenAI systems and scalable backend services. Explore my projects and technical expertise.',
 		url: 'https://your-domain.com',
 		siteName: 'Venkat Neelraj - Portfolio',
 		images: [
@@ -52,8 +58,8 @@ export const metadata: Metadata = {
 	},
 	twitter: {
 		card: 'summary_large_image',
-		title: 'Venkat Neelraj - Backend Developer',
-		description: 'Passionate backend developer crafting scalable and efficient server architectures. Explore my projects and technical expertise.',
+		title: 'Venkat Neelraj - Software Engineer | AI/ML Engineer',
+		description: 'Software engineer and AI/ML specialist building production GenAI systems and scalable backend services. Explore my projects and technical expertise.',
 		creator: '@yourusername',
 		images: ['/og-image.jpg'],
 	},
