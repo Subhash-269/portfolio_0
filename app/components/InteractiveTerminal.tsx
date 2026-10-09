@@ -141,7 +141,7 @@ export default function InteractiveTerminal({ isPopup = false }: InteractiveTerm
 		],about: () => [
 			'[ABOUT] Venkat Neelraj Nitta',
 			'',
-			'Aspiring AI/ML Engineer with nearly 3 years of Professional Experienceas Software/AI Developer, now pursuing',
+			'AI/ML Engineer with 2+ years of professional experience as a Software/AI Developer and AI Engineer Intern, now pursuing',
 			'Master\'s in Applied Machine Intelligence at Northeastern University.',
 			'',
 			'Background:',
@@ -150,12 +150,14 @@ export default function InteractiveTerminal({ isPopup = false }: InteractiveTerm
 			'   • Currently based in Boston, MA',
 			'',
 			'Experience:',
-			'   • Full-time Software Developer at Cognida.AI (Jul 2022 - Jul 2024)',
+			'   • Lead Teaching Assistant, AAI 5004, Northeastern University (Sep 2026 - Present)',
+			'   • AI Engineer Intern at Staples (Jan 2026 - Jul 2026)',
+			'   • Full-time Software/AI Developer at Cognida.AI (Jul 2022 - Aug 2024)',
 			'   • Internship at Cognida.AI (Feb 2022 - Jun 2022)',
 			'   • Built enterprise AI systems, NLP models, document processing',
 			'',
 			'Education:',
-			'   • Master\'s in Applied Machine Intelligence (2024-2026) - NEU',
+			'   • Master\'s in Applied Machine Intelligence (Sep 2024 - Dec 2026, expected) - NEU',
 			'   • B.Tech in Electrical and Electronics Engineering (2018-2022)',
 			'',
 			'Achievements:',
@@ -213,7 +215,7 @@ export default function InteractiveTerminal({ isPopup = false }: InteractiveTerm
 			'   Location: Hyderabad, India',
 			'   Project:  NLP-based Grammar and Spell Correction System',
 			'',
-			'Total Experience: 2.5+ years in AI/ML development',
+			'Total Experience: 2+ years in AI/ML development',
 			'Current Status:   Graduate Student at Northeastern University',
 		],
 		history: () => commandHistory.length > 0 ? [
@@ -248,7 +250,7 @@ export default function InteractiveTerminal({ isPopup = false }: InteractiveTerm
 			'',
 			'2. AI-Powered Document Preprocessing System',
 			'   Company: Cognida.AI (2022-2024)',
-			'   Impact:  Achieved 100% compliance rate, 90% faster processing',
+			'   Impact:  100% improvement in compliance, 90% efficiency gain',
 			'   Result:  60% cost savings through workflow optimization',
 			'',
 			'3. Automated Cheque Processing Model',
@@ -273,12 +275,11 @@ export default function InteractiveTerminal({ isPopup = false }: InteractiveTerm
 			'Email:     vneelraj.nitta@gmail.com',
 			'Location:  Boston, MA (EST Timezone)',
 			'GitHub:    github.com/Subhash-269',
-			'LinkedIn:  linkedin.com/in/venkat-neelraj-nitta',
+			'LinkedIn:  linkedin.com/in/v-neelraj-nitta',
 			'',
 			'Current Status:',
-			'   • Graduate Student at Northeastern University',
-			'   • Actively seeking Summer 2025 internships',
-			'   • Open to AI/ML and Software Engineering roles',
+			'   • Graduate Student and Lead TA at Northeastern University (graduating Dec 2026)',
+			'   • Open to full-time AI/ML and Software Engineering roles',
 			'',
 			'Response Time: Usually within 24 hours',
 			'Best Contact: Email for professional inquiries',
@@ -322,7 +323,7 @@ export default function InteractiveTerminal({ isPopup = false }: InteractiveTerm
 						'',
 						'Top Repositories:',
 						...stats.repos.slice(0, 3).map(repo => 
-							`   ${repo.name} - Stars: ${repo.stars} | Forks: ${repo.forks} (${repo.language})`
+							`   ${repo.name} - Stars: ${repo.stargazers_count} | Forks: ${repo.forks_count} (${repo.language})`
 						),
 					];				} catch {
 					setIsLoading(false);

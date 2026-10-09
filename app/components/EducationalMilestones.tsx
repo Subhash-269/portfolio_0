@@ -27,7 +27,7 @@ const educationData: EducationMilestone[] = [
 		institution: 'Northeastern University',
 		degree: 'Master of Professional Studies',
 		field: 'Applied Machine Intelligence',
-		duration: '2024 - 2026',
+		duration: 'Sep 2024 - Dec 2026 (Expected)',
 		location: 'Boston, MA',
 		status: 'in-progress',
 		gpa: '3.92/4.0',

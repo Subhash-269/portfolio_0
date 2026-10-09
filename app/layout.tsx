@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
 	title: 'Venkat Neelraj - Software Engineer | AI/ML Engineer',
 	description:
-		'Welcome to my portfolio! I am a software engineer and AI/ML specialist building production GenAI systems, scalable backend services, and machine learning pipelines. With expertise spanning agentic workflows, RAG, and cloud infrastructure, I build efficient and reliable end-to-end solutions.',
+		'Welcome to my portfolio! I am a software engineer and AI/ML specialist building GenAI systems, scalable backend services, and machine learning pipelines. With expertise spanning agentic workflows, RAG, and cloud infrastructure, I build efficient and reliable end-to-end solutions.',
 	keywords: [
 		'Software Engineer',
 		'AI/ML Engineer',
@@ -43,8 +43,8 @@ export const metadata: Metadata = {
 	],
 	openGraph: {
 		title: 'Venkat Neelraj - Software Engineer | AI/ML Engineer Portfolio',
-		description: 'Software engineer and AI/ML specialist building production GenAI systems and scalable backend services. Explore my projects and technical expertise.',
-		url: 'https://your-domain.com',
+		description: 'Software engineer and AI/ML specialist building GenAI systems and scalable backend services. Explore my projects and technical expertise.',
+		url: 'https://venkatneelraj.vercel.app',
 		siteName: 'Venkat Neelraj - Portfolio',
 		images: [
 			{
@@ -60,8 +60,7 @@ export const metadata: Metadata = {
 	twitter: {
 		card: 'summary_large_image',
 		title: 'Venkat Neelraj - Software Engineer | AI/ML Engineer',
-		description: 'Software engineer and AI/ML specialist building production GenAI systems and scalable backend services. Explore my projects and technical expertise.',
-		creator: '@yourusername',
+		description: 'Software engineer and AI/ML specialist building GenAI systems and scalable backend services. Explore my projects and technical expertise.',
 		images: ['/og-image.jpg'],
 	},
 	robots: {

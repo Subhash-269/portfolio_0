@@ -29,6 +29,38 @@ interface WorkExperience {
 
 const workExperienceData: WorkExperience[] = [
     {
+        id: 4,
+        company: 'Northeastern University',
+        position: 'Lead Teaching Assistant',
+        department: 'AAI 5004: Applications of AI for Professionals',
+        duration: 'Sep 2026 - Present',
+        location: 'Boston, MA',
+        type: 'part-time',
+        status: 'current',
+        highlights: [
+            'Lead TA for AAI 5004 (Applications of AI for Professionals)',
+            'Review and correct course material for technical accuracy',
+            'Guide students through assignments and grade submissions'
+        ],
+        responsibilities: [
+            'Review and correct course material for technical accuracy',
+            'Field student questions and guide them through assignments',
+            'Grade submissions and draft course announcements'
+        ],
+        technologies: ['Python', 'LLMs', 'Machine Learning'],
+        achievements: [
+            'Lead Teaching Assistant for AAI 5004 since September 2026'
+        ],
+        skills: ['Teaching', 'Technical Communication', 'Mentoring'],
+        projects: {
+            total: 0,
+            featured: []
+        },
+        icon: '🎓',
+        color: 'from-red-700 to-red-900',
+        description: 'Lead Teaching Assistant for AAI 5004 (Applications of AI for Professionals): reviewing course material for technical accuracy, guiding students through assignments, grading, and drafting course announcements.'
+    },
+    {
         id: 3,
         company: 'Staples',
         position: 'AI Engineer Intern',
@@ -70,7 +102,7 @@ const workExperienceData: WorkExperience[] = [
     {
         id: 1,
         company: 'Cognida.AI',
-        position: 'Software Developer',
+        position: 'Software/AI Developer',
         duration: 'Jul 2022 - Aug 2024',
         location: 'Hyderabad, Telangana, India',
         type: 'full-time',
@@ -91,12 +123,12 @@ const workExperienceData: WorkExperience[] = [
         technologies: ['Python', 'TypeScript', 'NLP', 'Machine Learning', 'Computer Vision', 'Neural Networks', 'AI/ML'],
         achievements: [
             'Reduced query resolution time from 10 days to minutes',
-            'Elevated customer satisfaction by 78%',
-            'Achieved 100% compliance rate and 90% faster invoice processing',
-            '60% cost savings through streamlined workflows',
+            '78% improvement in customer satisfaction score on a healthcare-payer knowledge base',
+            'AP invoice automation: 100% improvement in compliance and a 90% efficiency gain',
+            '60% increase in cost savings on the AP invoice workflow',
             '100% key data extraction accuracy in cheque processing',
             'Reduced processing time per cheque to 7 seconds',
-            'Optimized document workflow efficiency by 40%'
+            '40% efficiency improvement in cheque processing'
         ],        skills: ['AI/ML', 'NLP', 'Computer Vision', 'Team Leadership', 'Python', 'Document Processing'],
         projects: {
             total: 3,
@@ -255,6 +287,7 @@ export default function WorkExperience() {
                                             <p className="text-gray-400 mb-4">{experience.description}</p>
 
                                             {/* Projects Summary */}
+                                            {experience.projects.total > 0 && (
                                             <div className="mb-4 p-3 bg-gray-800/30 rounded-lg border border-gray-700/50">
                                                 <div className="flex items-center justify-between mb-2">
                                                     <h4 className="text-sm font-semibold text-white flex items-center gap-2">
@@ -274,6 +307,7 @@ export default function WorkExperience() {
                                                     ))}
                                                 </div>
                                             </div>
+                                            )}
 
                                             {/* Quick Highlights */}
                                             <div className="flex flex-wrap gap-2 mb-4">
@@ -438,7 +472,7 @@ export default function WorkExperience() {
                                 </div>
                                 <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
                                     <div className="text-3xl font-bold text-green-400 mb-2">
-                                        2.5+
+                                        2+
                                     </div>
                                     <div className="text-gray-400">Years Experience</div>
                                 </div>

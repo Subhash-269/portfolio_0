@@ -60,7 +60,7 @@ export default function TechnicalMetrics() {
 							>
 								<h4 className="text-lg font-semibold text-gray-300">Document Preprocessing</h4>
 								<ul className="mt-2 space-y-2 text-gray-400">
-									<li>• Accelerated invoice processing by 90%, achieving 60% cost savings with flawless OCR integration.</li>
+									<li>• AP invoice automation: 90% efficiency gain and 60% increase in cost savings.</li>
 									{/* <li>• Implemented auto-scaling for 20+ services</li>
 									<li>• Zero-downtime deployments</li> */}
 								</ul>
@@ -94,8 +94,6 @@ export default function TechnicalMetrics() {
 								<h4 className="text-lg font-semibold text-gray-300">Electric Vehicle Insights</h4>
 								<ul className="mt-2 space-y-2 text-gray-400">
 									<li>• Delivered visual comparative analysis dashboards enabling informed EV purchasing decisions.</li>
-									<li>• Established coding standards</li>
-									<li>• Reduced technical debt by 40%</li>
 								</ul>
 							</motion.div>
 							<motion.div

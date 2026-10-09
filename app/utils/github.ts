@@ -3,8 +3,8 @@ export interface GitHubRepo {
   name: string;
   description: string;
   language: string;
-  stars: number;
-  forks: number;
+  stargazers_count: number;
+  forks_count: number;
   updated_at: string;
   html_url: string;
 }
@@ -28,7 +28,7 @@ export interface GitHubStats {
 }
 
 export class GitHubService {
-  private static readonly USERNAME = 'Subhash-269'; // Replace with your GitHub username
+  private static readonly USERNAME = 'Subhash-269';
   private static readonly API_BASE = 'https://api.github.com';
 
   static async fetchUserData(): Promise<GitHubUser | null> {
@@ -57,15 +57,18 @@ export class GitHubService {
 
   static async fetchCommitActivity(): Promise<string[]> {
     try {
-      // This would typically require authentication for private repos
-      // For demo purposes, return mock data
-      return [
-        'Pushed 3 commits to portfolio-website',
-        'Created new repository: ai-chatbot',
-        'Updated README.md in data-visualization',
-        'Merged pull request in ml-pipeline',
-        'Released v2.0 of document-processor'
-      ];
+      const response = await fetch(`${this.API_BASE}/users/${this.USERNAME}/events/public?per_page=30`);
+      if (!response.ok) throw new Error('Failed to fetch events');
+      const events: { type: string; repo: { name: string }; payload?: { size?: number; ref_type?: string } }[] = await response.json();
+      const lines: string[] = [];
+      for (const e of events) {
+        const repo = e.repo.name.replace(`${this.USERNAME}/`, '');
+        if (e.type === 'PushEvent') lines.push(`Pushed ${e.payload?.size ?? 1} commit(s) to ${repo}`);
+        else if (e.type === 'CreateEvent' && e.payload?.ref_type === 'repository') lines.push(`Created repository: ${repo}`);
+        else if (e.type === 'PullRequestEvent') lines.push(`Pull request activity in ${repo}`);
+        if (lines.length >= 5) break;
+      }
+      return lines;
     } catch (error) {
       console.error('Error fetching commit activity:', error);
       return [];
@@ -91,8 +94,8 @@ export class GitHubService {
 
       if (!user) return null;
 
-      const totalStars = repos.reduce((sum, repo) => sum + repo.stars, 0);
-      const totalForks = repos.reduce((sum, repo) => sum + repo.forks, 0);
+      const totalStars = repos.reduce((sum, repo) => sum + (repo.stargazers_count || 0), 0);
+      const totalForks = repos.reduce((sum, repo) => sum + (repo.forks_count || 0), 0);
       const languages = this.calculateLanguageStats(repos);
       const recentActivity = await this.fetchCommitActivity();
 
@@ -110,61 +113,22 @@ export class GitHubService {
     }
   }
 
-  // Fallback mock data for when API is not available
+  // Fallback when the GitHub API is unavailable: no invented numbers, just a pointer to the profile
   static getMockStats(): GitHubStats {
     return {
       user: {
-        login: 'Subhash-269',
+        login: this.USERNAME,
         name: 'Venkat Neelraj Nitta',
-        public_repos: 24,
-        followers: 43,
-        following: 67,
-        created_at: '2020-01-15T00:00:00Z'
+        public_repos: 0,
+        followers: 0,
+        following: 0,
+        created_at: ''
       },
-      repos: [
-        {
-          name: 'conversational-ai-chatbot',
-          description: 'AI-powered chatbot for customer service',
-          language: 'Python',
-          stars: 45,
-          forks: 12,
-          updated_at: '2024-12-15T00:00:00Z',
-          html_url: 'https://github.com/Subhash-269/conversational-ai-chatbot'
-        },
-        {
-          name: 'ev-insights-dashboard',
-          description: 'Electric vehicle analytics dashboard',
-          language: 'JavaScript',
-          stars: 32,
-          forks: 8,
-          updated_at: '2024-12-10T00:00:00Z',
-          html_url: 'https://github.com/Subhash-269/ev-insights-dashboard'
-        },
-        {
-          name: 'document-processor',
-          description: 'OCR and document processing pipeline',
-          language: 'Python',
-          stars: 28,
-          forks: 6,
-          updated_at: '2024-12-05T00:00:00Z',
-          html_url: 'https://github.com/Subhash-269/document-processor'
-        }
-      ],
-      totalStars: 156,
-      totalForks: 43,
-      languages: {
-        'Python': 12,
-        'JavaScript': 8,
-        'TypeScript': 4,
-        'R': 2
-      },
-      recentActivity: [
-        'Pushed 3 commits to portfolio-website',
-        'Created new repository: ai-chatbot',
-        'Updated README.md in data-visualization',
-        'Merged pull request in ml-pipeline',
-        'Released v2.0 of document-processor'
-      ]
+      repos: [],
+      totalStars: 0,
+      totalForks: 0,
+      languages: {},
+      recentActivity: [`GitHub API unavailable right now: see https://github.com/${this.USERNAME}`]
     };
   }
 }

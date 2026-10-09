@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 import { TECH_ICONS } from '../utils/techIcons';
 
 type Industry = 'insurance' | 'fintech' | 'hr-tech' | 'retail' | 'healthcare' | 'research';
@@ -15,6 +16,7 @@ interface Project {
     tech: string[];
     link?: string;
     linkText?: string;
+    images?: { src: string; alt: string }[];
     metrics?: {
         label: string;
         value: string;
@@ -61,21 +63,66 @@ const projects: Project[] = [
         ],
         tech: ['Python', 'Deep Learning', 'Neural Networks', 'Time Series Analysis', 'React'],
         link: 'https://github.com/Subhash-269/artha-ai-portfolio',
-        linkText: 'View on GitHub'
+        linkText: 'View on GitHub',
+        images: [
+            { src: '/projects/artha-dashboard.png', alt: 'Artha AI dashboard: choosing asset classes for the portfolio' },
+            { src: '/projects/artha-training.png', alt: 'Artha AI model training in progress' },
+            { src: '/projects/artha-results.png', alt: 'Artha AI portfolio results against an equal-weight baseline' }
+        ]
     },
     {
         title: 'Automobile Insurance Assistance',
         industry: 'insurance',
-        description: 'Full-stack agentic assistant for insurance claims: trained a YOLOv11 damage-detection model and built the Django web app and LangChain/LangGraph orchestration layer serving it, letting users query policy documents or upload vehicle images for damage detection and claim assistance.',
+        description: 'Full-stack agentic assistant for insurance claims: trained a YOLOv11 damage-detection model and built the Django web app and LangChain orchestration layer serving it, letting users query policy documents or upload vehicle images for damage detection and claim assistance.',
         impact: 'Agentic RAG assistant combining image-based damage detection with policy document Q&A',
         details: [
             'YOLOv11-based image classification for vehicle damage detection',
-            'LangChain/LangGraph agentic framework for policy document Q&A',
+            'LangChain RAG pipeline for policy document Q&A',
             'Django web app supporting real-time vector search and embeddings',
             'Context-aware decision tracking for insurance claims'
         ],
-        tech: ['Python', 'LangChain', 'LangGraph', 'YOLOv11', 'RAG', 'Django'],
+        tech: ['Python', 'LangChain', 'YOLOv11', 'RAG', 'Django'],
         link: 'https://github.com/Subhash-269/InsurAsst',
+        linkText: 'View on GitHub',
+        images: [
+            { src: '/projects/insurasst-workspace.png', alt: 'InsurAsst workspace: chat over policy documents' },
+            { src: '/projects/insurasst-estimator.png', alt: 'InsurAsst vehicle damage estimator' },
+            { src: '/projects/insurasst-documents.png', alt: 'InsurAsst policy document library' }
+        ]
+    },
+    {
+        title: 'QTrack – Study Productivity App',
+        industry: 'research',
+        description: 'Study and issue-tracking app in React 19 and Vite on a Supabase backend (Postgres, Auth, Storage, Realtime), with email/password plus GitHub and Google OAuth.',
+        impact: 'Live demo deployed on Vercel',
+        details: [
+            'Pomodoro timer that stays correct across devices by persisting state to Postgres and recomputing from the stored start time',
+            'PDF study reader on pdfjs-dist with per-page highlights linked to notes',
+            'Documents served from object storage through signed URLs',
+            'Topic news feed from a Supabase Edge Function calling the Anthropic API with web search'
+        ],
+        tech: ['React', 'Vite', 'Supabase', 'PostgreSQL', 'Claude API', 'Vercel'],
+        link: 'https://qtrack-steel.vercel.app/demo',
+        linkText: 'Try Live Demo',
+        images: [
+            { src: '/projects/qtrack-dashboard.png', alt: 'QTrack dashboard' },
+            { src: '/projects/qtrack-study.png', alt: 'QTrack PDF study reader with highlights' },
+            { src: '/projects/qtrack-focus.png', alt: 'QTrack focus timer' }
+        ]
+    },
+    {
+        title: 'Chore Scheduler – Household Scheduling System',
+        industry: 'research',
+        description: 'Household chore scheduler that solves the same constrained assignment problem six independent ways and cross-checks them, ranking results on structural violations, rest balance and per-chore fairness.',
+        impact: 'Six solvers (MILP, greedy, simulated annealing, tabu search, genetic algorithm, Hungarian matching) cross-checked against each other',
+        details: [
+            'MILP formulated by hand as a scipy.sparse constraint matrix solved with HiGHS',
+            'Two-phase optimization: minimize bent soft rules first, then optimize fairness among those schedules',
+            'Safety-gated beam-search repair layer that fixes rest-gap violations without worsening correctness or fairness',
+            'Cross-run state continuity between schedule runs'
+        ],
+        tech: ['Python', 'SciPy', 'NumPy', 'React'],
+        link: 'https://github.com/Subhash-269/chore-scheduler',
         linkText: 'View on GitHub'
     },
     {
@@ -214,6 +261,28 @@ export default function SystemArchitecture() {
                             transition={{ delay: index * 0.1 }}
                             className="bg-gray-900/30 backdrop-blur-sm border border-gray-700/50 rounded-xl overflow-hidden hover:border-blue-500/30 transition-all duration-500"
                         >
+                            {project.images && project.images.length > 0 && (
+                                <div className="grid grid-cols-3 gap-1 bg-gray-950/60 border-b border-gray-700/50">
+                                    {project.images.slice(0, 3).map((img, idx) => (
+                                        <a
+                                            key={img.src}
+                                            href={img.src}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className={`relative block overflow-hidden group ${idx === 0 ? 'col-span-3 sm:col-span-2 sm:row-span-2 aspect-video' : 'hidden sm:block aspect-video'}`}
+                                            title={img.alt}
+                                        >
+                                            <Image
+                                                src={img.src}
+                                                alt={img.alt}
+                                                fill
+                                                sizes={idx === 0 ? '(min-width: 640px) 66vw, 100vw' : '33vw'}
+                                                className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                                            />
+                                        </a>
+                                    ))}
+                                </div>
+                            )}
                             <div className="p-6 sm:p-8">
                                 {/* Header Section */}
                                 <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
@@ -324,22 +393,18 @@ export default function SystemArchitecture() {
                     className="mt-12 text-center"
                 >
                     <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
-                        <h3 className="text-xl font-semibold text-white mb-2">More Projects Coming Soon</h3>
+                        <h3 className="text-xl font-semibold text-white mb-2">More on GitHub</h3>
                         <p className="text-gray-400 mb-4">
-                            Currently working on advanced NLP models and computer vision applications. 
-                            Follow my GitHub for the latest updates.
+                            Coursework, experiments and smaller builds live on my GitHub profile.
                         </p>
-                        <div className="flex flex-wrap justify-center gap-4">
-                            <span className="px-3 py-1 bg-blue-500/20 text-blue-400 rounded border border-blue-500/30 text-sm">
-                                Healthcare
-                            </span>
-                            <span className="px-3 py-1 bg-green-500/20 text-green-400 rounded border border-green-500/30 text-sm">
-                                Finance
-                            </span>
-                            <span className="px-3 py-1 bg-purple-500/20 text-purple-400 rounded border border-purple-500/30 text-sm">
-                                MLOps & Deployment
-                            </span>
-                        </div>
+                        <a
+                            href="https://github.com/Subhash-269"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/20 text-blue-400 rounded-lg border border-blue-500/30 hover:bg-blue-500/30 transition-all text-sm font-medium"
+                        >
+                            github.com/Subhash-269
+                        </a>
                     </div>
                 </motion.div>
             </div>

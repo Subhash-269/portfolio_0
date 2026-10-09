@@ -227,7 +227,7 @@ export default function ContactSection() {
 										</motion.a>
 
 										<motion.a
-											href="https://www.linkedin.com/in/v-neelraj-n/"
+											href="https://www.linkedin.com/in/v-neelraj-nitta/"
 											whileHover={{ scale: 1.05, y: -5 }}
 											whileTap={{ scale: 0.95 }}
 											className="flex items-center gap-3 px-4 py-3 bg-gray-800/50 rounded-xl hover:bg-gray-700/50 transition-all duration-300 border border-gray-700/50 hover:border-gray-600/50 group"
