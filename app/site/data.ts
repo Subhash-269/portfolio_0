@@ -25,8 +25,8 @@ export const log = [
 	{ when: '2026-07', text: 'wrapped Staples internship' },
 	{ when: '2026', text: 'batch tagging on Ray', ok: '~4 h → 90 min' },
 	{ when: '2026-06', text: 'shipped QTrack', ok: 'live' },
-	{ when: 'now', text: 'adding LangGraph to InsurAsst' },
-	{ when: 'now', text: 'learning Kubernetes' },
+	{ when: 'now', text: "agentic AI for Japan's largest pharma company", ok: 'in progress' },
+	{ when: 'now', text: 'Chores on iOS and Android' },
 ];
 
 export const DOMAINS = {
@@ -36,6 +36,7 @@ export const DOMAINS = {
 	'hr-tech': 'HR Tech',
 	productivity: 'Productivity',
 	optimization: 'Optimization',
+	pharma: 'Healthcare / Pharma',
 } as const;
 export type Domain = keyof typeof DOMAINS;
 
@@ -53,9 +54,28 @@ export type Project = {
 	shots?: { src: string; alt: string; light?: string }[];
 	shotsNote?: string;
 	solvers?: string[];
+	focus?: string[];
+	status?: string;
 };
 
 export const projects: Project[] = [
+	{
+		slug: 'binders',
+		domain: 'pharma',
+		name: 'Agentic binder generation',
+		dir: 'agentic-binders/',
+		when: '2026',
+		status: 'in progress',
+		summary: "Designing and building an agentic AI system that generates document binders for Japan's largest pharmaceutical company.",
+		detail: [
+			'Designing and building the agentic AI that generates the binders.',
+			'Designing the traceability framework for what the agents produce.',
+			'Designing the evaluation framework for generated binders.',
+		],
+		stack: ['LLMs', 'Agentic AI'],
+		focus: ['Agentic generation', 'Traceability', 'Evaluation framework'],
+		links: [],
+	},
 	{
 		slug: 'insurasst',
 		domain: 'insurance',
@@ -136,6 +156,7 @@ export const projects: Project[] = [
 		],
 		stack: ['Python', 'SciPy', 'NumPy', 'React'],
 		solvers: ['MILP · HiGHS', 'Greedy', 'Sim. annealing', 'Tabu search', 'Genetic', 'Hungarian'],
+		status: 'iOS and Android release planned',
 		shots: [
 			{ src: '/projects/chore-overview.png', alt: 'Chore Scheduler mobile UI mockups: today, weekly calendar, household fairness, chore setup' },
 			{ src: '/projects/chore-today-fairness.png', alt: 'Chore Scheduler mockups: today view and workload balance' },

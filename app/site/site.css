@@ -189,6 +189,7 @@ body.site {
 .d-hr-tech { --dc: #7C3AED; }
 .d-productivity { --dc: #0891B2; }
 .d-optimization { --dc: #64748B; }
+.d-pharma { --dc: #0D9488; }
 .filters { display: flex; flex-wrap: wrap; gap: 6px; margin: 28px 0 6px; }
 .filters button { font: inherit; font-size: .76rem; display: inline-flex; align-items: center; gap: 6px; background: var(--panel); color: var(--muted); border: 1px solid var(--line); padding: 5px 10px; cursor: pointer; }
 .filters button[aria-pressed='true'] { background: var(--fg); color: var(--bg); border-color: var(--fg); }

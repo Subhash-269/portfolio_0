@@ -34,6 +34,7 @@ export default function ProjectsList() {
 						<div className="pj-head">
 							<h2 className="h3" style={{ fontSize: '1.2rem' }}>{p.dir}</h2>
 							<DomainTag domain={p.domain} />
+							{p.status && <span className="badge">{p.status}</span>}
 						</div>
 						<p className="prose-sm" style={{ color: 'var(--fg)' }}>{p.summary}</p>
 						<ul>
@@ -72,8 +73,8 @@ export default function ProjectsList() {
 							{p.shotsNote && <p className="shots-note">{p.shotsNote}</p>}
 						</div>
 					) : (
-						<div className="solve" aria-label="Solvers compared">
-							{p.solvers?.map((s) => (
+						<div className="solve" aria-label={p.solvers ? 'Solvers compared' : 'Focus areas'}>
+							{(p.solvers ?? p.focus ?? []).map((s) => (
 								<span key={s}>{s}</span>
 							))}
 						</div>
