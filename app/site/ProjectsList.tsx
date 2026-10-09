@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import Shot from './Shot';
 import { useState } from 'react';
 import { DOMAINS, projects, hackathons, type Domain } from './data';
 import { SkillChip } from './SkillIcon';
@@ -66,7 +66,7 @@ export default function ProjectsList() {
 						<div className="shots">
 							{p.shots.map((s) => (
 								<a key={s.src} href={s.src} title={s.alt}>
-									<Image src={s.src} alt={s.alt} width={1440} height={900} sizes="(min-width: 860px) 45vw, 100vw" />
+									<Shot src={s.src} light={s.light} alt={s.alt} sizes="(min-width: 860px) 45vw, 100vw" />
 								</a>
 							))}
 							{p.shotsNote && <p className="shots-note">{p.shotsNote}</p>}
@@ -90,7 +90,7 @@ export default function ProjectsList() {
 								<div className="pj-head">
 									<h3 className="h3">
 										{h.name}
-										{h.won && <span className="won">won</span>}
+										{h.won && <span className="badge">won</span>}
 									</h3>
 									<DomainTag domain={h.domain} />
 								</div>

@@ -50,7 +50,7 @@ export type Project = {
 	stack: string[];
 	metric?: string;
 	links: { label: string; href: string }[];
-	shots?: { src: string; alt: string }[];
+	shots?: { src: string; alt: string; light?: string }[];
 	shotsNote?: string;
 	solvers?: string[];
 };
@@ -72,7 +72,7 @@ export const projects: Project[] = [
 		metric: '6 damage classes · token streaming',
 		links: [{ label: 'github', href: 'https://github.com/Subhash-269/InsurAsst' }],
 		shots: [
-			{ src: '/projects/insurasst-workspace.png', alt: 'InsurAsst workspace: chat over policy documents' },
+			{ src: '/projects/insurasst-workspace.png', light: '/projects/insurasst-workspace-light.png', alt: 'InsurAsst workspace: chat over policy documents' },
 			{ src: '/projects/insurasst-estimator.png', alt: 'InsurAsst vehicle damage estimator' },
 			{ src: '/projects/insurasst-documents.png', alt: 'InsurAsst policy document library' },
 		],

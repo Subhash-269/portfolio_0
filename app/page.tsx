@@ -1,9 +1,12 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import Shot from './site/Shot';
 import Footer from './site/Footer';
 import Photo from './site/Photo';
 import { SkillChip } from './site/SkillIcon';
 import DomainTag from './site/DomainTag';
+import GitHubPanel from './site/GitHubPanel';
+
+export const revalidate = 21600;
 import { person, log, projects, experience, hackathons, certifications } from './site/data';
 
 export default function Home() {
@@ -13,7 +16,9 @@ export default function Home() {
 			<section className="hero">
 				<div>
 					<p className="prompt">$ whoami</p>
-					<h1 className="h1">{person.name}</h1>
+					<h1 className="h1">
+						Venkat <span className="nick">Neel</span>raj Nitta
+					</h1>
 					<p className="prose">{person.intro}</p>
 					<p className="status">
 						<span>
@@ -70,7 +75,7 @@ export default function Home() {
 			<div className="cards">
 				{featured.map((p) => (
 					<article className="card" key={p.slug}>
-						<Image src={p.shots![0].src} alt={p.shots![0].alt} width={1440} height={900} sizes="(min-width: 860px) 33vw, 100vw" />
+						<Shot src={p.shots![0].src} light={p.shots![0].light} alt={p.shots![0].alt} sizes="(min-width: 860px) 33vw, 100vw" />
 						<div className="b">
 							<div className="pj-head">
 								<h3 className="h3">{p.dir}</h3>
@@ -92,6 +97,8 @@ export default function Home() {
 			<p className="legend">
 				<Link href="/projects">all projects and hackathons →</Link>
 			</p>
+
+			<GitHubPanel />
 
 			<h2 className="sect">experience</h2>
 			<div className="rows">
@@ -115,7 +122,8 @@ export default function Home() {
 							<li key={h.name}>
 								<span>{h.when}</span>
 								<div>
-									{h.won ? <b>Won the Workhuman-sponsored hackathon</b> : <b>InnovAIte, Northeastern</b>} · {h.name}
+									{h.won ? <b>Workhuman-sponsored hackathon</b> : <b>InnovAIte, Northeastern</b>} · {h.name}
+									{h.won && <span className="badge">won</span>}
 								</div>
 							</li>
 						))}

@@ -6,6 +6,7 @@ export default function Footer() {
 			<a className="go" href={person.resume}>
 				$ open resume.pdf
 			</a>
+			<span className="hi">say hi to <b>Neel</b></span>
 			<span>{person.email}</span>
 			<a href={person.linkedin}>linkedin.com/in/v-neelraj-nitta</a>
 			<a href={person.github}>github.com/Subhash-269</a>
