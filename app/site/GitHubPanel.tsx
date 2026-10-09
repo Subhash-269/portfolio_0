@@ -1,5 +1,6 @@
 import { getGitHub, type Day } from './github';
 import { person } from './data';
+import OrgLogo from './OrgLogo';
 
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
@@ -28,7 +29,7 @@ export default async function GitHubPanel() {
 
 	return (
 		<section aria-label="GitHub activity">
-			<h2 className="sect">github · @Subhash-269</h2>
+			<h2 className="sect"><OrgLogo org="github" size={14} />github · @Subhash-269</h2>
 			<div className="gh-stats" style={{ gridTemplateColumns: `repeat(${stats.length}, minmax(0, 1fr))` }}>
 				{stats.map((s) => (
 					<div key={s.l}>
@@ -96,7 +97,7 @@ export default async function GitHubPanel() {
 				)}
 			</div>
 			<p className="legend">
-				<a href={person.github}>open github profile →</a>
+				<a href={person.github}><OrgLogo org="github" size={13} />open github profile →</a>
 			</p>
 		</section>
 	);

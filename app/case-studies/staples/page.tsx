@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import Footer from '../../site/Footer';
+import OrgLogo from '../../site/OrgLogo';
 
 export const metadata: Metadata = { title: 'Staples case study' };
 
@@ -14,7 +15,7 @@ export default function Staples() {
 				<h1 className="h1" style={{ maxWidth: '24ch' }}>The retrieval and data layers under an agentic e-commerce system</h1>
 				<dl className="facts">
 					<dt>role</dt>
-					<dd>AI Engineer Intern, Staples, Framingham, MA</dd>
+					<dd><OrgLogo org="staples" size={14} />AI Engineer Intern, Staples, Framingham, MA</dd>
 					<dt>when</dt>
 					<dd>Jan–Jul 2026</dd>
 					<dt>team</dt>

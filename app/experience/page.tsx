@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import Footer from '../site/Footer';
 import { experience, education, skills, certifications } from '../site/data';
 import { SkillChip } from '../site/SkillIcon';
+import OrgLogo from '../site/OrgLogo';
 
 export const metadata: Metadata = { title: 'Experience' };
 
@@ -22,7 +23,7 @@ export default function Experience() {
 						<div className="r">
 							<b>{e.role}</b>
 							{e.current && <span className="badge">current</span>}
-							<div className="org">{e.org}</div>
+							<div className="org"><OrgLogo org={e.logo} />{e.org}</div>
 							<p className="prose-sm" style={{ color: 'var(--fg)' }}>
 								{e.text} {e.link && <Link href={e.link.href}>{e.link.label} →</Link>}
 							</p>
@@ -38,7 +39,7 @@ export default function Experience() {
 						<span className="w">{e.when}</span>
 						<div className="r">
 							<b>{e.role}</b>
-							<div className="org">{e.org}</div>
+							<div className="org"><OrgLogo org={'logo' in e ? (e.logo as string) : undefined} />{e.org}</div>
 							<p className="prose-sm">{e.text}</p>
 						</div>
 					</div>
@@ -65,7 +66,7 @@ export default function Experience() {
 					<li key={c.name}>
 						<span>{c.when}</span>
 						<div>
-							<b>{c.name}</b> · {c.by}
+							<OrgLogo org={c.logo} /><b>{c.name}</b> · {c.by}
 						</div>
 					</li>
 				))}

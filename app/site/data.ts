@@ -158,18 +158,22 @@ export const projects: Project[] = [
 		solvers: ['MILP · HiGHS', 'Greedy', 'Sim. annealing', 'Tabu search', 'Genetic', 'Hungarian'],
 		status: 'iOS and Android release planned',
 		shots: [
-			{ src: '/projects/chore-overview.png', alt: 'Chore Scheduler mobile UI mockups: today, weekly calendar, household fairness, chore setup' },
-			{ src: '/projects/chore-today-fairness.png', alt: 'Chore Scheduler mockups: today view and workload balance' },
-			{ src: '/projects/chore-calendars.png', alt: 'Chore Scheduler mockups: two weekly calendar layouts' },
+			{ src: '/projects/chore-overview-v2.png', light: '/projects/chore-overview-v2-light.png', alt: 'Chore Scheduler app: today, weekly calendar, household and setup screens' },
+			{ src: '/projects/chore-solvers-v2.png', light: '/projects/chore-solvers-v2-light.png', alt: 'Chore Scheduler app: six algorithms running, picking a schedule, fairness breakdown' },
+			{ src: '/projects/chore-more-v2.png', light: '/projects/chore-more-v2-light.png', alt: 'Chore Scheduler app: welcome, fridge board, notification digest' },
 		],
-		shotsNote: 'UI mockups from the repo',
-		links: [{ label: 'github', href: 'https://github.com/Subhash-269/chore-scheduler' }],
+		shotsNote: 'UI mockups from the repo (mobile-app branch)',
+		links: [
+			{ label: 'case study', href: '/case-studies/chore-scheduler' },
+			{ label: 'github', href: 'https://github.com/Subhash-269/chore-scheduler' },
+		],
 	},
 ];
 
 export const hackathons = [
 	{
 		name: 'Lighthouse',
+		logo: 'workhuman',
 		domain: 'hr-tech' as Domain,
 		won: true,
 		when: 'May 2026',
@@ -179,6 +183,7 @@ export const hackathons = [
 	},
 	{
 		name: 'SmartCart',
+		logo: 'northeastern',
 		domain: 'retail' as Domain,
 		won: false,
 		when: 'Feb 2025',
@@ -192,6 +197,7 @@ export const experience = [
 	{
 		when: 'Sep 2026 – now',
 		role: 'Lead Teaching Assistant',
+		logo: 'northeastern',
 		org: 'Northeastern University · Boston, MA',
 		text: 'AAI 5004, Applications of AI for Professionals. Review course material for technical accuracy, guide students through assignments, grade, and draft course announcements.',
 		current: true,
@@ -199,6 +205,7 @@ export const experience = [
 	{
 		when: 'Jan – Jul 2026',
 		role: 'AI Engineer Intern',
+		logo: 'staples',
 		org: 'Staples · Framingham, MA',
 		text: 'Maintained and extended the retrieval layer (3 Databricks Vector Search indexes and a Neo4j product graph), owned the Snowflake-to-Delta data path, and built the SKU enrichment classifier.',
 		link: { label: 'case study', href: '/case-studies/staples' },
@@ -206,6 +213,7 @@ export const experience = [
 	{
 		when: 'Jul 2022 – Aug 2024',
 		role: 'Software/AI Developer',
+		logo: 'cognida',
 		org: 'Cognida.ai · Hyderabad, India',
 		text: 'Unsupervised claims anomaly detection, retrieval for financial document search, OCR and computer-vision models, LLM fine-tuning and quantization, and an AWS vs Azure serving comparison.',
 		link: { label: 'case study', href: '/case-studies/cognida' },
@@ -213,7 +221,7 @@ export const experience = [
 ];
 
 export const education = [
-	{ when: 'Sep 2024 – Dec 2026', role: 'MPS, Applied Machine Intelligence', org: 'Northeastern University', text: 'GPA 3.92. Expected December 2026. Fundamentals of AI, AI System Technologies, Data Management & Big Data.' },
+	{ when: 'Sep 2024 – Dec 2026', role: 'MPS, Applied Machine Intelligence', org: 'Northeastern University', logo: 'northeastern', text: 'GPA 3.92. Expected December 2026. Fundamentals of AI, AI System Technologies, Data Management & Big Data.' },
 	{ when: 'Aug 2018 – Jun 2022', role: 'B.Tech, Electrical and Electronics Engineering', org: 'Mahindra Ecole Centrale · Hyderabad', text: 'Machine Learning, Data Structures, Big Data Computing.' },
 ];
 
@@ -225,9 +233,9 @@ export const skills = [
 ];
 
 export const certifications = [
-	{ when: 'Aug 2026', name: 'AI Tools Workshop', by: 'be10x Academy' },
-	{ when: 'Apr 2026', name: 'AI Agents on Databricks', by: 'Databricks Academy' },
-	{ when: 'Sep 2024', name: 'Applying AI Technologies to the Workplace', by: 'Northeastern University' },
-	{ when: 'May 2024', name: 'Generative AI with Large Language Models', by: 'DeepLearning.AI' },
-	{ when: '2024', name: 'Crash Course on Python', by: 'Google' },
+	{ when: 'Aug 2026', name: 'AI Tools Workshop', by: 'be10x Academy', logo: undefined as string | undefined },
+	{ when: 'Apr 2026', name: 'AI Agents on Databricks', by: 'Databricks Academy', logo: 'databricks' },
+	{ when: 'Sep 2024', name: 'Applying AI Technologies to the Workplace', by: 'Northeastern University', logo: 'northeastern' },
+	{ when: 'May 2024', name: 'Generative AI with Large Language Models', by: 'DeepLearning.AI', logo: 'deeplearning' },
+	{ when: '2024', name: 'Crash Course on Python', by: 'Google', logo: 'google' },
 ];

@@ -242,3 +242,13 @@ img.ss-light { display: block !important; }
 }
 :root[data-site-theme='dark'] img.ss-dark { display: block !important; }
 :root[data-site-theme='dark'] img.ss-light { display: none !important; }
+
+/* Organization logos next to names */
+.org-logo { display: inline-block; vertical-align: -3px; margin-right: 7px; border-radius: 3px; flex: none; }
+img.org-logo { object-fit: contain; background: #fff; padding: 1px; }
+.org-ic { padding: 0; background: none; }
+
+/* Case study screenshots */
+.cs-shot { margin: 0 0 18px; }
+.cs-shot img { display: block; width: 100%; height: auto; border: 1px solid var(--line); }
+.cs-shot figcaption { font-size: .78rem; color: var(--muted); margin-top: 6px; }

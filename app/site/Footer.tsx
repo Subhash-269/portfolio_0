@@ -1,4 +1,5 @@
 import { person } from './data';
+import OrgLogo from './OrgLogo';
 
 export default function Footer() {
 	return (
@@ -9,7 +10,7 @@ export default function Footer() {
 			<span className="hi">say hi to <b>Neel</b></span>
 			<span>{person.email}</span>
 			<a href={person.linkedin}>linkedin.com/in/v-neelraj-nitta</a>
-			<a href={person.github}>github.com/Subhash-269</a>
+			<a href={person.github}><OrgLogo org="github" size={14} />github.com/Subhash-269</a>
 		</footer>
 	);
 }

@@ -5,6 +5,7 @@ import Photo from './site/Photo';
 import { SkillChip } from './site/SkillIcon';
 import DomainTag from './site/DomainTag';
 import GitHubPanel from './site/GitHubPanel';
+import OrgLogo from './site/OrgLogo';
 
 export const revalidate = 21600;
 import { person, log, projects, experience, hackathons, certifications } from './site/data';
@@ -86,6 +87,7 @@ export default function Home() {
 							<div className="links">
 								{p.links.map((l) => (
 									<a key={l.href} href={l.href}>
+										{l.label === 'github' && <OrgLogo org="github" size={13} />}
 										{l.label} →
 									</a>
 								))}
@@ -108,7 +110,7 @@ export default function Home() {
 						<div className="r">
 							<b>{e.role}</b>
 							{e.current && <span className="badge">current</span>}
-							<div className="org">{e.org}</div>
+							<div className="org"><OrgLogo org={e.logo} />{e.org}</div>
 						</div>
 					</div>
 				))}
@@ -122,6 +124,7 @@ export default function Home() {
 							<li key={h.name}>
 								<span>{h.when}</span>
 								<div>
+									<OrgLogo org={h.logo} />
 									{h.won ? <b>Workhuman-sponsored hackathon</b> : <b>InnovAIte, Northeastern</b>} · {h.name}
 									{h.won && <span className="badge">won</span>}
 								</div>
@@ -136,7 +139,7 @@ export default function Home() {
 							<li key={c.name}>
 								<span>{c.when}</span>
 								<div>
-									<b>{c.name}</b> · {c.by}
+									<OrgLogo org={c.logo} /><b>{c.name}</b> · {c.by}
 								</div>
 							</li>
 						))}

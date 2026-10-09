@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Footer from '../site/Footer';
 import ProjectsList from '../site/ProjectsList';
 import { person } from '../site/data';
+import OrgLogo from '../site/OrgLogo';
 
 export const metadata: Metadata = { title: 'Projects' };
 
@@ -17,7 +18,7 @@ export default function Projects() {
 			<ProjectsList />
 
 			<p className="legend" style={{ marginTop: 32 }}>
-				Coursework and smaller experiments: <a href={person.github}>github.com/Subhash-269</a>
+				Coursework and smaller experiments: <a href={person.github}><OrgLogo org="github" size={13} />github.com/Subhash-269</a>
 			</p>
 			<Footer />
 		</main>

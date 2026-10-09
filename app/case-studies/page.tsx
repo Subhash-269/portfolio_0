@@ -2,6 +2,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import Footer from '../site/Footer';
 import DomainTag from '../site/DomainTag';
+import OrgLogo from '../site/OrgLogo';
 import type { Domain } from '../site/data';
 
 export const metadata: Metadata = { title: 'Case studies' };
@@ -13,6 +14,7 @@ const items = [
 		title: 'The retrieval and data layers under an agentic e-commerce system',
 		text: 'Vector Search indexes and a Neo4j product graph the agent queried, the daily Snowflake-to-Delta path feeding them, and the SKU enrichment that made filtering possible.',
 		domain: 'retail' as Domain,
+		logo: 'staples',
 		res: '~4 h → 90 min',
 		resNote: 'batch tagging on Ray',
 	},
@@ -22,8 +24,19 @@ const items = [
 		title: 'Finding subrogation cases a rule engine missed',
 		text: 'Unsupervised anomaly detection over millions of health insurance claims, from PySpark features to a distance-based score that went to production.',
 		domain: 'insurance' as Domain,
+		logo: 'cognida',
 		res: '+8%',
 		resNote: 'new cases flagged',
+	},
+	{
+		href: '/case-studies/chore-scheduler',
+		tag: 'Personal project · Aug 2026',
+		title: 'One scheduling problem, solved six ways and cross-checked',
+		text: 'MILP, greedy, simulated annealing, tabu search, a genetic algorithm and daily Hungarian matching on the same constrained problem, ranked lexicographically and re-validated from scratch.',
+		domain: 'optimization' as Domain,
+		logo: 'github',
+		res: '6 solvers',
+		resNote: 'one ranked winner',
 	},
 ];
 
@@ -39,7 +52,7 @@ export default function CaseStudies() {
 				{items.map((i) => (
 					<Link key={i.href} href={i.href} className="cs-item">
 						<div>
-							<p className="prompt" style={{ color: 'var(--muted)', fontSize: '.76rem' }}>{i.tag}</p>
+							<p className="prompt" style={{ color: 'var(--muted)', fontSize: '.76rem' }}><OrgLogo org={i.logo} size={14} />{i.tag}</p>
 							<div className="pj-head">
 								<h2 className="h3" style={{ fontSize: '1.15rem' }}>{i.title}</h2>
 								<DomainTag domain={i.domain} />

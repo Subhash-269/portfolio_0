@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import Footer from '../../site/Footer';
+import OrgLogo from '../../site/OrgLogo';
 
 export const metadata: Metadata = { title: 'Cognida case study' };
 
@@ -14,7 +15,7 @@ export default function Cognida() {
 				<h1 className="h1" style={{ maxWidth: '24ch' }}>Finding subrogation cases a rule engine missed</h1>
 				<dl className="facts">
 					<dt>role</dt>
-					<dd>Software/AI Developer, Cognida.ai, Hyderabad, India</dd>
+					<dd><OrgLogo org="cognida" size={14} />Software/AI Developer, Cognida.ai, Hyderabad, India</dd>
 					<dt>when</dt>
 					<dd>Jul 2022 – Aug 2024</dd>
 					<dt>stack</dt>

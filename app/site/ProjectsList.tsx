@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { DOMAINS, projects, hackathons, type Domain } from './data';
 import { SkillChip } from './SkillIcon';
 import DomainTag from './DomainTag';
+import OrgLogo from './OrgLogo';
 
 type Filter = Domain | 'all';
 
@@ -58,6 +59,7 @@ export default function ProjectsList() {
 							<span>{p.when}</span>
 							{p.links.map((l) => (
 								<a key={l.href} href={l.href}>
+									{l.label === 'github' && <OrgLogo org="github" size={13} />}
 									{l.label} →
 								</a>
 							))}
@@ -90,6 +92,7 @@ export default function ProjectsList() {
 							<div key={h.name}>
 								<div className="pj-head">
 									<h3 className="h3">
+										<OrgLogo org={h.logo} size={18} />
 										{h.name}
 										{h.won && <span className="badge">won</span>}
 									</h3>
@@ -97,7 +100,7 @@ export default function ProjectsList() {
 								</div>
 								<p className="prose-sm" style={{ color: 'var(--fg)' }}>{h.text}</p>
 								<p className="prose-sm" style={{ fontFamily: 'var(--mono)', fontSize: '.76rem', marginTop: 6 }}>
-									{h.when} · {h.stack} · <a href={h.href}>code →</a>
+									{h.when} · {h.stack} · <a href={h.href}><OrgLogo org="github" size={13} />code →</a>
 								</p>
 							</div>
 						))}
