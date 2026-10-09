@@ -1,46 +1,142 @@
-'use client';
+import Link from 'next/link';
+import Image from 'next/image';
+import Footer from './site/Footer';
+import Photo from './site/Photo';
+import { SkillChip } from './site/SkillIcon';
+import DomainTag from './site/DomainTag';
+import { person, log, projects, experience, hackathons, certifications } from './site/data';
 
-import { useState } from 'react';
-import LoadingScreen from './components/LoadingScreen';
-import HeroSection from './components/HeroSection';
-import ExperienceTimeline from './components/ExperienceTimeline';
-// import EducationalMilestones from './components/EducationalMilestones';
-// import WorkExperience from './components/WorkExperience';
-// import InteractiveSkills from './components/InteractiveSkills';
-import SystemArchitecture from './components/SystemArchitecture';
-// import ProjectDemos from './components/ProjectDemos';
-import TechnicalMetrics from './components/TechnicalMetrics';
-import ContactSection from './components/ContactSection';
-import TerminalPopup from './components/TerminalPopup';
-// import ThemeToggle from './components/ThemeToggle';
-// import InteractiveBackground from './components/InteractiveBackground';
-
-export default function BackendPortfolio() {
-	const [isLoading, setIsLoading] = useState(true);
-
-	const handleLoadingComplete = () => {
-		setIsLoading(false);
-	};
+export default function Home() {
+	const featured = projects.filter((p) => p.shots).slice(0, 3);
 	return (
-		<>
-			{isLoading && <LoadingScreen onComplete={handleLoadingComplete} />}
-			
-			{/* Interactive Background Effects */}
-			{/* <InteractiveBackground /> */}
-			
-			{/* Theme Toggle */}
-			{/* <ThemeToggle /> */}
-			
-			<main className="min-h-screen theme-bg-primary theme-text-primary overflow-x-hidden relative z-10">
-				<HeroSection />
-				<ExperienceTimeline />
-				{/* <InteractiveSkills /> */}
-				<SystemArchitecture />
-				{/* <ProjectDemos />  */}
-				<TechnicalMetrics />
-				<ContactSection />
-				<TerminalPopup />
-			</main>
-		</>
+		<main className="wrap page-in">
+			<section className="hero">
+				<div>
+					<p className="prompt">$ whoami</p>
+					<h1 className="h1">{person.name}</h1>
+					<p className="prose">{person.intro}</p>
+					<p className="status">
+						<span>
+							<span className="dot" aria-hidden="true" />
+							<b>Open to</b> {person.openTo}
+						</span>
+						<span>
+							<b>Relocation</b> {person.relocation}
+						</span>
+						<span>
+							<b>Based in</b> {person.location}
+						</span>
+					</p>
+					<div className="chips" aria-label="Core skills">
+						{person.chips.core.map((c) => (
+							<SkillChip key={c} name={c} strong />
+						))}
+						{person.chips.more.map((c) => (
+							<SkillChip key={c} name={c} />
+						))}
+					</div>
+				</div>
+				<div>
+					<Photo />
+					<div className="log" aria-label="Recent activity">
+						{log.map((l) => (
+							<div key={l.when + l.text}>
+								<span className="t">{l.when}</span>
+								{l.text}
+								{l.ok && <span className="ok">{l.ok}</span>}
+							</div>
+						))}
+					</div>
+				</div>
+			</section>
+
+			<h2 className="sect">staples/ · the system I worked on</h2>
+			<pre className="tree" aria-label="Staples agentic commerce system">
+				{'staples-agentic-commerce/\n'}
+				{'├── '}<span className="o">snowflake_to_delta.sql</span>{'   15+ tables → 1 flattened Delta table, daily, changed rows only\n'}
+				{'├── '}<span className="o">enrichment/</span>{'              multi-label DeBERTa · LLM fallback · ~0.8 accuracy\n'}
+				{'│   └── '}<span className="o">batch_on_ray.py</span>{'      ~4 h → 90 min on one GPU node\n'}
+				{'├── '}<span className="m">retrieval/</span>{'               3 Databricks Vector Search indexes + Neo4j product graph\n'}
+				{'│   └── '}<span className="o">relationships</span>{'        bought-together, compatibility edges in Neo4j\n'}
+				<span className="c">{'└── router.py                agent'}</span>
+			</pre>
+			<p className="legend">
+				<span><i style={{ background: 'var(--link)' }} />maintained and extended: most of my time</span>
+				<span><i style={{ background: 'var(--ok)' }} />built and owned</span>
+				<Link href="/case-studies/staples">read the case study →</Link>
+			</p>
+
+			<h2 className="sect">projects</h2>
+			<div className="cards">
+				{featured.map((p) => (
+					<article className="card" key={p.slug}>
+						<Image src={p.shots![0].src} alt={p.shots![0].alt} width={1440} height={900} sizes="(min-width: 860px) 33vw, 100vw" />
+						<div className="b">
+							<div className="pj-head">
+								<h3 className="h3">{p.dir}</h3>
+								<DomainTag domain={p.domain} />
+							</div>
+							<p className="prose-sm">{p.summary}</p>
+							{p.metric && <span className="m">{p.metric}</span>}
+							<div className="links">
+								{p.links.map((l) => (
+									<a key={l.href} href={l.href}>
+										{l.label} →
+									</a>
+								))}
+							</div>
+						</div>
+					</article>
+				))}
+			</div>
+			<p className="legend">
+				<Link href="/projects">all projects and hackathons →</Link>
+			</p>
+
+			<h2 className="sect">experience</h2>
+			<div className="rows">
+				{experience.map((e) => (
+					<div key={e.role}>
+						<span className="w">{e.when}</span>
+						<div className="r">
+							<b>{e.role}</b>
+							{e.current && <span className="badge">current</span>}
+							<div className="org">{e.org}</div>
+						</div>
+					</div>
+				))}
+			</div>
+
+			<div className="two" style={{ marginTop: 44 }}>
+				<div>
+					<h2 className="sect" style={{ marginTop: 0 }}>recognition</h2>
+					<ul className="list">
+						{hackathons.map((h) => (
+							<li key={h.name}>
+								<span>{h.when}</span>
+								<div>
+									{h.won ? <b>Won the Workhuman-sponsored hackathon</b> : <b>InnovAIte, Northeastern</b>} · {h.name}
+								</div>
+							</li>
+						))}
+					</ul>
+				</div>
+				<div>
+					<h2 className="sect" style={{ marginTop: 0 }}>certifications</h2>
+					<ul className="list">
+						{certifications.slice(1, 4).map((c) => (
+							<li key={c.name}>
+								<span>{c.when}</span>
+								<div>
+									<b>{c.name}</b> · {c.by}
+								</div>
+							</li>
+						))}
+					</ul>
+				</div>
+			</div>
+
+			<Footer />
+		</main>
 	);
 }
