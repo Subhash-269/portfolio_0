@@ -11,7 +11,7 @@ export const person = {
 	github: 'https://github.com/Subhash-269',
 	resume: '/resume/VenkatNeelraj.pdf',
 	intro:
-		'AI/ML engineer with 2+ years building ML and LLM systems in Python. At Staples I maintained and extended the retrieval layer of an agentic e-commerce system and owned the data path feeding it. MS in Applied Machine Intelligence at Northeastern, graduating December 2026.',
+		'AI/ML engineer with 2+ years building ML and LLM systems in Python. At Staples I maintained and extended the retrieval layer of an agentic e-commerce system and owned the data path feeding it. MS in Applied AI at Northeastern, graduating December 2026.',
 	openTo: 'full-time AI/ML and software roles',
 	relocation: 'yes',
 	chips: {
@@ -25,7 +25,7 @@ export const log = [
 	{ when: '2026-07', text: 'wrapped Staples internship' },
 	{ when: '2026', text: 'batch tagging on Ray', ok: '~4 h → 90 min' },
 	{ when: '2026-06', text: 'shipped QTrack', ok: 'live' },
-	{ when: 'now', text: "agentic AI for Japan's largest pharma company", ok: 'in progress' },
+	{ when: 'now', text: "agentic AI for a global pharmaceutical company", ok: 'in progress' },
 	{ when: 'now', text: 'Chores on iOS and Android' },
 ];
 
@@ -66,7 +66,7 @@ export const projects: Project[] = [
 		dir: 'agentic-binders/',
 		when: '2026',
 		status: 'in progress',
-		summary: "Designing and building an agentic AI system that generates document binders for Japan's largest pharmaceutical company.",
+		summary: "Designing and building an agentic AI system that generates document binders for a global pharmaceutical company.",
 		detail: [
 			'Designing and building the agentic AI that generates the binders.',
 			'Designing the traceability framework for what the agents produce.',
@@ -221,7 +221,7 @@ export const experience = [
 ];
 
 export const education = [
-	{ when: 'Sep 2024 – Dec 2026', role: 'MPS, Applied Machine Intelligence', org: 'Northeastern University', logo: 'northeastern', text: 'GPA 3.92. Expected December 2026. Fundamentals of AI, AI System Technologies, Data Management & Big Data.' },
+	{ when: 'Sep 2024 – Dec 2026', role: 'MPS, Applied AI', org: 'Northeastern University', logo: 'northeastern', text: 'GPA 3.92. Expected December 2026. Fundamentals of AI, AI System Technologies, Data Management & Big Data.' },
 	{ when: 'Aug 2018 – Jun 2022', role: 'B.Tech, Electrical and Electronics Engineering', org: 'Mahindra Ecole Centrale · Hyderabad', text: 'Machine Learning, Data Structures, Big Data Computing.' },
 ];
 

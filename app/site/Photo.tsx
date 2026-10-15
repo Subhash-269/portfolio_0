@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-export default function Photo({ caption = '~/venkat/photo.jpg' }: { caption?: string }) {
+export default function Photo({ caption = '~/neel/photo.jpg' }: { caption?: string }) {
 	return (
 		<figure className="photo">
 			<Image className="site-photo-light" src="/photo-light.jpg" alt="Venkat Neelraj Nitta" width={509} height={636} priority />

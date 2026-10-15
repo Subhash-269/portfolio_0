@@ -18,7 +18,7 @@ const sourceSerif = Source_Serif_4({
 });
 
 const description =
-	'AI/ML engineer with 2+ years building ML and LLM systems in Python: retrieval, data pipelines and agents. MS in Applied Machine Intelligence at Northeastern, graduating December 2026.';
+	'AI/ML engineer with 2+ years building ML and LLM systems in Python: retrieval, data pipelines and agents. MS in Applied AI at Northeastern, graduating December 2026.';
 
 export const metadata: Metadata = {
 	metadataBase: new URL('https://venkatneelraj.vercel.app'),

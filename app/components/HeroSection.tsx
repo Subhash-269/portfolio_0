@@ -168,7 +168,7 @@ export default function HeroSection() {
 					<div className="font-mono">
 						<p className="text-green-500">$ whoami</p>						<h1 className="text-2xl sm:text-4xl md:text-5xl font-bold mt-2 mb-4">Venkat Neelraj Nitta</h1>
 						<p className="text-sm sm:text-base text-gray-400 mb-2">Graduate Student at Northeastern University</p>						<p className="text-green-500">$ whoami.info</p>
-						<p className="text-sm sm:text-base text-gray-400 mb-4">Full-stack engineer with an AI/ML specialization: more than 2 years of experience building production systems and GenAI/agentic workflows, most recently as an AI Engineer Intern at Staples on the Agentic Commerce team, now pursuing a Master&#39;s in Applied Machine Intelligence at Northeastern University.</p>
+						<p className="text-sm sm:text-base text-gray-400 mb-4">Full-stack engineer with an AI/ML specialization: more than 2 years of experience building production systems and GenAI/agentic workflows, most recently as an AI Engineer Intern at Staples on the Agentic Commerce team, now pursuing a Master&#39;s in Applied AI at Northeastern University.</p>
 
 						<p className="text-green-500">$ whoami.skills --software-engineering</p>
 						<div className="flex flex-wrap gap-1 sm:gap-2 mt-2 mb-4">

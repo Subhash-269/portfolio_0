@@ -82,8 +82,9 @@ body.site {
 .chips span.k { color: var(--fg); border-color: var(--line-strong); }
 .chips span { display: inline-flex; align-items: center; gap: 6px; }
 .sk-ic { width: 13px; height: 13px; flex: none; }
-.photo { border: 1px solid var(--line); background: var(--panel); margin: 0 0 14px; max-width: 230px; }
-.photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; }
+.photo { border: 1px solid var(--line); background: var(--panel); margin: 0 0 14px; max-width: 180px; }
+.photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; opacity: .88; transition: opacity .2s; }
+.photo:hover img { opacity: 1; }
 .photo figcaption { font-size: .7rem; color: var(--faint); padding: 5px 8px; border-top: 1px solid var(--line); }
 .log { border: 1px solid var(--line); background: var(--panel); padding: 12px 14px; font-size: .79rem; line-height: 1.75; color: var(--muted); }
 .log .t { color: var(--link); margin-right: 6px; }

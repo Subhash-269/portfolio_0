@@ -86,7 +86,7 @@ export default function Home() {
 						<b>Product tags</b><span>~0.8 accuracy</span>
 					</li>
 					<li className="blk own">
-						<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z" /></svg>
+						<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="9" height="9" rx="1.5" /><rect x="13" y="2" width="9" height="9" rx="1.5" /><rect x="2" y="13" width="9" height="9" rx="1.5" /><rect x="13" y="13" width="9" height="9" rx="1.5" /><path d="M5 6.5h3M16 6.5h3M5 17.5h3M16 17.5h3" /></svg>
 						<b>GPU batch inference</b><span>4 h → 90 min</span>
 					</li>
 					<li className="blk kept">
