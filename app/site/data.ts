@@ -234,6 +234,7 @@ export const experience = [
 		role: 'Lead Teaching Assistant',
 		logo: 'northeastern',
 		org: 'Northeastern University · Boston, MA',
+		course: 'AAI 5004 · Applications of AI for Professionals',
 		text: 'AAI 5004, Applications of AI for Professionals. Review course material for technical accuracy, guide students through assignments, grade, and draft course announcements.',
 		current: true,
 	},

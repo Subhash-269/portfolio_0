@@ -144,6 +144,7 @@ export default function Home() {
 							<b>{e.role}</b>
 							{e.current && <span className="badge">current</span>}
 							<div className="org"><OrgLogo org={e.logo} />{e.org}</div>
+							{'course' in e && e.course && <div className="xp-course">{e.course}</div>}
 							{'stack' in e && e.stack && (
 								<div className="chips xp-stack" aria-label={`Stack at ${e.org}`}>
 									{e.stack.map((s: string) => <SkillChip key={s} name={s} />)}

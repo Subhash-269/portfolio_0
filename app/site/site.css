@@ -149,6 +149,7 @@ body.site {
 .rows .r .org { color: var(--muted); font-size: .82rem; }
 .rows .r p { margin: 6px 0 0; }
 .rows .xp-stack { margin-top: 8px; gap: 5px; }
+.rows .xp-course { margin-top: 6px; font-size: .78rem; color: var(--muted); }
 .rows .xp-stack span { font-size: .7rem; padding: 3px 7px; }
 .badge { font-size: .68rem; border: 1px solid var(--ok); color: var(--ok); padding: 1px 6px; margin-left: 8px; vertical-align: 2px; }
 .two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; }
