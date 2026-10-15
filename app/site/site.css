@@ -11,18 +11,23 @@
 	--ok: #15803D;
 	--link: #2F55C9;
 	--chip: #EEF0EC;
+	--stp: #B42318;      /* Staples section accent: brick red pulled from the HQ photo */
+	--stp-ink: #FFF7F5;
+	--stp-soft: #FBE9E6;
 	color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
 	:root:not([data-site-theme='light']) {
 		--bg: #0E1113; --panel: #15191C; --line: #263036; --line-strong: #3A474E;
 		--fg: #E6EAE8; --muted: #8C9A97; --faint: #5F6E6B; --ok: #4ADE80; --link: #7AA2F7; --chip: #1A1F22;
+		--stp: #E8665A; --stp-ink: #1A0D0B; --stp-soft: #2A1714;
 		color-scheme: dark;
 	}
 }
 :root[data-site-theme='dark'] {
 	--bg: #0E1113; --panel: #15191C; --line: #263036; --line-strong: #3A474E;
 	--fg: #E6EAE8; --muted: #8C9A97; --faint: #5F6E6B; --ok: #4ADE80; --link: #7AA2F7; --chip: #1A1F22;
+	--stp: #E8665A; --stp-ink: #1A0D0B; --stp-soft: #2A1714;
 	color-scheme: dark;
 }
 
@@ -89,6 +94,41 @@ body.site {
 .tree .o { color: var(--ok); }
 .tree .m { color: var(--link); }
 .tree .c { color: var(--faint); }
+/* Staples system blocks */
+.blk-wrap { border: 1px solid var(--line-strong); background: var(--panel); padding: 18px 18px 14px; }
+.blk-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px; margin-bottom: 14px; font-size: .74rem; color: var(--muted); }
+.blk-title { text-transform: uppercase; letter-spacing: .1em; }
+.blk-key { display: flex; flex-wrap: wrap; gap: 14px; }
+.blk-key span { display: inline-flex; align-items: center; gap: 6px; }
+.blk-key i { width: 11px; height: 11px; display: inline-block; }
+.k-own { background: var(--stp); }
+.k-kept { border: 1.5px dashed var(--fg); }
+.k-team { background: var(--line-strong); }
+.blks { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; }
+.blk { position: relative; padding: 14px 12px 12px; display: flex; flex-direction: column; gap: 4px; min-height: 118px; min-width: 0; }
+.blk svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; margin-bottom: auto; }
+.blk b { font-family: var(--serif); font-size: .95rem; font-weight: 600; margin-top: 12px; }
+.blk span { font-size: .74rem; font-variant-numeric: tabular-nums; }
+.blk.own { background: var(--stp); color: var(--stp-ink); }
+.blk-wrap { border-top: 3px solid var(--stp); }
+.blk-wrap .blk-cap a { color: var(--stp); }
+.stp-photo img { transition: filter .2s; }
+@media (prefers-color-scheme: dark) { :root:not([data-site-theme='light']) .stp-photo img { filter: brightness(.82) saturate(.85); } }
+:root[data-site-theme='dark'] .stp-photo img { filter: brightness(.82) saturate(.85); }
+.blk.kept { border: 1.5px dashed var(--fg); color: var(--fg); }
+.blk.src { border: 1px solid var(--line); background: var(--chip); color: var(--muted); }
+.blk.team { border: 1px solid var(--line); color: var(--faint); background: repeating-linear-gradient(135deg, var(--chip), var(--chip) 7px, var(--panel) 7px, var(--panel) 14px); }
+.blk + .blk::before { content: ""; position: absolute; left: -10px; top: 50%; width: 8px; height: 1.5px; background: var(--line-strong); }
+.blk-cap { margin: 14px 0 0; color: var(--muted); font-size: .8rem; }
+.stp-grid { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 16px; align-items: stretch; }
+.stp-grid .blks { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.stp-grid .blk + .blk::before { display: none; }
+.stp-photo { margin: 0; border: 1px solid var(--line); background: var(--chip); display: flex; flex-direction: column; min-width: 0; }
+.stp-photo img { display: block; width: 100%; height: 100%; max-width: 100%; object-fit: cover; object-position: 20% 60%; flex: 1; min-height: 0; }
+.stp-photo figcaption { font-size: .7rem; color: var(--faint); padding: 5px 8px; border-top: 1px solid var(--line); }
+@media (max-width: 860px) { .stp-grid { grid-template-columns: minmax(0, 1fr); } .stp-photo img { aspect-ratio: 16 / 9; height: auto; } }
+@media (max-width: 860px) { .blks { grid-template-columns: repeat(3, minmax(0, 1fr)); } .blk + .blk::before { display: none; } }
+@media (max-width: 480px) { .blks { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: .74rem; color: var(--muted); margin: 8px 0 0; }
 .legend i { display: inline-block; width: 10px; height: 10px; margin-right: 6px; vertical-align: 0; }
 

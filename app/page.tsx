@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import Shot from './site/Shot';
 import Footer from './site/Footer';
 import Photo from './site/Photo';
@@ -57,20 +58,49 @@ export default function Home() {
 			</section>
 
 			<h2 className="sect">staples/ · the system I worked on</h2>
-			<pre className="tree" aria-label="Staples agentic commerce system">
-				{'staples-agentic-commerce/\n'}
-				{'├── '}<span className="o">snowflake_to_delta.sql</span>{'   15+ tables → 1 flattened Delta table, daily, changed rows only\n'}
-				{'├── '}<span className="o">enrichment/</span>{'              multi-label DeBERTa · LLM fallback · ~0.8 accuracy\n'}
-				{'│   └── '}<span className="o">batch_on_ray.py</span>{'      ~4 h → 90 min on one GPU node\n'}
-				{'├── '}<span className="m">retrieval/</span>{'               3 Databricks Vector Search indexes + Neo4j product graph\n'}
-				{'│   └── '}<span className="o">relationships</span>{'        bought-together, compatibility edges in Neo4j\n'}
-				<span className="c">{'└── router.py                agent'}</span>
-			</pre>
-			<p className="legend">
-				<span><i style={{ background: 'var(--link)' }} />maintained and extended: most of my time</span>
-				<span><i style={{ background: 'var(--ok)' }} />built and owned</span>
-				<Link href="/case-studies/staples">read the case study →</Link>
-			</p>
+			<div className="blk-wrap" aria-label="Staples agentic commerce system">
+				<div className="blk-top">
+					<span className="blk-title">Jan to Jul 2026</span>
+					<span className="blk-key">
+						<span><i className="k-own" />I owned</span>
+						<span><i className="k-kept" />I maintained</span>
+						<span><i className="k-team" />team</span>
+					</span>
+				</div>
+				<div className="stp-grid">
+				<figure className="stp-photo">
+					<Image src="/staples.jpg" alt="Venkat at the Staples headquarters sign" width={1400} height={782} sizes="(min-width: 860px) 40vw, 100vw" />
+					<figcaption>Framingham HQ · 2026</figcaption>
+				</figure>
+				<ol className="blks">
+					<li className="blk src">
+						<svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5" rx="7" ry="2.6" /><path d="M5 5v14c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V5M5 12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6" /></svg>
+						<b>Snowflake</b><span>15+ tables</span>
+					</li>
+					<li className="blk own">
+						<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M3 9h18M9 9v11M15 9v11" /></svg>
+						<b>Delta table</b><span>daily, changed rows</span>
+					</li>
+					<li className="blk own">
+						<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12V4h8l10 10-8 8z" /><circle cx="7.5" cy="8" r="1.5" /></svg>
+						<b>Product tags</b><span>~0.8 accuracy</span>
+					</li>
+					<li className="blk own">
+						<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z" /></svg>
+						<b>GPU batch inference</b><span>4 h → 90 min</span>
+					</li>
+					<li className="blk kept">
+						<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6" /><path d="m20 20-5.5-5.5" /><circle cx="10" cy="10" r="1.6" /></svg>
+						<b>Retrieval</b><span>3 indexes + graph</span>
+					</li>
+					<li className="blk team">
+						<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z" /></svg>
+						<b>Shopping agent</b><span>routing, UI</span>
+					</li>
+				</ol>
+				</div>
+				<p className="blk-cap">~300K products, tagged and searchable, every day. <Link href="/case-studies/staples">read the case study →</Link></p>
+			</div>
 
 			<h2 className="sect">projects</h2>
 			<div className="cards">
