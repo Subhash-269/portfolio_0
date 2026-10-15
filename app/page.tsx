@@ -114,6 +114,9 @@ export default function Home() {
 							</div>
 							<p className="prose-sm">{p.summary}</p>
 							{p.metric && <span className="m">{p.metric}</span>}
+							<div className="chips xp-stack">
+								{p.stack.map((s) => <SkillChip key={s} name={s} />)}
+							</div>
 							<div className="links">
 								{p.links.map((l) => (
 									<a key={l.href} href={l.href}>
@@ -141,6 +144,11 @@ export default function Home() {
 							<b>{e.role}</b>
 							{e.current && <span className="badge">current</span>}
 							<div className="org"><OrgLogo org={e.logo} />{e.org}</div>
+							{'stack' in e && e.stack && (
+								<div className="chips xp-stack" aria-label={`Stack at ${e.org}`}>
+									{e.stack.map((s: string) => <SkillChip key={s} name={s} />)}
+								</div>
+							)}
 						</div>
 					</div>
 				))}

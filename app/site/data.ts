@@ -37,6 +37,8 @@ export const DOMAINS = {
 	productivity: 'Productivity',
 	optimization: 'Optimization',
 	pharma: 'Healthcare / Pharma',
+	'ai-eval': 'AI Evaluation',
+	privacy: 'Privacy / Security',
 } as const;
 export type Domain = keyof typeof DOMAINS;
 
@@ -66,14 +68,15 @@ export const projects: Project[] = [
 		dir: 'agentic-binders/',
 		when: '2026',
 		status: 'in progress',
-		summary: "Designing and building an agentic AI system that generates document binders for a global pharmaceutical company.",
+		summary: "Agentic AI that generates document binders for a global pharmaceutical company, with traceability, evaluation and guardrails.",
 		detail: [
 			'Designing and building the agentic AI that generates the binders.',
 			'Designing the traceability framework for what the agents produce.',
 			'Designing the evaluation framework for generated binders.',
+			'Added guardrails to an agent that runs jobs on HPC GPU clusters: command allow-lists, input and prompt-injection checks, output checks, and GPU and job limits.',
 		],
 		stack: ['LLMs', 'Agentic AI'],
-		focus: ['Agentic generation', 'Traceability', 'Evaluation framework'],
+		focus: ['Agentic generation', 'Traceability', 'Evaluation framework', 'Guardrails'],
 		links: [],
 	},
 	{
@@ -81,15 +84,16 @@ export const projects: Project[] = [
 		domain: 'insurance',
 		name: 'InsurAsst',
 		dir: 'insurasst/',
-		when: 'Oct 2025',
-		summary: 'Local-first RAG over insurance policy documents plus YOLOv11 vehicle-damage segmentation, served from Django.',
+		when: 'Oct 2025 – Oct 2026',
+		summary: 'Claims assistant that answers from policy PDFs with citations, routes each loss to the right coverage, and is graded by its own evaluation harness.',
 		detail: [
-			'LangChain loaders for six file formats, recursive chunking, all-MiniLM-L6-v2 embeddings and a FAISS store with per-document filtering.',
-			'YOLOv11 segmentation fine-tuned on the CarDD dataset for six damage classes; detection counts ground the LLM damage summary.',
-			'Pluggable local LLM (Ollama or a 4-bit quantized Hugging Face model) with a token-streaming endpoint.',
+			'RAG over policy PDFs: section-aware chunks across page breaks, all-MiniLM-L6-v2 embeddings in FAISS, and cited answers with file, page range and policy section.',
+			"LLM coverage routing picks the policy sections that fit the loss before retrieval, and pulls in that part's exclusions.",
+			'Evaluation harness of 12 claim scenarios logged as MLflow runs (pass rate, retrieval hit rate, citation accuracy, latency), with every chat turn traced as route, retrieve and LLM spans.',
+			'YOLOv11 segmentation for six vehicle-damage classes; packaged with Gunicorn, a non-root Docker image and Kubernetes manifests (Kustomize) with health probes.',
 		],
-		stack: ['Python', 'Django', 'LangChain', 'FAISS', 'YOLOv11', 'Ollama'],
-		metric: '6 damage classes · token streaming',
+		stack: ['Python', 'Django', 'LangChain', 'FAISS', 'YOLOv11', 'Ollama', 'Gemini API', 'MLflow', 'Docker', 'Kubernetes'],
+		metric: '12-scenario eval harness · cited answers',
 		links: [{ label: 'github', href: 'https://github.com/Subhash-269/InsurAsst' }],
 		shots: [
 			{ src: '/projects/insurasst-workspace.png', light: '/projects/insurasst-workspace-light.png', alt: 'InsurAsst workspace: chat over policy documents' },
@@ -141,6 +145,37 @@ export const projects: Project[] = [
 			{ src: '/projects/qtrack-study.png', alt: 'QTrack PDF study reader' },
 			{ src: '/projects/qtrack-focus.png', alt: 'QTrack focus timer' },
 		],
+	},
+	{
+		slug: 'rl-code-sandbox',
+		domain: 'ai-eval',
+		name: 'rl-code-sandbox',
+		dir: 'rl-code-sandbox/',
+		when: 'Oct 2026',
+		summary: 'A verifiable coding environment of the kind used to reward RL on code, with checks that catch reward hacking.',
+		detail: [
+			'5 handwritten Python tasks plus a seeded task generator, each with a reference solution, hidden tests and an input generator for fresh tests.',
+			'Solutions graded in a locked-down Docker sandbox (no network, read-only root, CPU, memory and PID limits), with reward from per-test JUnit results.',
+			'Integrity checks zero the reward for cheating: leak, static and AST checks, a hardcode check and a hidden-vs-fresh differential check. Validated with 5 cheating agents; all scored 0 with checks on.',
+		],
+		stack: ['Python', 'Docker', 'pytest'],
+		metric: '5 cheating agents · all caught',
+		links: [{ label: 'github', href: 'https://github.com/Subhash-269/rl-code-sandbox' }],
+	},
+	{
+		slug: 'privacy-facial-id',
+		domain: 'privacy',
+		name: 'Privacy-Enhanced Facial ID',
+		dir: 'privacy-facial-id/',
+		when: 'Mar 2025',
+		summary: 'Face images encrypted with Paillier homomorphic encryption before storage, beside a ResNet-18 face classifier. Data Governance course, Northeastern.',
+		detail: [
+			'Images Base64-encoded, chunked and encrypted in parallel across processes, with a matching decryptor and timing for each stage.',
+			'ResNet-18 fine-tuned in PyTorch on 28 identities, evaluated with precision, F1, a confusion matrix and ROC.',
+			'A CKKS (TenSEAL) prototype encrypting image tensors, as a step toward computing on encrypted inputs.',
+		],
+		stack: ['Python', 'PyTorch', 'scikit-learn'],
+		links: [{ label: 'github', href: 'https://github.com/Subhash-269/privacy-enhanced-facial-id' }],
 	},
 	{
 		slug: 'chore-scheduler',
@@ -209,6 +244,7 @@ export const experience = [
 		org: 'Staples · Framingham, MA',
 		text: 'Maintained and extended the retrieval layer (3 Databricks Vector Search indexes and a Neo4j product graph), owned the Snowflake-to-Delta data path, and built the SKU enrichment classifier.',
 		link: { label: 'case study', href: '/case-studies/staples' },
+		stack: ['Python', 'SQL', 'PyTorch', 'Databricks', 'Delta Lake', 'Databricks Vector Search', 'Snowflake', 'Ray', 'MLflow', 'Neo4j', 'LangGraph', 'Azure', 'Azure DevOps', 'Git'],
 	},
 	{
 		when: 'Jul 2022 – Aug 2024',
@@ -217,6 +253,7 @@ export const experience = [
 		org: 'Cognida.ai · Hyderabad, India',
 		text: 'Unsupervised claims anomaly detection, retrieval for financial document search, OCR and computer-vision models, LLM fine-tuning and quantization, and an AWS vs Azure serving comparison.',
 		link: { label: 'case study', href: '/case-studies/cognida' },
+		stack: ['Python', 'TypeScript', 'SQL', 'PySpark', 'Snowflake', 'Ray', 'PostgreSQL', 'Kubernetes', 'AWS', 'Azure', 'CI/CD', 'Git'],
 	},
 ];
 

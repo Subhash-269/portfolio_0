@@ -2,11 +2,11 @@ import type { IconType } from 'react-icons';
 import {
 	SiPython, SiPytorch, SiLanggraph, SiLangchain, SiDatabricks, SiRay, SiNeo4J, SiFastapi, SiDjango,
 	SiDocker, SiLinux, SiScikitlearn, SiTensorflow, SiHuggingface, SiSnowflake, SiApachespark,
-	SiOpenjdk, SiReact, SiVite, SiSupabase, SiPostgresql, SiOllama, SiYolo, SiDvc, SiScipy, SiNumpy, SiGithubactions, SiKubernetes,
+	SiOpenjdk, SiReact, SiVite, SiSupabase, SiPostgresql, SiOllama, SiYolo, SiDvc, SiScipy, SiNumpy, SiGithubactions, SiKubernetes, SiGit, SiTypescript, SiMlflow, SiGooglegemini,
 } from 'react-icons/si';
 import { FaAws } from 'react-icons/fa';
-import { VscAzure } from 'react-icons/vsc';
-import { TbSql, TbVector } from 'react-icons/tb';
+import { VscAzure, VscAzureDevops } from 'react-icons/vsc';
+import { TbSql, TbVector, TbDelta } from 'react-icons/tb';
 
 // Brand colors where they read on both themes; null = follow the text color
 // (brands whose mark is black or near-black would vanish on the dark theme).
@@ -41,6 +41,12 @@ const ICONS: Record<string, [IconType, string | null]> = {
 	NumPy: [SiNumpy, '#4D77CF'],
 	'CI/CD': [SiGithubactions, '#2088FF'],
 	Kubernetes: [SiKubernetes, '#326CE5'],
+	Git: [SiGit, '#F05032'],
+	MLflow: [SiMlflow, '#0194E2'],
+	'Delta Lake': [TbDelta, '#00ADD4'],
+	'Azure DevOps': [VscAzureDevops, '#0078D7'],
+	'Gemini API': [SiGooglegemini, '#8E75B2'],
+	TypeScript: [SiTypescript, '#3178C6'],
 	'Kubernetes (learning)': [SiKubernetes, '#326CE5'],
 	AWS: [FaAws, '#FF9900'],
 	Azure: [VscAzure, '#0089D6'],
